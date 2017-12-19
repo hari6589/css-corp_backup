@@ -1,0 +1,251 @@
+### Jazz Patch 1.0
+#date: "2017-01-16 16:34:55.000000796 +0530"
+#itemid: "BSROBuild/buildAntSite.xml" "_ogIAYIxiEeKt5pucQJv2qw" "_odimcYxiEeK0VuM30uDdvA"
+#item_type: "_ogIAYIxiEeKt5pucQJv2qw" "file"
+#itemid: "BSROBuild/build.properties" "_ogHZUIxiEeKt5pucQJv2qw" "_odimcYxiEeK0VuM30uDdvA"
+#item_type: "_ogHZUIxiEeKt5pucQJv2qw" "file"
+#itemid: "BSROBuild/workstation.properties" "_ogP8MIxiEeKt5pucQJv2qw" "_odimcYxiEeK0VuM30uDdvA"
+#item_type: "_ogP8MIxiEeKt5pucQJv2qw" "file"
+#itemid: "BSROBuild/buildDependencies.xml" "_ogIncIxiEeKt5pucQJv2qw" "_odimcYxiEeK0VuM30uDdvA"
+#item_type: "_ogIncIxiEeKt5pucQJv2qw" "file"
+#itemid: "BSROBuild" "_oeg20IxiEeKt5pucQJv2qw" "_odimcYxiEeK0VuM30uDdvA"
+#item_type: "_oeg20IxiEeKt5pucQJv2qw" "folder"
+#before_state: "BSROBuild/buildAntSite.xml" "_ogIAYIxiEeKt5pucQJv2qw" "_ocIyssKSEeS2ErK80-NUbA"
+#before_state: "BSROBuild/build.properties" "_ogHZUIxiEeKt5pucQJv2qw" "_ocJZwcKSEeS2ErK80-NUbA"
+#before_state: "BSROBuild/workstation.properties" "_ogP8MIxiEeKt5pucQJv2qw" "_vHZL9McqEeOdcuKdYoZk3g"
+#before_state: "BSROBuild/buildDependencies.xml" "_ogIncIxiEeKt5pucQJv2qw" "_vHYk5McqEeOdcuKdYoZk3g"
+#
+diff -u -N BSROBuild/workstation.properties BSROBuild/workstation.properties
+--- BSROBuild/workstation.properties	2014-04-18 22:57:04.000000497 +0530
++++ BSROBuild/workstation.properties	1970-01-01 05:30:04.000000645 +0530
+@@ -1,13 +1,38 @@
+ # Common properties
+ 
+ # This is where the projects we're working on live
+-root.root.working.dir=C:\\workspace\\bsro\\localdev
++root.root.working.dir=D:\\BSRO_WS3
+ # This is where the main build and library projects live 
+-root.master.working.dir=C:\\workspace\\bsro\\localdev
++root.master.working.dir=D:\\BSRO_WS3
+ 
+ maven.executable=mvn.bat
+ 
+-use.branch.specific.working.dir=false
++buildDependencies=true
++use.branch.specific.working.dir=true
++
++branch=BSRO
++comp=BSROAdmin
++
++#FCAC
++#TiresPlus
++#FCACMobile
++#HibdonTire
++#PrimeWell
++#WheelWorks
++#BSROCom
++
++#BSROAdmin
++#BSROStoreData
++#BSROStoreHours	
++
++#TiresPlusMobile
++#FleetCare
++#HibdonTireMobile
++#WheelWorksMobile
++#FleetCare
++#PartnersPlus
++#FCACCareers
+ 
+ # websphere won't allow us to clean it while it's running...this is not a problem on the build server, of course
+-clean.maven.webapp.target.dir=false
+\ No newline at end of file
++clean.maven.webapp.target.dir=false
++
+diff -u -N BSROBuild/build.properties BSROBuild/build.properties
+--- BSROBuild/build.properties	2015-03-04 21:55:28.000000510 +0530
++++ BSROBuild/build.properties	1970-01-01 05:30:04.000000630 +0530
+@@ -7,10 +7,8 @@
+ 
+ # For building sites
+ site.webinf.lib=src/main/webapp/WEB-INF/lib
+-site.lib.dir=lib
+ site.src.dir=src/main/java
+ site.test.dir=src/main/test
+ site.resources.dir=src/main/resources
+ site.webapp.dir=src/main/webapp
+-site.webinfclasses.dir=src/main/webapp/WEB-INF/classes
+-site.build.dir=_build
+\ No newline at end of file
++site.webinfclasses.dir=src/main/webapp/WEB-INF/classes
+\ No newline at end of file
+diff -u -N BSROBuild/buildDependencies.xml BSROBuild/buildDependencies.xml
+--- BSROBuild/buildDependencies.xml	2014-04-18 22:50:59.000000813 +0530
++++ BSROBuild/buildDependencies.xml	1970-01-01 05:30:04.000000632 +0530
+@@ -304,7 +304,7 @@
+ 		
+ 		<path id="master-classpath">
+ 			<fileset dir="${working.dir}/.." includes="${project.dependencies.path}" />
+-			<fileset dir="${root.master.working.dir}/${bsro.libraries.jars.dir}" includes="${jar.dependencies.path}" />
++			<fileset dir="${root.master.working.dir}/BSRO/${bsro.libraries.jars.dir}" includes="${jar.dependencies.path}" />
+ 			<!--currently accessing all the jars from library(TODO: change this) -->
+ 			<!--<fileset dir="${root.working.dir}/${bsro.libraries.jars.dir}" includes="**/*.jar" />-->
+ 		</path>
+diff -u -N BSROBuild/buildAntSite.xml BSROBuild/buildAntSite.xml
+--- BSROBuild/buildAntSite.xml	2015-03-04 22:20:02.000000866 +0530
++++ BSROBuild/buildAntSite.xml	1970-01-01 05:30:04.000000631 +0530
+@@ -180,28 +180,16 @@
+ 			</else>
+ 		</if>
+ 		
+-		<if>
+-			<available file="${working.dir}/${site.webinf.lib}" type="dir" />
+-			<then>
+-				<path id="master-classpath">
+-					<!--  basic dependencies all of the sites need -->
+-					<fileset dir="${root.working.dir}/${bsro.libraries.jars.dir}/websphere-7" includes="*.jar" />
+-					<!--  site-specific dependencies -->
+-					<fileset dir="${working.dir}/${site.webinf.lib}">
+-						<include name="*.jar" />
+-					</fileset>
+-				</path>
+-			</then>
+-			<else>
+-				<!-- this is not a site but a java application -->
+-				<path id="master-classpath">
+-					<fileset dir="${working.dir}/${site.lib.dir}">
+-						<include name="*.jar" />
+-					</fileset>
+-				</path>
+-			</else>
+-		</if>
+ 		
++		<path id="master-classpath">
++			<!--  basic dependencies all of the sites need -->
++			<fileset dir="${root.working.dir}/${bsro.libraries.jars.dir}/websphere-7" includes="*.jar" />
++			<!--  site-specific dependencies -->
++			<fileset dir="${working.dir}/${site.webinf.lib}">
++				<include name="*.jar" />
++			</fileset>
++		</path>
++		
+ 		<!--  we can't afford to clean until we're sure our historical class files are actually in sync with source... -->
+ 	    <!--	
+ 	    <delete> 
+@@ -214,38 +202,18 @@
+ 		<pathconvert pathsep="${line.separator}|   |-- " property="echo.path.compile" refid="master-classpath">
+ 		</pathconvert>
+ 		<echo message="${echo.path.compile}" />
+-		
+-		<if>
+-			<!-- for regular sites -->
+-			<available file="${working.dir}/${site.webinf.lib}" type="dir" />
+-			<then>
+-				<mkdir dir="${working.dir}/${site.webinfclasses.dir}" />
+-				<javac destdir="${working.dir}/${site.webinfclasses.dir}" source="1.6" target="1.6" debug="true" deprecation="false" 
+-					optimize="false" failonerror="true" includeantruntime="false">
+-					<src path="${working.dir}/${site.src.dir}" />
+-					<classpath refid="master-classpath" />
+-					<compilerarg value="-nowarn" />
+-				</javac>
+-				<copy todir="${working.dir}/${site.webinfclasses.dir}">
+-					<fileset dir="${working.dir}/${site.resources.dir}" >
+-					</fileset>
+-				</copy>
+-			</then>
+-			<else>
+-				<!-- this is a java application -->
+-				<mkdir dir="${working.dir}/${site.build.dir}" />
+-				<javac destdir="${working.dir}/${site.build.dir}" source="1.6" target="1.6" debug="true" deprecation="false" 
+-						optimize="false" failonerror="true" includeantruntime="false">
+-						<src path="${working.dir}/${site.src.dir}" />
+-						<classpath refid="master-classpath" />
+-						<compilerarg value="-nowarn" />
+-				</javac>
+-				<copy todir="${working.dir}/${site.build.dir}">
+-					<fileset dir="${working.dir}/${site.resources.dir}" >
+-					</fileset>
+-				</copy>
+-			</else>
+-		</if>
++
++		<mkdir dir="${working.dir}/${site.webinfclasses.dir}" />
++		<javac destdir="${working.dir}/${site.webinfclasses.dir}" source="1.6" target="1.6" debug="true" deprecation="false" 
++			optimize="false" failonerror="true" includeantruntime="false">
++			<src path="${working.dir}/${site.src.dir}" />
++			<classpath refid="master-classpath" />
++			<compilerarg value="-nowarn" />
++		</javac>
++		<copy todir="${working.dir}/${site.webinfclasses.dir}">
++			<fileset dir="${working.dir}/${site.resources.dir}" >
++			</fileset>
++		</copy>
+ 	</target>
+ 	
+ 	<target name="minify-javascripts">
+@@ -372,65 +340,6 @@
+ 		</java>
+ 	</target>
+ 	
+-	<target name="build.jar">
+-		<property file="build.properties" />
+-		<property file="workstation.properties" />
+-		<if>
+-			<not><isset property="comp" /></not>
+-			<then>
+-				<fail message="Please include a parameter called 'comp' with the name of the project you are trying to build. (e.g., fcac)"/>
+-			</then>
+-		</if>
+-		<if>
+-			<equals arg1="${use.branch.specific.working.dir}" arg2="true"/>	
+-			<then>
+-				<if>
+-					<not><isset property="branch" /></not>
+-					<then>
+-						<fail message="If use.branch.specific.working.dir=true, then you must include a parameter called 'branch' with the name of the branch you are building for your project. bsro_framework and the version2 framework have different branching schemes, but these will be handled appropriately."/>
+-					</then>
+-					<else>
+-						<var name="root.working.dir" value="${root.root.working.dir}/${branch}" />
+-					</else>
+-				</if>
+-			</then>
+-			<else>
+-				<var name="root.working.dir" value="${root.root.working.dir}" />
+-			</else>
+-		</if>
+-		
+-		<var name="working.dir" value="${root.working.dir}/${comp}" />
+-		<var file="${working.dir}/build.properties" />
+-		<if>
+-			<not><available file="${working.dir}/${dist.dir}" type="dir" /></not>
+-			<then>
+-			    <mkdir dir="${working.dir}/${dist.dir}"/>
+-			</then>
+-		</if>
+-		
+-		<if>
+-			<available file="${working.dir}/${dist.dir}/${jar.name}" />
+-			<then>
+-				<delete file="${working.dir}/${dist.dir}/${jar.name}"/>
+-			</then>
+-		</if>	
+-		
+-		<jar destfile="${working.dir}/${dist.dir}/${jar.name}">
+-			<fileset dir="${working.dir}/${site.build.dir}">
+-			</fileset>
+-			<manifest>
+-		        <attribute name="Built-By" value="${user.name}"/>
+-		        <attribute name="Built-Date" value="${today}"/>
+-		        <attribute name="Specification-Title" value="${comp}"/>
+-		        <attribute name="Specification-Version" value="1.0.0"/>
+-		        <attribute name="Specification-Vendor" value="${organisation}"/>
+-		        <attribute name="Java-Version" value="${java.runtime.version}"/>
+-			</manifest> 
+-			              
+-		</jar>
+-
+-	</target>
+-	
+ 	<target name="build.war">
+ 		<property file="build.properties" />
+ 		<property file="workstation.properties" />

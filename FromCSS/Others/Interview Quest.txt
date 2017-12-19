@@ -1,0 +1,63 @@
+Code #296896
+
+Tell about yourself
+Whats your current project and your role?
+------------------------------------------------------------------
+HTML
+	New markup elements in HTML5
+------------------------------------------------------------------
+Javascript
+	What is DOM
+	What is CDN
+	When the onload function will be triggered?
+	Types of Popup boxes
+		Alert, Prompt, and Confirm
+	Expression: 
+		"1"+2+3=?
+		1+2+"3"=?
+		typeof null?
+		typeof undefined?
+	What is 'this' keyword
+	Write a Try-Catch block
+	Write a sample foreach loop
+	Difference between
+		== and ===
+			null == undefined
+			null === undefined
+		keypress and keydown
+		Break and Continue
+	Use of AJAX
+	Difference between Synchronous and Asynchronous AJAX call?
+	What are the Status of AJAX call: UNSENT, OPENED, HEADERS_RECEIVED, LOADING, and DONE
+------------------------------------------------------------------
+CSS
+	How many different ways we can include stylesheet to a page
+		Inline, Embedded, Linked, and Imported
+	is CSS is case sensitive?
+	Possible position values: Statis, Relative, Absolute, Fixed and Inherit
+	Z Index
+	Difference 
+		Div and Span
+		visible:hidden and display:none
+------------------------------------------------------------------
+Java
+	Whether JVM is platform dependent or independent?
+	Collection
+		Difference between Hashmap and Treemap
+	Can we override Static / Private method?
+	Difference:
+		Parameter and Argument
+		Abstract Class and Interface Class
+		== and .equals()
+	Serialization - Serialization means transferable
+		Transient
+	What is Garbage Collection?
+		1. System.gc();
+		2. Runtime.gc();
+	Difference between Error and Exception
+		Error - Generally we can not handle in code (RunningOutOfMemoryError, NoClassDefFoundError, UnSupportedClassVersionError..)
+		Exception - Which could be handled (IOException)
+	Difference Checked and Unchecked Exception
+		Checked - IOException, SQLException, ClassNotFoundException..
+		UnChecked - NullPointerException, ArrayIndexNotFoundException, ArithmaticExpression..
+------------------------------------------------------------------

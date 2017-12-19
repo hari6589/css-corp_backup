@@ -1,0 +1,19 @@
+Inversion Control:
+1.Inversion of control is a design paradigm with the goal of giving more control to the targeted components of your application.
+DependencyInjection:
+Dependency injection is a pattern used to create instances of objects that other objects rely on without knowing at compile time which class will be used to provide that functionality. Inversion of control relies on dependency injection because a mechanism is needed in order to activate the components providing the specific functionality
+The two concepts work together in this way to allow for much more flexible, reusable, and encapsulated code to be written. As such, they are important concepts in designing object-oriented solutions.
+In object-oriented programming, there are several basic techniques to implement inversion of control. These are:
+using a factory pattern
+using a service locator pattern
+using a dependency injection of any given below type:
+	a constructor injection
+	a setter injection
+	an interface injection
+	
+1.The org.springframework.beans and org.springframework.context packages provide the basis for the Spring Framework’s IoC container.
+2.The BeanFactory interface provides an advanced configuration mechanism capable of managing objects of any nature
+
+The org.springframework.beans.factory.BeanFactory is the actual representation of the Spring IoC container that is responsible for containing and otherwise managing the aforementioned beans. The BeanFactory interface is the central IoC container interface in Spring.
+
+Spring 

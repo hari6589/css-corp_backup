@@ -1,0 +1,40 @@
+package com.store;
+
+import java.util.List;
+
+import com.store.model.Store;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+public class LambdaFunctionHandler implements RequestHandler<String, String> {
+
+    @Override
+    public String handleRequest(String input, Context context) {
+    	
+    	AWSCredentials credential = new BasicAWSCredentials("AKIAJN6CNV7NFM3MJM3Q", "cTls28RIJdrw3gBAsm8u/FUR9Jo6VA7iFcH+u1ck");
+    	AmazonDynamoDBClient amazonDynamoDBClient = new AmazonDynamoDBClient(credential);
+    	amazonDynamoDBClient.configureRegion(Regions.US_WEST_2);
+    	DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(amazonDynamoDBClient);
+    	
+    	DynamoDBScanExpression dynamoDBScanExpression = new DynamoDBScanExpression();
+    	List<Store> scanResult = dynamoDBMapper.scan(Store.class, dynamoDBScanExpression);
+    	
+    	String storesStr = "";
+    	
+    	for (Store s : scanResult)
+    	{
+    		storesStr += s.toString() + "\t";
+    	}
+    	
+        return storesStr;
+    }
+
+}

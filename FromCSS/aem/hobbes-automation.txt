@@ -1,0 +1,50 @@
+new hobs.TestSuite("Home Page Test Suite", {path:"/etc/clientlibs/bsro/fcac/test.js"})
+.addTestCase(new hobs.TestCase("Tire Funnel")
+
+	.navigateTo("/content/bsro/fcac/en.html")
+    .execSyncFct(function() { hobs.find('[class="custom-select"]').addClass("enable"); })
+    .execSyncFct(function() { hobs.find('.custom-select select').removeAttr("disabled"); })
+    .execSyncFct(function() { hobs.find('[name="year"]').append('<option val="2010" selected="selected">2013</option>'); })
+    .execSyncFct(function() { hobs.find('[name="make"]').append('<option val="Honda" selected="selected">Honda</option>'); })
+    .execSyncFct(function() { hobs.find('[name="model"]').append('<option val="Civic" selected="selected">Civic</option>'); })
+    .execSyncFct(function() { hobs.find('[name="submodel"]').append('<option val="LX" selected="selected">LX</option>'); })
+	.execSyncFct(function() { hobs.find('[name="zip"]').addClass("enable"); })
+    .execSyncFct(function() { hobs.find('.last .blue').removeAttr("disabled"); })
+	.fillInput('[name="zip"]', "10101")
+	.click('button.blue', {expectNav: true})
+	.click(".product:nth-child(1) .tire-quote-btn",{expectNav: true})
+	.click(".reserve", {expectNav: true})
+
+	/* Schedule Appointment - Step 1 */
+	.fillInput('[name="zip"]', "10101")
+    .execSyncFct(function() { hobs.find('.search-block .btn').removeAttr("disabled"); })
+	.click('.search-block button.btn')
+	.asserts.exists('.info .cta .btn', true, {timeout: 10000})
+	.click('.info .cta .btn')
+
+	/* Schedule Appointment - Step 2 */
+	.asserts.exists('#2746,#2747', true, {timeout: 10000})
+	.click('#2746,#2747')
+	.asserts.exists('.ui-datepicker-calendar tr:nth-child(5) td:nth-child(4) a.ui-state-default', true, {timeout: 10000})
+	.click('.ui-datepicker-calendar tr:nth-child(5) td:nth-child(4) a.ui-state-default')
+
+	.fillInput('[name="zip"]', hobs.find('.time-select select > option').length)
+	.asserts.isTrue(function(){ return hobs.find('.time-select select[name="timeSelect"] > option').length > 1;}, true, {timeout: 10000})
+    .execSyncFct(function() { hobs.find('.time-select select option[value="9:00am"]').attr("selected", "selected"); })
+
+    .execSyncFct(function() { hobs.find('.date-col .cta .btn').removeAttr("disabled"); })
+    .click('.date-col .cta .btn')
+
+	/* Schedule Appointment - Step 3 */
+    .execSyncFct(function() { hobs.find('[name="year"]').append('<option val="2010" selected="selected">2013</option>'); })
+    .execSyncFct(function() { hobs.find('[name="make"]').append('<option val="Honda" selected="selected">Honda</option>'); })
+    .execSyncFct(function() { hobs.find('[name="model"]').append('<option val="Civic" selected="selected">Civic</option>'); })
+    .execSyncFct(function() { hobs.find('[name="submodel"]').append('<option val="LX" selected="selected">LX</option>'); })
+    .fillInput('[name="firstName"]', "Aravindhan")
+    .fillInput('[name="lastName"]', "Jayakumar")
+    .fillInput('[name="email"]', "hari6589@gmail.com")
+    .fillInput('[name="phoneNumber"]', "9876543210")
+	.execSyncFct(function() { hobs.find('.bottom-ctas .btn').removeAttr("disabled"); })
+   	.click('.bottom-ctas .btn')
+)
+

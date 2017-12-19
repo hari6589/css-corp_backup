@@ -1,0 +1,1 @@
+xcopy /Y "D:\Ari\Workout\Java\WebService\messenger\target\messenger.war" "D:\apache-tomcat-8.0.27-windows-x86\apache-tomcat-8.0.27\webapps\messenger.war"

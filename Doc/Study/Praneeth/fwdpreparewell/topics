@@ -1,0 +1,197 @@
+hibernate:
+lazyloading
+generaterclass in hbrnet
+
+Handle transactions in hbernet
+
+equals method in realtime
+
+List and set diffs
+
+where we use spring
+depenedcy injection
+
+webservices
+Soap and REST
+
+sort certain objectyyyy-mm-dd
+
+use of serilization
+
+jsonlibraries
+
+plsql
+Innerjoin
+connectionpoll
+annotaions use injava
+
+Applicationcontext
+
+String why immutatble?
+1.To reduce the duplicates of objects in String pool.
+2.Using litrals and new String();
+3.using Literals String s="test";
+	it will store in String pool.
+4.If we create String s = new String();
+every time you create String object it will generate an new String in String pool.
+
+5.If Two literals have same string attribute if compare 
+
+
+get and post mehtods
+
+what is idempotenet in http methods
+
+hashmap allow duplicates?
+
+algorithams
+(=1
+)=1
+()=1
+
+())))(())))))(((((())))))
+
+0?
+Spring
+scopes 
+why do we go for dependency injection?
+factroydesing pattern
+polymarphism
+relate runtimepolymorphism and dependencyinjection
+
+
+how readonly list with out adding any elements
+
+diff btw restfull and soap
+
+to update will work as post 
+why we use put? then
+
+
+Reverse a string without loop:
+static String reverse(String str) {
+   if(str.length() == 0)
+     return "";
+   return str.charAt(str.length() - 1) +    reverse(str.substring(0,str.length()-1));
+ }
+ 
+ using stringbuilder:
+ static String reverse(String str){
+	if(str.isEmpty() || str == null) return str; 
+	return new StringBuilder(str).reverse().toString(); 
+} 
+
+*GroupBy method in sql
+SampleQuery:
+
+SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;
+
+CustomerID   Country
+2			India
+6   		China
+8			America
+
+orderBy:
+By default it will sort in ascending order.
+SELECT * FROM Customers ORDER BY  Country desc;
+
+To order by query:
+id		Country
+1		Venuzula
+2		vicotria
+
+
+
+
+Hibernate versining Concepet:
+============================
+If an object is save in database,we can modify the object any no of times you want.
+And if we want to check that how many number of times object being modifed.
+We need to apply the Versioning concept.
+http://www.java4s.com/hibernate/hibernate-versioning-example-hibernate-versioning-of-objects/
+
+SingletonDesing Pattern:
+-----------------------
+Singleton pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the java virtual machine.
+The singleton class must provide a global access point to get the instance of the class.
+Singleton pattern is used for logging, drivers objects, caching and thread pool.
+
+Steps to make a class as singleTonDesing pattern:
+=====================================================
+	*Private Counstructor to restrict the instantiation of class from outside the class.
+	*Private static variable that is the only instance of the class.
+	*public static method returns the instatnce of the class and it is the access point for outer world to get the instance of the class.
+
+	Types and approaches of singleton desing patterns:
+	====================================================
+1Eager initialization
+2Static block initialization
+3Lazy Initialization
+4Thread Safe Singleton
+5Bill Pugh Singleton Implementation
+6Using Reflection to destroy Singleton Pattern
+7Enum Singleton
+8Serialization and Singleton
+
+
+Default :
+allow with in same class and also allow with in same package. 
+
+Hibernate:
+session.load()
+session.get()
+LazyinitilizationException()
+
+*ReflectionAPI:
+*ShutdownHook:
+*System.exit(0);
+*LazyInitilizationException
+*HibernateVersioning Concept
+*
+
+
+About BSRO
+Bridgestone Retail Operations (BSRO) is a large network of company-owned automotive service providers in the world, with 2,000 tire and vehicle service centers across the United States. The Bridgestone Group has over 180 manufacturing plants and R&D facilities in 26 countries and sells products in more than 150 countries worldwide. The group's mission is “serving society with superior quality.” It aspires to offer the best for its customers and to society, not only in terms of its products, services and technology, but in all of its corporate activities.
+Challenges
+Seventy percent of BSRO’s web services were based on Read or Search function that used the Entity Relationship (ER) model to fetch data from the database, resulting in significant performance overhead. Also, there was evident latency in connectivity between Adobe Experience Manager (AEM) and web services. The response time was also increased due to web services forming the JSON response after fetching data from the ER model. Besides latency, cost was another deterrent to BSRO. Infrastructure costs were on the rise due to maintenance of data centers and procurement of licenses.
+Why Amazon Web Services?
+To optimize infrastructure costs and eliminate latency in connectivity, BSRO decided to migrate its data center to the cloud. With assistance from CSS Corp, a Premier Consulting Partner with Amazon Web Services’ (AWS), BSRO chose AWS for being a world leader in cloud products and services with unparalleled expertise. 
+CSS Corp deployed AWS Lambda, a serverless compute service that provided Bridgestone the benefit of executing code without the need of provisioning or managing servers. The zero-administration compute platform runs back-end code on its own AWS compute fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances across the Availability Zones in each geography. This ensured high performance, availability, and scalability of the AWS cloud.  
+CSS Corp shifted from the ER model to the Document Object Model (DOM) that is structured on the basis of business entities and end responses.  This resulted in remarkable improvement in performance of web services. 
+CSS Corp also ensured fast and predictable performance using Amazon DynamoDB, a fully managed NoSQL database service that is highly scalable. Introducing DynamoDB saved the hassle of hardware provisioning, setup and configuration, replication, software patching, and cluster scaling.
+To make web-scale computing easy for developers, CSS Corp deployed Amazon Simple Storage Service (S3) that gives developers access to Amazon’s inexpensive data storage infrastructure. Amazon Simple Email Service (SES) was used for its cost efficiency and reliability of email services.
+CSS Corp set up the Amazon Virtual Private Cloud (Amazon VPC) for Bridgestone to enable transfer of data from Bridgestone’s environment to external environments in a safe and secure manner.
+Benefits
+CSS Corp’s deployment of AWS services provided the following benefits:
+•	CSS Corp-AWS solution resulted in significant cost reduction due to its pay-as-you-go pricing model. BSRO had to only pay for the amount of computation, storage and other IT resources that were consumed. This eliminated the need of CapEX heavy investments in infrastructure and nullified license costs.
+•	AWS Lambda enabled BSRO to focus on its core functions by taking charge of infrastructure management, eliminating the need to establish and maintain traditional infrastructure. CSS Corp using Lambda, handled BSRO’s operational and administrative tasks including resource provisioning and scaling, monitoring health of the applications, and so on. The serverless architecture significantly reduced operational cost, complexity and time to market.
+•	Amazon DynamoDB enabled fast and predictable performance and also removed the administrative burden of operating and scaling a distributed database. The NoSQL database service took care of hardware provisioning and software patch updates.
+•	AWS removed the latency between AEM and web services as both are served in the cloud.
+•	The elastic infrastructure of AWS ensured high scalability, that enabled quick increase or decrease in resources to meet customers’ demands and manage costs effectively.
+•	Improved performance of web services using DOM, instead of merging results from various database tables using ER model.
+•	Enhanced customer experience due to scalability, flexibility, security, faster migration and reliability of AWS. 
+About the Partner
+CSS Corp, a premier Amazon Partner Network’s (APN) consulting partner, is a leading global IT services and technology support company. The company manages end-to-end cloud infrastructure to help businesses in realizing the full potential of AWS, to succeed in their customer engagements.
+CSS Corp’s Cloud Transformation services enable enterprises to simplify migration planning, weed out complexities to improve productivity, and move beyond Infrastructure as a Service (IaaS) to Platform as a Service (PaaS), to optimize cost and boost operational efficiency. 
+For more information about how CSS Corp can help your company build and manage AWS infrastructure, see CSS Corp’s listing in the AWS Partner Directory.
+Next Steps
+To learn more about how AWS can help your websites and website hosting, visit our Websites & Website Hosting details page. 
+
+
+REST methods 
+POST and put
+
+to update data using post ?
+
+
+
+
+	
+
+
+
+
+
+
+
+

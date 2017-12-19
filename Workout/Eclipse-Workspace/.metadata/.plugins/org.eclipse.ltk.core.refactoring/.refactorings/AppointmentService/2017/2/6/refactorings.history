@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;AppointmentService.java&apos; to &apos;Services/src/main/java/com.appointmentplus&apos;&#x0D;&#x0A;- Original project: &apos;AppointmentService&apos;&#x0D;&#x0A;- Destination element: &apos;Services/src/main/java/com.appointmentplus&apos;&#x0D;&#x0A;- Original element: &apos;com.appointment.model.AppointmentService.java&apos;" description="Copy compilation unit" destination="=Services/src\/main\/java&lt;com.appointmentplus" element1="/src&lt;com.appointment.model{AppointmentService.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1486364679673" units="1" version="1.0"/>
+</session>

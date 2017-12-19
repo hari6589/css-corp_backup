@@ -1,0 +1,16 @@
+ GRANT ALL ON s4.* TO 'pftest'@'%' IDENTIFIED BY 'pftest';
+
+SHOW GRANTS FOR 'pftest'@'%';
+
+
+
+
+CREATE USER 'check@'%' IDENTIFIED BY 'check';
+
+
+GRANT ALL ON s4.* TO 'pftest'@'%' IDENTIFIED BY 'pftest' WITH GRANT OPTION
+
+
+CREATE USER 'check@'%' IDENTIFIED BY 'check';
+GRANT ALL PRIVILEGES ON *.* TO 'check'@'%'
+     WITH GRANT OPTION;

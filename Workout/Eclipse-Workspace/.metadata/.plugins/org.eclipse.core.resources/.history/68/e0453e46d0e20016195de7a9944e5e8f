@@ -1,0 +1,31 @@
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.regions.Region;
+import com.amazonaws.services.lambda.AWSLambdaClient;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.test.Invoke;
+
+public class LambdaFunctionHandler implements RequestHandler<String, String> {
+
+	private static final Log logger = LogFactory.getLog(Invoke.class);
+    private static final String awsAccessKeyId = "AKIAJN6CNV7NFM3MJM3Q";
+    private static final String awsSecretAccessKey = "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";
+    private static final String regionName = "us-west-2";
+    private static final String functionName = "HelloLambda";
+    private static Region region;
+    private static AWSCredentials credentials;
+    private static AWSLambdaClient lambdaClient;
+    
+    @Override
+    public String handleRequest(String input, Context context) {
+        context.getLogger().log("Input: " + input);
+
+        // TODO: implement your handler
+        return null;
+    }
+
+}

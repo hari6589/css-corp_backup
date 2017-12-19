@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Object Initialization</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="" ng-init="person={firstname:'John', lastname:'Cena'}">
+			<p>Name is {{person.firstname + " " + person.lastname}}</p>
+			<p><span ng-bind="person.firstname + ' ' + person.lastname"></p>
+		</div>
+	</body>
+</html>

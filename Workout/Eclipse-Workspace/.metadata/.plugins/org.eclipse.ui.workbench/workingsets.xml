@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1504240070056_1" label="MyFirstOSGIBundle" name="MyFirstOSGIBundle">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/MyFirstOSGIBundle" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/MyFirstOSGIBundle-bundle" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/MyFirstOSGIBundle-content" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1481176229905_0" label="Window Working Set" name="Aggregate for window 1481176229905"/>
+</workingSetManager>

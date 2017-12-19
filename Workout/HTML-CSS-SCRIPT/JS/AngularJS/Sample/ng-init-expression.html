@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Init int | Expression | Two way binding</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="" ng-init="quantity=5;price=5">
+			Quantity : <input type="number" ng-model="quantity" /><br/>
+			Price : <input type="number" ng-model="price" /><br/>
+			<p>Amount : {{ quantity * price }}</p>
+		</div>
+	</body>
+</html>

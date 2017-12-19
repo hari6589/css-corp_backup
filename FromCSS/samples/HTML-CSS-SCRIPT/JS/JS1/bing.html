@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Bing Map Test</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+		
+		<script>
+			$(document).ready(function   () {
+			      if (!Modernizr.geolocation) {
+			          alert("This browser doesn't support the Geolocation API.");
+			          return;
+			      }
+			      navigator.geolocation.getCurrentPosition(OnSuccess, OnError);
+			});
+
+			function   OnSuccess(position) {
+			      var curPos = new Microsoft.Maps.Location(position.coords.latitude,   position.coords.longitude);
+			      var calloutOptions = { title: "Location Information", description:   "This is your current location." };
+			      var callout = new Microsoft.Maps.Infobox(curPos, calloutOptions);
+			      var mapOptions = {
+			          credentials: 'tO2zjvmTV3JUqOkLOO1X~2ZPPvyy5OEjMGOxCHN1z_A~AjZxE_FFv21Tng1tOVPhkzDpD1Q1dXX_9q14UT3UKMmAgeFLW-7kdUyJd6II3p_T',
+			          center: curPos,
+			          mapTypeId: Microsoft.Maps.MapTypeId.road,
+			          zoom: 8
+			      };
+			      var map = new Microsoft.Maps.Map($("#divMap").get(0), mapOptions);
+			      map.entities.push(callout);
+			}
+
+			function   OnError(err) {
+			      alert(err.message);
+			      var calloutOptions = { title: "Location Information", description:   "This is the default location." };
+			      var defaultPos = new Microsoft.Maps.Location(18.916667, 72.9);
+			      var callout = new Microsoft.Maps.Infobox(defaultPos, calloutOptions);
+			      map.entities.push(callout);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="divMap" style="position:relative;width:1300px; height:500px;border:1px solid blue;"></div>
+	</body>
+</html>

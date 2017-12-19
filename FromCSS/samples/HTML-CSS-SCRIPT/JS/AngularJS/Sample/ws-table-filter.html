@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>WS | AJAX Call | Loop Object</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="controller/wsTableFilterController.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			Filter:
+				<input type="text" ng-model="filterTxt"/> 
+			Sort by:
+				<select name="orderBy" ng-model="sortTxt"><br/>
+					<option val="">None</option>
+					<option val="Country">Name</option>
+					<option val="Country">Country</option>
+				</select>
+				
+			<table>
+				<tr ng-repeat="x in names | filter:filterTxt | orderBy : sortTxt">
+					<td>{{$index+1}}</td>
+					<td>{{x.Name}}</td>
+					<td>{{x.Country | uppercase}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<style>
+		table, th , td {
+			border: 1px solid grey;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+		table tr:nth-child(odd) {
+			background-color: #f1f1f1;
+		}
+		table tr:nth-child(even) {
+			background-color: #ffffff;
+		}
+	</style> 
+</html>

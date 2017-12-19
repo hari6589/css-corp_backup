@@ -1,0 +1,1327 @@
+
+
+SELECT * FROM chapter WHERE proj_id = 7709 AND stage = 'RP' AND chapter_no = 'Chapter 7'
+
+SELECT * FROM activity WHERE chapter_id = 443721
+
+SELECT Customer,SUM(OrderPrice) FROM Orders
+GROUP BY Customer
+
+SELECT  b.proj_name, DATE_FORMAT(a.due_date,'%d-%b-%Y'), c.stage,b.proj_id,a.stage,DATE(a.due_date) 
+FROM chapter a, projects b, project_stage c,CLIENT g WHERE (a.ship_date IS NULL AND 
+c.stage_code=a.stage AND a.proj_id=b.proj_id AND b.client_name=g.client_code )
+OR(a.ship_date = '0000-00-00 00:00:00' AND c.stage_code=a.stage AND a.proj_id=b.proj_id AND 
+b.client_name=g.client_code ) GROUP BY a.stage,a.proj_id,a.due_date ORDER BY a.due_date
+
+SELECT * FROM projects WHERE proj_name LIKE '%Viotti_108167%'
+
+SELECT * FROM chapter WHERE proj_id = 8062 AND stage = 'FP' AND chapter_no = 'Front Matter'
+
+SELECT ieb.errortype_id,ieb.chapter_errorid FROM issueerror_body ieb WHERE ieb.chapter_id = 440122 
+AND (ieb.errortype_id = 2 OR ieb.errortype_id = 1) 
+
+SELECT emp_id,chapter_errorid FROM issueerror_empmap WHERE chapter_errorid = 8430 OR 
+chapter_errorid = 8431 OR chapter_errorid = 8432 OR chapter_errorid = 8433
+
+SELECT emp_id,COUNT(chapter_errorid) FROM issueerror_empmap WHERE chapter_errorid = 8430 OR 
+chapter_errorid = 8431 OR chapter_errorid = 8432 OR chapter_errorid = 8433 GROUP BY emp_id
+
+
+
+SELECT a.emp_name,g.client_name,b.proj_name,c.chapter_no,d.activity,SUM(e.proof_pages),
+SUM(TIME_TO_SEC(TIMEDIFF(e.end_time,e.begin_time))),a.emp_id,psg.stage,c.mss_count,c.chapter_id,
+b.proj_level FROM USER a,projects b,chapter c,activity_type d,activity e,department f,CLIENT g,
+project_stage psg WHERE a.emp_id=e.emp_id AND e.chapter_id=c.chapter_id AND c.proj_id=b.proj_id 
+AND e.activity_code=d.activity_code AND a.dept_code=f.dept_code AND g.client_code=b.client_name 
+AND e.end_time IS NOT NULL AND c.stage=psg.stage_code AND e.approval_status IS NOT NULL
+AND c.proj_id='8330' AND c.stage='FP' AND e.activity_code=16
+
+SELECT * FROM projects WHERE proj_name LIKE '%108188%'
+
+SELECT * FROM chapter WHERE proj_id = 8209 AND stage = 'FP' AND chapter_no = 'Chapter 7'
+
+SELECT ieb.errortype_id,ieb.chapter_errorid FROM issueerror_body ieb WHERE ieb.chapter_id = 437044 
+AND (ieb.errortype_id = 2 OR ieb.errortype_id = 1) 
+
+SELECT ieb.errortype_id,iem.emp_id,u.emp_name,iem.chapter_errorid FROM issueerror_empmap iem,
+issueerror_body ieb, USER u WHERE ieb.chapter_id = 437044 AND iem.chapter_errorid=ieb.chapter_errorid 
+AND (ieb.errortype_id = 2 OR ieb.errortype_id = 1) AND iem.emp_id = u.emp_id
+
+
+SELECT emp_id,COUNT(chapter_errorid) FROM issueerror_empmap WHERE chapter_errorid = 8140 OR 
+chapter_errorid = 8290 OR chapter_errorid = 8291 OR chapter_errorid = 8292
+OR chapter_errorid = 8295 GROUP BY emp_id
+
+
+
+
+
+
+SELECT ieb.errortype_id,COUNT(ieb.errortype_id),iet.error_type,iem.emp_id,u.emp_name FROM 
+issueerror_empmap iem,issueerror_body ieb, USER u, issueerror_type iet WHERE ieb.chapter_id = 437044 
+AND iem.chapter_errorid=ieb.chapter_errorid AND (ieb.errortype_id = 2 OR ieb.errortype_id = 1) 
+AND iem.emp_id = u.emp_id AND ieb.errortype_id=iet.errortype_id 
+GROUP BY iem.emp_id,u.emp_name,iet.error_type ORDER BY iet.error_type
+
+
+SELECT a.emp_name,g.client_name,b.proj_name,c.chapter_no,d.activity,SUM(e.proof_pages),
+SUM(TIME_TO_SEC(TIMEDIFF(e.end_time,e.begin_time))),a.emp_id,psg.stage,c.mss_count,c.chapter_id,
+b.proj_level FROM USER a,projects b,chapter c,activity_type d,activity e,department f,CLIENT g,
+project_stage psg
+
+AND iem.chapter_errorid=ieb.chapter_errorid AND (ieb.errortype_id = 2 OR ieb.errortype_id = 1) AND iem.emp_id = u.emp_id AND ieb.errortype_id=iet.errortype_id 
+ 
+
+
+
+SELECT ieb.errortype_id,iet.error_type,SUM(IF(ieb.errortype_id='1',1,0)) AS Total_Critical,
+SUM(IF(ieb.errortype_id='2',1,0)) AS Total_Non_critical,iem.emp_id,u.emp_name FROM 
+issueerror_empmap iem,issueerror_body ieb, USER u, issueerror_type iet WHERE ieb.chapter_id = 439759 
+AND iem.chapter_errorid=ieb.chapter_errorid AND iem.emp_id = u.emp_id AND 
+ieb.errortype_id=iet.errortype_id GROUP BY iem.emp_id,u.emp_name,iet.error_type 
+ORDER BY iet.error_type
+
+SELECT SUM(IF(ieb.errortype_id='1',1,0)) AS "Total_Critical",
+SUM(IF(ieb.errortype_id='2',1,0)) AS "Total_Non_critical",iem.emp_id,u.emp_name FROM 
+issueerror_empmap iem,issueerror_body ieb, USER u, issueerror_type iet WHERE ieb.chapter_id = 424262 
+AND iem.chapter_errorid=ieb.chapter_errorid AND iem.emp_id = u.emp_id AND 
+ieb.errortype_id=iet.errortype_id GROUP BY iem.emp_id,u.emp_name
+ORDER BY iem.emp_id
+
+SELECT ieb.errortype_id,COUNT(ieb.errortype_id),iet.error_type,iem.emp_id,u.emp_name FROM 
+issueerror_empmap iem,issueerror_body ieb, USER u, issueerror_type iet WHERE ieb.chapter_id = 437044 
+AND iem.chapter_errorid=ieb.chapter_errorid AND (ieb.errortype_id = 2 OR ieb.errortype_id = 1) 
+AND iem.emp_id = u.emp_id AND ieb.errortype_id=iet.errortype_id 
+GROUP BY iem.emp_id,u.emp_name,iet.error_type ORDER BY iet.error_type
+
+
+
+
+
+
+
+
+
+
+SELECT * FROM activity 
+
+SELECT * FROM chapter 
+
+SELECT * FROM CLIENT 
+
+SELECT * FROM department 
+
+SELECT * FROM designation 
+
+SELECT * FROM projects 
+
+SELECT * FROM USER
+
+
+
+
+SELECT department,dept_code FROM department WHERE (department='Chennai - Wolters Kluwer' OR 
+department='Wolters Kluwer Health' OR department='Chennai - Pearson Team' 
+OR department='Chennai -  Pearson Learning Solutions' OR department='Chennai - Cengage Team' 
+OR department='Chennai - McGraw Hill Team' OR department='Chennai - Data Team') 
+
+
+
+SELECT COUNT(activity_code) AS number_of_passes FROM activity WHERE 
+emp_id=ANY(SELECT emp_id FROM USER WHERE dept_code='CHN-MGH' AND STATUS=1 AND desig_code='CMP') AND 
+activity_code='9' AND begin_time BETWEEN '2012-01-09 06:00:00' AND '2012-01-10 06:00:00' AND 
+approval_status IS NOT NULL
+
+
+SELECT d.department,c1.client_name,ps.stage,c.chapter_id,c.chapter_no FROM chapter c,CLIENT c1,
+projects p,project_stage ps,department d,activity a WHERE c.proj_id=p.proj_id AND p.proj_name 
+LIKE '%Weber_EDT_2E%' AND ps.stage_code=c.stage AND p.dept_code=d.dept_code AND 
+c1.client_code=p.client_name ORDER BY ps.stage_code,c.chapter_no 
+
+SELECT COUNT(activity_code) AS total FROM activity WHERE chapter_id=419210 AND activity_code=9
+AND approval_status IS NOT NULL
+
+SELECT * FROM activity WHERE chapter_id=419210 AND activity_code=9 AND approval_status IS NOT NULL
+
+SELECT * FROM chapter
+SELECT * FROM projects
+SELECT * FROM project_stage
+SELECT * FROM activity_type
+SELECT * FROM activity
+SELECT * FROM department 
+
+
+SELECT c.chapter_id,c.chapter_no,ps.stage FROM chapter c,projects p,project_stage ps
+WHERE c.proj_id=p.proj_id AND p.proj_name LIKE '%Bledsoe_108211%' AND ps.stage_code=c.stage
+
+SELECT COUNT(*) FROM activity WHERE chapter_id=419210 AND activity_code=9
+
+
+
+
+
+
+SELECT d.department,c1.client_name,ps.stage,c.chapter_no,c.chapter_id,
+SUM(IF(a.activity_code='9',1,0)) AS Total_Correction_Round
+FROM chapter c,CLIENT c1,
+projects p,project_stage ps,department d,activity a WHERE c.proj_id=p.proj_id AND p.proj_name 
+LIKE '%Bledsoe_108211%' AND ps.stage_code=c.stage AND p.dept_code=d.dept_code AND 
+c1.client_code=p.client_name AND c.chapter_id=a.chapter_id AND 
+a.approval_status IS NOT NULL GROUP BY d.department,c1.client_name,ps.stage,c.chapter_id,c.chapter_no 
+ORDER BY ps.stage_code,c.chapter_id 
+
+
+SET autocommit=0
+
+SELECT  * FROM filename WHERE proj_id=9047
+
+SELECT * FROM fileupload_info WHERE file_id = 1051270 
+
+SELECT * FROM fileupload_info WHERE fileversion_name LIKE '%M02_BADE1000_06_SE_C02_PCL%' 
+
+SELECT * FROM filename WHERE file_id = 1051270   
+
+COMMIT 
+
+
+
+
+
+SELECT * FROM backup_drive WHERE drive_active=1
+
+SELECT * FROM fm_drive WHERE drive_status=1
+
+UPDATE fm_drive SET drive_value='//D://TEST//Projects//Back_Up' WHERE drive_value = 'H:'
+
+
+SELECT * FROM fmproj_drive WHERE proj_id=1748
+
+SELECT * FROM fm_property
+
+UPDATE fm_property SET VALUE='//D://TEST//Projects//Back_Up' WHERE VALUE = 'H:/'
+
+
+SELECT * FROM backup_drive WHERE drive_active=1
+
+UPDATE backup_drive SET backup_foldername='//D://TEST//Projects//Secondary_Back_Up' WHERE backup_foldername='I://'
+
+
+
+
+Messages Queries:
+
+SELECT m.msg_id FROM messages m WHERE m.parent_id='0' AND m.client='ln'
+
+SELECT m.msg_id FROM messages m,projects p WHERE m.parent_id='0' AND p.client_name='ln' 
+AND m.prj_id=p.proj_id ORDER BY m.msg_id
+
+SELECT c.client_name,p.proj_name,DATE_FORMAT(m.msg_postdate,'%d-%b-%Y %r'),m.msg_title,
+m.msg_body FROM messages m,projects p,CLIENT c WHERE m.prj_id=p.proj_id AND 
+m.msg_id='76271' AND c.client_code=m.client
+
+SELECT c.client_name,p.proj_name,DATE_FORMAT(m.msg_postdate,'%d-%b-%Y %r'),m.msg_title,
+m.msg_body FROM messages m,projects p,CLIENT c WHERE m.prj_id=p.proj_id AND 
+m.msg_id='76271' AND c.client_code=p.client_name
+
+SELECT m.msg_id,m.msg_title,m.msg_body,d.department,i.preventive_action,DATE_FORMAT
+(i.prevent_action_date, '%d-%b-%y %h:%i:%s %p'),i.corrective_action,DATE_FORMAT
+(i.corr_action_date,'%d-%b-%y %h:%i:%s %p'),DATE_FORMAT(i.feedback_date,'%d-%b-%y %h:%i:%s %p'),
+DATE_FORMAT(m.msg_postdate,'%d-%b-%y %h:%i:%s %p'),it.issue,p.proj_name FROM messages m, 
+issue i,department d,projects p,USER u, designation de, issue_type it WHERE i.msg_id=m.msg_id 
+AND u.dept_code=d.dept_code AND u.emp_id=i.emp_id AND p.proj_id=m.prj_id AND 
+it.issue_type=i.issue_type AND u.desig_code=de.desig_code AND p.client_name='CEN_UK'
+GROUP BY i.msg_id ORDER BY m.msg_postdate DESC 
+
+SELECT DISTINCT(a.emp_id),b.emp_name,e.designation,f.department FROM issue a,USER b,
+designation e,department f,projects c,messages d WHERE DATE(a.feedback_date) BETWEEN '2010-03-01' 
+AND '2012-03-23' AND a.emp_id=b.emp_id AND b.desig_code=e.desig_code AND b.dept_code=f.dept_code
+AND a.msg_id=d.msg_id AND d.prj_id=c.proj_id AND c.client_name='CEN_AUS'
+
+
+SELECT COUNT(a.parent_id) FROM messages a,msgforward b WHERE b.emp_id='csr' AND 
+a.msg_id=b.msg_id AND a.client='CEN_UK' AND a.msg_closed IS NULL ORDER BY a.msg_id
+
+SELECT COUNT(a.parent_id) FROM messages a,msgforward b,projects p WHERE b.emp_id='csr' AND 
+a.msg_id=b.msg_id AND p.client_name='CEN_UK' AND a.prj_id=p.proj_id AND 
+a.msg_closed IS NULL ORDER BY a.msg_id
+
+SELECT DISTINCT(a.prj_id) FROM messages a,msgforward b WHERE b.emp_id='csr' AND 
+a.msg_id=b.msg_id AND a.client='CEN_UK' AND a.msg_closed IS NULL ORDER BY a.msg_id
+
+SELECT DISTINCT(a.prj_id) FROM messages a,msgforward b,projects p WHERE b.emp_id='csr' AND 
+a.msg_id=b.msg_id AND p.client_name='CEN_UK' AND a.prj_id=p.proj_id AND 
+a.msg_closed IS NULL ORDER BY a.msg_id
+
+SELECT a.parent_id,a.msg_id FROM messages a,msgforward b WHERE b.emp_id='csr' 
+AND a.msg_id=b.msg_id AND a.client='CEN_UK' AND a.msg_closed IS NULL ORDER BY a.msg_id
+
+SELECT a.parent_id,a.msg_id FROM messages a,msgforward b,projects p WHERE b.emp_id='csr' 
+AND a.msg_id=b.msg_id AND p.client_name='CEN_UK' AND a.prj_id=p.proj_id
+AND a.msg_closed IS NULL ORDER BY a.msg_id
+
+
+SELECT parent_id,msg_id,CLIENT,prj_id,msg_title,msg_body,DATE_FORMAT(msg_postdate,'%d-%b-%y'),
+msg_typecode,msg_flagcode,msg_empID,g.client_name FROM messages,CLIENT g WHERE 
+g.client_code=CLIENT AND (msg_id='227877' AND parent_id=0 OR msg_id='227877')
+
+SELECT parent_id,msg_id,CLIENT,prj_id,msg_title,msg_body,DATE_FORMAT(msg_postdate,'%d-%b-%y'),
+msg_typecode,msg_flagcode,msg_empID,g.client_name FROM messages,CLIENT g,projects p WHERE 
+g.client_code=p.client_name AND prj_id=p.proj_id AND (msg_id='227877' AND parent_id=0 OR 
+msg_id='227877')
+
+SELECT msg_id FROM messages,projects WHERE messages.prj_id=projects.proj_id AND parent_id='0' 
+AND projects.client_name='as' AND msg_empID IS NULL AND messages.prj_id IN ('as116')
+
+SELECT msg_id FROM messages,projects WHERE messages.prj_id=projects.proj_id AND parent_id='0' 
+AND msg_empID IS NULL AND messages.client='as' AND messages.prj_id IN ('as116') 
+
+SELECT g.client_name,projects.proj_name,DATE_FORMAT(msg_postdate,'%d-%b-%Y %r'),msg_title,
+msg_body FROM messages,projects,CLIENT g WHERE messages.prj_id=projects.proj_id AND parent_id='0' 
+AND msg_empID IS NULL AND g.client_code=CLIENT AND messages.prj_id IN ('as163') 
+
+SELECT g.client_name,projects.proj_name,DATE_FORMAT(msg_postdate,'%d-%b-%Y %r'),msg_title,
+msg_body FROM messages,projects,CLIENT g WHERE messages.prj_id=projects.proj_id AND parent_id='0' 
+AND msg_empID IS NULL AND g.client_code=CLIENT AND messages.prj_id IN ('as163') 
+
+
+SELECT g.client_name,projects.proj_name,DATE_FORMAT(msg_postdate,'%d-%b-%Y %r'),msg_title,
+msg_body FROM messages,projects,CLIENT g WHERE messages.prj_id=projects.proj_id AND parent_id='0' 
+AND msg_empID IS NULL AND g.client_code=projects.client_name AND messages.prj_id IN ('em6') 
+AND projects.client_name='em' ORDER BY msg_postdate DESC
+
+SELECT g.client_name,projects.proj_name,DATE_FORMAT(msg_postdate,'%d-%b-%Y %r'),msg_title,
+msg_body FROM messages,projects,CLIENT g WHERE messages.prj_id=projects.proj_id AND 
+parent_id='0' AND msg_empID IS NULL AND msg_postdate BETWEEN '2007-01-20' AND '2007-07-17' 
+AND g.client_code=CLIENT AND messages.prj_id IN ('em6')  ORDER BY msg_postdate DESC  
+
+SELECT g.client_name,projects.proj_name,DATE_FORMAT(msg_postdate,'%d-%b-%Y %r'),msg_title,
+msg_body FROM messages,projects,CLIENT g WHERE messages.prj_id=projects.proj_id AND 
+parent_id='0' AND msg_empID IS NULL AND msg_postdate BETWEEN '2007-01-20' AND '2007-07-17' 
+AND g.client_code=projects.client_name AND messages.prj_id IN ('em6')  ORDER BY msg_postdate DESC        
+
+
+SELECT parent_id,msg_id,g.client_name,prj_id,msg_title,msg_body,DATE_FORMAT(msg_postdate,'%d-%b-%y'),
+msg_typecode,msg_flagcode,msg_empID,projects.proj_name,threaded_flag FROM messages,projects,
+CLIENT g WHERE messages.prj_id=projects.proj_id AND parent_id=0 AND 
+messages.prj_id IN ('cm72') AND g.client_code=messages.client ORDER BY messages.prj_id,
+messages.msg_postdate DESC
+
+SELECT parent_id,msg_id,g.client_name,prj_id,msg_title,msg_body,DATE_FORMAT(msg_postdate,'%d-%b-%y'),
+msg_typecode,msg_flagcode,msg_empID,projects.proj_name,threaded_flag FROM messages,projects,
+CLIENT g WHERE messages.prj_id=projects.proj_id AND parent_id=0 AND 
+messages.prj_id IN ('cm72') AND g.client_code=projects.client_name ORDER BY messages.prj_id,
+messages.msg_postdate DESC
+
+SELECT a.parent_id,a.msg_id FROM messages a,projects p WHERE p.client_name='em' 
+AND a.prj_id=p.proj_id ORDER BY a.msg_id
+
+SELECT parent_id,msg_id,CLIENT,prj_id,msg_title,msg_body,DATE_FORMAT(msg_postdate,'%d-%b-%y'),
+msg_typecode,msg_flagcode,msg_empID,projects.proj_name,g.client_name FROM messages,
+projects,CLIENT g WHERE messages.prj_id=projects.proj_id AND msg_id='25' AND 
+parent_id='0' AND g.client_code=CLIENT
+
+SELECT parent_id,msg_id,CLIENT,prj_id,msg_title,msg_body,DATE_FORMAT(msg_postdate,'%d-%b-%y'),
+msg_typecode,msg_flagcode,msg_empID,projects.proj_name,g.client_name FROM messages,
+projects,CLIENT g WHERE messages.prj_id=projects.proj_id AND msg_id='25' AND 
+parent_id='0' AND g.client_code=projects.client_name
+
+SELECT c.client_name,p.proj_name,DATE_FORMAT(m.msg_postdate,'%d-%b-%Y %r'),m.msg_title,
+m.msg_body,p.proj_id FROM messages m,projects p,CLIENT c WHERE m.prj_id=p.proj_id AND 
+m.msg_id='25' AND c.client_code=m.client
+
+SELECT c.client_name,p.proj_name,DATE_FORMAT(m.msg_postdate,'%d-%b-%Y %r'),m.msg_title,
+m.msg_body,p.proj_id FROM messages m,projects p,CLIENT c WHERE m.prj_id=p.proj_id AND 
+m.msg_id='25' AND c.client_code=p.client_name
+
+SELECT msg_title,DATE_FORMAT(msg_postdate,'%d-%b-%Y %r'),msg_body,parent_id,msg_id,
+msg_empID,msg_approve,client.client_name,prj_id FROM messages,CLIENT WHERE 
+client.client_code=CLIENT AND (msg_id='25' AND parent_id='0' OR 
+parent_id='25') ORDER BY msg_id
+
+
+SELECT msg_title,DATE_FORMAT(msg_postdate,'%d-%b-%Y %r'),msg_body,parent_id,msg_id,
+msg_empID,msg_approve,client.client_name,prj_id FROM messages,CLIENT,projects p WHERE 
+client.client_code=p.client_name AND messages.prj_id=p.proj_id AND (msg_id='25' AND parent_id='0' 
+OR parent_id='25') ORDER BY msg_id
+
+SELECT sa.emp_id,u.emp_name,d.department,sa.entry_date FROM 
+self_appraisal sa, USER u,department d WHERE sa.appraisal_year LIKE '%2012%' AND 
+sa.emp_id=u.emp_id AND d.dept_code=u.dept_code ORDER BY sa.entry_date
+
+SELECT * FROM self_appraisal_remark WHERE selfappraisal_id='208'
+
+SELECT * FROM self_appraisal WHERE appraisal_year LIKE '%2012%' ORDER BY entry_date
+
+http://www.youtube.com/watch?v=NGWK47uN3QA
+
+
+FOR DUPLICATE DELETION:
+
+SET autocommit=0
+
+SELECT * FROM fileupload_info WHERE (`file_id` = '1033731' OR `file_id` = '1033732' OR `file_id` = '1033733' OR `file_id` = '1033734' OR 
+`file_id` = '1033735' OR `file_id` = '1033736' OR `file_id` = '1033737' OR `file_id` = '1033738');
+
+SELECT * FROM file_property WHERE (`file_id` = '1033731' OR `file_id` = '1033732' OR `file_id` = '1033733' OR `file_id` = '1033734' OR 
+`file_id` = '1033735' OR `file_id` = '1033736' OR `file_id` = '1033737' OR `file_id` = '1033738');
+
+SELECT * FROM filename WHERE (`file_id` = '1033731' OR `file_id` = '1033732' OR `file_id` = '1033733' OR `file_id` = '1033734' OR 
+`file_id` = '1033735' OR `file_id` = '1033736' OR `file_id` = '1033737' OR `file_id` = '1033738');
+
+DELETE FROM `s4`.`fileupload_info` 
+	WHERE
+	(`file_id` = '1033731' OR `file_id` = '1033732' OR `file_id` = '1033733' OR `file_id` = '1033734' OR 
+`file_id` = '1033735' OR `file_id` = '1033736' OR `file_id` = '1033737' OR `file_id` = '1033738');
+
+DELETE FROM `s4`.`file_property` 
+	WHERE
+	(`file_id` = '1033731' OR `file_id` = '1033732' OR `file_id` = '1033733' OR `file_id` = '1033734' OR 
+`file_id` = '1033735' OR `file_id` = '1033736' OR `file_id` = '1033737' OR `file_id` = '1033738');
+
+DELETE FROM `s4`.`filename` 
+	WHERE
+	(`file_id` = '1033731' OR `file_id` = '1033732' OR `file_id` = '1033733' OR `file_id` = '1033734' OR 
+`file_id` = '1033735' OR `file_id` = '1033736' OR `file_id` = '1033737' OR `file_id` = '1033738');
+
+COMMIT
+
+
+
+APPRAISAL DETAILS:
+
+SELECT u.emp_id,u.emp_name,d.dept_code,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY d.department,d1.designation 
+
+SELECT sa.emp_id,u.emp_name,d.department,d1.designation,sa.entry_date FROM 
+self_appraisal sa, USER u,department d,designation d1 WHERE sa.appraisal_year LIKE '%2012%' AND entry_date BETWEEN '2012-12-14' AND '2012-12-31' and
+sa.emp_id=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT sa.emp_id FROM 
+self_appraisal sa, USER u,department d,designation d1 WHERE sa.appraisal_year LIKE '%2013%' AND entry_date BETWEEN '2013-03-16' AND '2013-04-18' AND
+sa.emp_id=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY department,d1.designation) ORDER BY d.department,d1.designation 
+
+SELECT sa.member_empid,u.emp_name,d.department,d1.designation,sa.supervisor_entry_date,sa.performance_param_id FROM 
+supervisor_appraisal sa, USER u,department d,designation d1 WHERE sa.supervisor_entry_date BETWEEN '2013-01-02' AND '2013-02-08' AND
+sa.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT sa.member_empid FROM supervisor_appraisal sa,USER u,department d,
+designation d1 WHERE sa.supervisor_entry_date BETWEEN '2013-03-16' AND '2013-04-18' AND sa.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY department,d1.designation) ORDER BY d.department,d1.designation 
+
+SELECT * FROM ann_appraisal_review_approve WHERE review_entry_date LIKE '%2012%'
+
+SELECT aara.member_empid,u.emp_name,d.department,d1.designation,aara.review_entry_date FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.review_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT aara.member_empid FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.review_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation ) ORDER BY d.department,d1.designation 
+
+SELECT aara.member_empid,u.emp_name,d.department,d1.designation,aara.approval_entry_date FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.approval_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' 
+AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT aara.member_empid FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.approval_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation) ORDER BY d.department,d1.designation 
+
+
+Add Pagename:
+
+INSERT INTO `pagename` (`page_name`) VALUES ('AddProjWorkFlow.jsp');	
+	
+INSERT INTO `pagefunction` (`page_function`, `page_id`)	VALUES ('Project Time Spent Report(Month-Wise)', '194');
+
+INSERT INTO `pages` (`pages_id`, `group_id`) VALUES ('194', '2');
+
+SELECT * FROM pagename WHERE page_name LIKE '%AddProjWorkFlow%'
+
+SELECT * FROM pagefunction WHERE page_id='169'
+
+SELECT * FROM pages WHERE pages_id='169'
+
+
+
+Message Deletion:
+
+SET autocommit=0
+
+SELECT * FROM messages WHERE prj_id='9145' AND msg_postdate LIKE '%2012-05-10%'
+
+SELECT * FROM msgforward WHERE `msg_id` = '317152'
+
+DELETE FROM `s4`.`messages` 
+	WHERE
+	`msg_id` = '317152' ;
+	
+
+DELETE FROM `s4`.`msgforward` 
+	WHERE
+	`msg_id` = '317152' ;
+
+
+SELECT * FROM projects WHERE proj_name LIKE '%9145%'
+
+COMMIT
+
+
+
+
+How to update project name:
+
+SELECT * FROM projects WHERE proj_name LIKE '%109809%' 9836
+
+SELECT * FROM fmproj_drive WHERE proj_id='9836'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='9836'
+
+SELECT * FROM projects WHERE proj_name LIKE '%109810%' 9837
+
+SELECT * FROM fmproj_drive WHERE proj_id='9837'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='9837'
+
+UPDATE `s4`.`projects` SET `proj_name` = 'LLP_Vol_1_2012-2S' WHERE `proj_id` = '9295'
+
+update `s4`.`proj_filetypepath` set `filetype_path` = '/Morimoto_109809/Text//' where `proj_id` = '9837' and `filetype_id` = '1'
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/App//' WHERE `proj_id` = '9837' AND `filetype_id` = '2' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/PDF//' WHERE `proj_id` = '9837' AND `filetype_id` = '5' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Art//' WHERE `proj_id` = '9837' AND `filetype_id` = '6' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Fonts//' WHERE `proj_id` = '9837' AND `filetype_id` = '7' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Script//' WHERE `proj_id` = '9837' AND `filetype_id` = '8' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Design//' WHERE `proj_id` = '9837' AND `filetype_id` = '9' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Templ//' WHERE `proj_id` = '9837' AND `filetype_id` = '10' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Key1//' WHERE `proj_id` = '9837' AND `filetype_id` = '11' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Key2//' WHERE `proj_id` = '9837' AND `filetype_id` = '12' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Cmp1//' WHERE `proj_id` = '9837' AND `filetype_id` = '13' 
+
+update `s4`.`proj_filetypepath` set `filetype_path` = '/Morimoto_109809/Cmp2//' where `proj_id` = '9837' and `filetype_id` = '14' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Cmp3//' WHERE `proj_id` = '9837' AND `filetype_id` = '15' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Forms//' WHERE `proj_id` = '9837' AND `filetype_id` = '16' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Support//' WHERE `proj_id` = '9837' AND `filetype_id` = '17' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Rpc//' WHERE `proj_id` = '9837' AND `filetype_id` = '21' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Fus//' WHERE `proj_id` = '9837' AND `filetype_id` = '22' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/ArtPf//' WHERE `proj_id` = '9837' AND `filetype_id` = '23' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/ArtSrc//' WHERE `proj_id` = '9837' AND `filetype_id` = '24' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Edtr//' WHERE `proj_id` = '9837' AND `filetype_id` = '25' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Fst//' WHERE `proj_id` = '9837' AND `filetype_id` = '26' 
+
+update `s4`.`proj_filetypepath` set `filetype_path` = '/Morimoto_109809/Links//' where `proj_id` = '9837' and `filetype_id` = '27' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Word//' WHERE `proj_id` = '9837' AND `filetype_id` = '28' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Logs//' WHERE `proj_id` = '9837' AND `filetype_id` = '29' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Uploads//' WHERE `proj_id` = '9837' AND `filetype_id` = '30' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Doc//' WHERE `proj_id` = '9837' AND `filetype_id` = '31' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Misc//' WHERE `proj_id` = '9837' AND `filetype_id` = '32' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Srctxt//' WHERE `proj_id` = '9837' AND `filetype_id` = '33' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Castoff//' WHERE `proj_id` = '9837' AND `filetype_id` = '34' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/RefXML//' WHERE `proj_id` = '9837' AND `filetype_id` = '35' 
+
+UPDATE `s4`.`proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/MFXML//' WHERE `proj_id` = '9837' AND `filetype_id` = '36' 
+ 
+
+
+Duplicate deletion:
+
+SET autocommit=0
+
+SELECT * FROM fileupload_info WHERE (`file_id` = '1101716' OR `file_id` = '1101718' OR `file_id` = '1101720' OR `file_id` = '1101722'
+ OR `file_id` = '1101724' OR `file_id` = '1101726' OR `file_id` = '1101728' OR `file_id` = '1101730' OR `file_id` = '1101732' OR `file_id` = '1101734'
+ OR `file_id` = '1101736' OR `file_id` = '1101738' OR `file_id` = '1101740' OR `file_id` = '1101742' OR `file_id` = '1101744'
+ OR `file_id` = '1101746' OR `file_id` = '1101748' OR `file_id` = '1101750' OR `file_id` = '1101752' OR `file_id` = '1101754' OR `file_id` = '1101756'
+ OR `file_id` = '1101758');
+
+SELECT * FROM filename WHERE proj_id='9955' AND file_name NOT LIKE '%hidden%' AND filetype_id='2' AND (`file_id` = '1101716' OR `file_id` = '1101718' OR `file_id` = '1101720' OR `file_id` = '1101722'
+ OR `file_id` = '1101724' OR `file_id` = '1101726' OR `file_id` = '1101728' OR `file_id` = '1101730' OR `file_id` = '1101732' OR `file_id` = '1101734'
+ OR `file_id` = '1101736' OR `file_id` = '1101738' OR `file_id` = '1101740' OR `file_id` = '1101742' OR `file_id` = '1101744'
+ OR `file_id` = '1101746' OR `file_id` = '1101748' OR `file_id` = '1101750' OR `file_id` = '1101752' OR `file_id` = '1101754' OR `file_id` = '1101756'
+ OR `file_id` = '1101758');
+
+
+DELETE FROM `s4`.`fileupload_info` WHERE (`file_id` = '1101716' OR `file_id` = '1101718' OR `file_id` = '1101720' OR `file_id` = '1101722'
+ OR `file_id` = '1101724' OR `file_id` = '1101726' OR `file_id` = '1101728' OR `file_id` = '1101730' OR `file_id` = '1101732' OR `file_id` = '1101734'
+ OR `file_id` = '1101736' OR `file_id` = '1101738' OR `file_id` = '1101740' OR `file_id` = '1101742' OR `file_id` = '1101744'
+ OR `file_id` = '1101746' OR `file_id` = '1101748' OR `file_id` = '1101750' OR `file_id` = '1101752' OR `file_id` = '1101754' OR `file_id` = '1101756'
+ OR `file_id` = '1101758');
+
+DELETE FROM `s4`.`filename` WHERE (`file_id` = '1101716' OR `file_id` = '1101718' OR `file_id` = '1101720' OR `file_id` = '1101722'
+ OR `file_id` = '1101724' OR `file_id` = '1101726' OR `file_id` = '1101728' OR `file_id` = '1101730' OR `file_id` = '1101732' OR `file_id` = '1101734'
+ OR `file_id` = '1101736' OR `file_id` = '1101738' OR `file_id` = '1101740' OR `file_id` = '1101742' OR `file_id` = '1101744'
+ OR `file_id` = '1101746' OR `file_id` = '1101748' OR `file_id` = '1101750' OR `file_id` = '1101752' OR `file_id` = '1101754' OR `file_id` = '1101756'
+ OR `file_id` = '1101758');
+
+COMMIT
+
+
+Excel Data to MySql Table:
+
+select * from topofficial
+
+LOAD DATA LOCAL INFILE 'D:\\Doucumentations\\Book1.csv' INTO TABLE s4.topofficial FIELDS TERMINATED BY ',' ENCLOSED BY '' 
+LINES TERMINATED BY '\r\n' (emp_id, email_id);
+
+
+
+How to update the project after add the batch/chapter:
+
+SELECT * FROM batch WHERE proj_id='10378'
+
+SELECT * FROM batch WHERE proj_id='10266'
+
+
+SELECT * FROM chapter WHERE proj_id='10378'
+
+SELECT * FROM chapter WHERE proj_id='10266'
+
+
+SELECT * FROM daily_queries WHERE proj_id='10378'
+
+SELECT * FROM daily_queries WHERE proj_id='10266'
+
+
+SELECT * FROM filename WHERE proj_id='10378'
+
+SELECT * FROM filename WHERE proj_id='10266'
+
+
+SELECT * FROM fmproj_drive WHERE proj_id='10378'
+
+SELECT * FROM fmproj_drive WHERE proj_id='10266'
+
+
+SELECT * FROM mergefile_order WHERE proj_id='10378'
+
+SELECT * FROM mergefile_order WHERE proj_id='10266'
+
+
+SELECT * FROM messages WHERE prj_id='10378'
+
+SELECT * FROM messages WHERE prj_id='10266'
+
+
+SELECT * FROM proj_editor WHERE proj_id='10378'
+
+SELECT * FROM proj_editor WHERE proj_id='10266'
+
+
+SELECT * FROM proj_filetypepath WHERE proj_id='10378'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='10266'
+
+
+SELECT * FROM project_action WHERE proj_id='10378'
+
+SELECT * FROM project_action WHERE proj_id='10266'
+
+
+SELECT * FROM project_bookdetail WHERE proj_id='10378'
+
+SELECT * FROM project_bookdetail WHERE proj_id='10266'
+
+
+SELECT * FROM project_database WHERE proj_id='10378'
+
+SELECT * FROM project_database WHERE proj_id='10266'
+
+
+SELECT * FROM project_properties WHERE proj_id='9295'
+
+SELECT * FROM project_properties WHERE proj_id='9930'
+
+
+SELECT * FROM project_team WHERE proj_id='10378'
+
+SELECT * FROM project_team WHERE proj_id='10266'
+
+
+SELECT * FROM projectgroup WHERE proj_id='10378'
+
+SELECT * FROM projectgroup WHERE proj_id='10266'
+
+
+SELECT * FROM projects WHERE proj_id='10378'
+
+SELECT * FROM projects WHERE proj_id='10266'
+
+
+SELECT * FROM query_attachment WHERE proj_id='10378'
+
+SELECT * FROM query_attachment WHERE proj_id='10266'
+
+
+SELECT * FROM schedulegroup_projmap WHERE proj_id='10378'
+
+SELECT * FROM schedulegroup_projmap WHERE proj_id='10266'
+
+
+SELECT * FROM uploadpath WHERE proj_id='10378'
+
+SELECT * FROM uploadpath WHERE proj_id='10266'
+
+
+Update Queries for project name change:
+
+
+SELECT * FROM batch WHERE proj_id='10378'
+
+SELECT * FROM batch WHERE proj_id='10266'
+
+UPDATE `s4`.`batch` SET	`proj_id` = '10378' WHERE `proj_id` = '10266'; 
+
+SELECT * FROM chapter WHERE proj_id='10378'
+
+SELECT * FROM chapter WHERE proj_id='10266'
+
+UPDATE `s4`.`chapter` SET `proj_id` = '10378' WHERE `proj_id` = '10266';
+
+SELECT * FROM filename WHERE proj_id='10378'
+
+SELECT * FROM filename WHERE proj_id='10266'
+
+UPDATE `s4`.`filename` SET `proj_id` = '10378' WHERE `proj_id` = '10266';
+
+SELECT * FROM fmproj_drive WHERE proj_id='10378'
+
+SELECT * FROM fmproj_drive WHERE proj_id='10266'
+
+DELETE FROM `s4`.`fmproj_drive` WHERE `proj_id` = '10266' AND `drive_id` = '3' ;
+
+SELECT * FROM messages WHERE prj_id='10378'
+
+SELECT * FROM messages WHERE prj_id='10266'
+
+UPDATE `s4`.`messages` SET `prj_id` = '10378' WHERE `prj_id` = '10266';
+
+SELECT * FROM proj_filetypepath WHERE proj_id='10378'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='10266'
+
+DELETE FROM `s4`.`proj_filetypepath` WHERE `proj_id` = '10266';
+
+SELECT * FROM projects WHERE proj_id='10378'
+
+SELECT * FROM projects WHERE proj_id='10266'
+
+DELETE FROM `s4`.`projects` WHERE `proj_id` = '10266';
+
+UPDATE `s4`.`projects` SET `proj_date` = '2012-06-06 02:49:02' WHERE `proj_id` = '10378';
+
+
+
+Duplicate Shift delete:
+
+SELECT * FROM shift WHERE emp_id='115' AND shift_start_time LIKE '%2012-10-25%'
+
+DELETE FROM `shift` WHERE `shift_id` = '276307' ;
+
+
+
+New Stage added:
+
+SELECT * FROM stageorder ORDER BY stgordernumber WHERE stgcode='MP'
+
+SELECT * FROM project_stage WHERE stage LIKE '%manuscript%'     MP
+
+UPDATE stageorder SET stgordernumber=stgordernumber+1 WHERE stgordernumber>20;
+
+INSERT INTO `s4`.`stageorder` (`stgcode`, `stgordernumber`) VALUES ('TXEXN', '21');
+
+
+SELECT designation,desig_code FROM designation WHERE (desig_code='CMP' 
+       OR desig_code='CMP3B2' OR desig_code='CMPWD' OR desig_code='CND'  
+       OR desig_code='GRD' OR desig_code='PR' OR desig_code='PRCRD' OR desig_code='QA' 
+       OR desig_code='TEDR' OR desig_code='WDQA')
+       
+ SELECT designation,desig_code FROM designation WHERE (desig_code='AMG' OR desig_code='DSTMGR' OR desig_code='LD-CMP' OR desig_code='LD-KB' OR 
+	desig_code='LD-XML' OR desig_code='MGR' OR desig_code='MGRCYD' OR desig_code='MGREST' OR desig_code='MGRGPCS' OR desig_code='PDNMGR' 
+	OR desig_code='SNMGR' OR desig_code='TL' OR desig_code='LD-GRD')
+
+
+Activity Mapped for New Designation:
+
+INSERT INTO activity_desig_map (activity_code,desig_code) 
+SELECT adm.activity_code,'TED' FROM activity_desig_map adm 
+	WHERE adm.desig_code = 'DCOD'
+	
+SELECT adm.activity_code,'TED' FROM activity_desig_map adm 
+	WHERE adm.desig_code = 'DCOD'	
+
+SELECT adm.activity_code,adm.desig_code FROM activity_desig_map adm 
+	WHERE adm.desig_code = 'TED'	
+
+
+
+
+
+
+
+SELECT * FROM fileupload_info WHERE pfuser_id='935' AND fileupload_time IS NULL
+
+SELECT * FROM fileupload_info WHERE `file_id` = '1206486' ;
+
+UPDATE `s4`.`fileupload_info` 
+	SET  `fileupload_time` = CURRENT_TIMESTAMP() ,  `fileversion_name` = 'kol2854X_ch12_000-000.indd' , 
+	`fileupload_size` = '7086080'  WHERE
+	`fileentry_id` = '5676705' ;
+
+
+select * from activity_desig_map where desig_code='DCOD3B2'
+
+select * from designation where designation like '%Com%'      
+
+INSERT INTO milestone_desig_map (milestone_act_code,desig_code) SELECT milestone_act_code,'DCOD3B2' FROM milestone_desig_map WHERE desig_code='CMP'
+
+SELECT milestone_act_code,'CMP3B2' FROM milestone_desig_map WHERE desig_code='CMP'
+
+select milestone_act_code,desig_code from milestone_desig_map where desig_code='DCOD3B2'
+
+
+insert into `secdbbkup`.`generic_filename` 
+	(`filename`, 
+	`area`, 
+	`Numbered`, 
+	`filetype_set`
+	)
+	values
+	('Appendix A', 'All', 'No', '7'),('Appendix B', 'All', 'No', '7'),('Appendix C', 'All', 'No', '7'),('Appendix D', 'All', 'No', '7'),
+	('Appendix E', 'All', 'No', '7'),('Appendix F', 'All', 'No', '7'),('Appendix G', 'All', 'No', '7'),
+	('Glossary', 'All', 'No', '7'),('Credits', 'All', 'No', '7');
+
+SELECT COUNT(*) FROM fileupload_info
+
+select * from fileupload_info order by fileentry_id desc limit 10
+
+SELECT * FROM fileupload_info where fileentry_id > 3316183
+
+SELECT * FROM fileupload_info WHERE fileentry_id LIKE '%3317183%'
+
+DELETE FROM `s4`.`fileupload_info` 
+
+DELETE FROM `s4`.`fileversion_download` 
+
+
+DELETE FROM `s4`.`filename` 
+
+DELETE FROM `s4`.`file_action` 
+
+SELECT * FROM fileupload_info WHERE fileentry_id LIKE '%3317183%'
+
+SELECT * FROM fileupload_info ORDER BY fileentry_id DESC LIMIT 1
+
+SELECT * FROM fileupload_info ORDER BY fileentry_id DESC LIMIT 10
+
+SELECT COUNT(*) FROM fileupload_info
+
+
+
+
+SELECT DISTINCT(des.designation),des.desig_code FROM USER u,designation des WHERE u.dept_code='DMD' AND u.status='1' AND u.desig_code=des.desig_code
+
+SELECT designation,desig_code FROM designation WHERE (desig_code='CMP' OR desig_code='CMP3B2' OR desig_code='CMPWD' 
+                                         OR desig_code='CND' OR desig_code='GRD' OR desig_code='PR' OR desig_code='PRCRD' OR desig_code='QA' OR 
+                                         desig_code='TEDR' OR desig_code='WDQA')
+                                         
+                                         
+SELECT * FROM USER WHERE desig_code IN ('TEW','TADC','TCW')
+
+SELECT * FROM fm_privileges WHERE privilege IN ('Trainee')
+
+
+INSERT INTO `secdbbkup`.`fm_privileges` 
+	(`privilege`, 
+	`privilege_code`
+	)
+	VALUES
+	('Trainee Eworks','TEW'),('Trainee Associate Design Co-ordinator','TADC'),('Trainee Compositor Word','TCW');
+
+insert into `secdbbkup`.`generic_filename` 
+	(`filename`, 
+	`area`, 
+	`Numbered`, 
+	`filetype_set`
+	)
+	values
+	('Walk Through', 'All', 'No', '11'),('Walk Through', 'All', 'No', '7')
+
+
+
+SELECT * FROM projects WHERE proj_name LIKE '%110474%'
+
+SELECT * FROM filename WHERE proj_id='11065' AND file_name = 'Page Log'
+
+SELECT * FROM file_property WHERE file_id='1208756'   1208976  1208977
+	
+SELECT * FROM fileupload_info WHERE file_id='1208975'      
+
+DELETE FROM filename WHERE proj_id='11226' AND file_name = 'Page Log'	
+
+
+
+
+SELECT COUNT(*) FROM file_property
+
+SELECT COUNT(*) FROM filename
+
+SELECT COUNT(*) FROM fileupload_info
+
+SELECT COUNT(*) FROM fileversion_download
+
+
+
+SELECT * FROM fileupload_info ORDER BY fileentry_id DESC LIMIT 10
+
+SELECT * FROM fileupload_info WHERE pfuser_id='111' AND fileupload_time IS NULL
+
+SELECT * FROM filename WHERE proj_id='11219'
+
+SELECT * FROM fileupload_info WHERE file_id='1207762'
+
+UPDATE `s4`.`fileupload_info` 
+	SET  `fileupload_time` = CURRENT_TIMESTAMP() ,  `fileversion_name` = 'User Manual-FM-1.pdf' , 
+	`fileupload_size` = '732487'  WHERE
+	`fileentry_id` = '5686790' ;
+
+SELECT * FROM projects WHERE proj_name LIKE '%Barakat_11219%'
+	
+SELECT * FROM filename WHERE file_id='1208584'
+
+
+
+SELECT * FROM projects WHERE proj_name LIKE '%welding%'
+
+SELECT * FROM filename WHERE file_id='1208584'
+
+SELECT COUNT(*) FROM file_property
+
+SELECT COUNT(*) FROM filename
+
+SELECT COUNT(*) FROM fileupload_info
+
+SELECT COUNT(*) FROM fileversion_download
+
+
+SELECT * FROM projects WHERE proj_name LIKE '%LCCMP%' 
+
+SELECT * FROM filename WHERE proj_id='11223' AND filetype_id='6' AND group_name = 'Common Art' ORDER BY file_name
+
+SELECT * FROM file_property WHERE file_id='1208954'    
+
+SELECT * FROM fileupload_info WHERE file_id='1208954'    
+
+
+
+
+DELETE FROM `s4`.`file_property` 
+	WHERE
+	`file_id` = '1208961' ;                            
+
+
+DELETE FROM `s4`.`filename` 
+	WHERE
+	`file_id` = '1208961' ;
+
+
+
+
+SELECT * FROM projects WHERE proj_name LIKE '%FLEE%'
+
+SELECT MAX(project_count) FROM projects 
+
+SELECT * FROM fmproj_drive WHERE proj_id='146060'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='146060'
+
+
+DELETE FROM `s4`.`projects` WHERE `proj_id` = '146060' ;
+
+DELETE FROM `s4`.`fmproj_drive` WHERE `proj_id` = '146060' ;
+
+DELETE FROM `s4`.`proj_filetypepath` WHERE `proj_id` = '146060' ;
+
+
+INSERT INTO `s4`.`projects` (`project_count`,`proj_id`,`proj_name`,`client_name`,`proj_type`)
+	VALUES ('11617','146060','FLEE_4E_146060','as','1');
+
+
+
+
+
+INSERT INTO `pathfinderv2`.`proj_milestone_act` 
+	(`milestone_act_name`) VALUES ('Text Extraction');  CMPWD
+
+INSERT INTO `pathfinderv2`.`activity_type` 
+	(`activity_code`,`activity`,`old_activity`,`productive`,`billable`) VALUES
+	('96','Word Setting','0','1','1');
+
+insert into `pathfinderv2`.`milestone_act_map` 
+	(`stage_code`,`milestone_act_code`,`activity_code`) values   
+	('TXTEXT','39','31'),('TXTEXT','39','96'),('TXTEXT','39','6')
+
+insert into `pathfinderv2`.`milestone_desig_map` 
+	(`desig_code`,`milestone_act_code`) 
+	select distinct(desig_code),'15' from user where dept_code='DMD' and status='1' and desig_code='CMPWD'     
+	
+insert into `pathfinderv2`.`activity_desig_map` 
+	(`desig_code`,`activity_code`) 
+	SELECT 'CMPWD',activity_code FROM activity_desig_map WHERE desig_code = 'CMP' AND 
+	activity_code NOT IN (SELECT activity_code FROM activity_desig_map WHERE desig_code = 'CMPWD')
+	
+INSERT INTO `pathfinderv2`.`activity_desig_map` 
+	(`desig_code`,`activity_code`) values
+	('CMPWD','37'),('CMPWD','38'),('CMPWD','39'),('CMPWD','40'),('CMPWD','44'),('CMPWD','45'),('CMPWD','46')
+
+INSERT INTO `pathfinderv2`.`milestone_order` 
+	(`stage_code`, 
+	`milestone_act_code`, 
+	`milestone_order_number`)
+	VALUES
+	('RP','7','1'),('RP','9','2'),('RP','10','3'),('RP','12','4'),('RP','13','5'),
+	('RP','14','6'),('RP','15','7'),('RP','16','8'),('RP','17','9'),('RP','19','10'),('RP','18','11'),('RP','20','12')
+
+insert into `pathfinderv2`.`milestone_desig_map` 
+	(`desig_code`,`milestone_act_code`) 
+	select distinct(desig_code),'81' from user where emp_id like '100%' and facility_id = 2 and desig_code not in 
+	(SELECT distinct(desig_code) FROM milestone_desig_map WHERE milestone_act_code = '81') and desig_code!='CMP'
+
+
+SELECT distinct(desig_code) FROM milestone_desig_map WHERE milestone_act_code = '81'
+
+SELECT DISTINCT(desig_code) FROM USER WHERE emp_id LIKE '100%' AND facility_id = 2
+
+SELECT * FROM proj_milestone_act WHERE (milestone_act_name like '%proj%' or milestone_act_name like '%comp%' OR milestone_act_name LIKE '%pack%')
+
+SELECT * FROM activity_type WHERE (activity LIKE '%ext%' OR activity LIKE '%word%' OR activity LIKE '%quality%') 
+
+select distinct(u.desig_code),'35' from user u,designation des where u.dept_code='DMD' and u.status='1' and u.desig_code!='PDNMGR' and u.desig_code!='ACNMGR' and 
+u.desig_code = des.desig_code
+
+SELECT * FROM activity_desig_map WHERE desig_code = 'CMP'
+
+SELECT * FROM milestone_act_map where stage_code like '%ARC%'
+
+SELECT * FROM milestone_desig_map where desig_code = 'CMPWD'
+
+SELECT * FROM project_stage where stage like '%ar%'
+
+SELECT activity_code FROM activity_desig_map WHERE desig_code = 'CMP'
+
+
+SELECT activity_code FROM activity_desig_map WHERE desig_code = 'CMPWD'
+
+SELECT activity_code FROM activity_desig_map WHERE desig_code = 'CMP'
+
+SELECT * FROM activity_desig_map WHERE (desig_code='PR' OR desig_code='QA')
+
+SELECT 'CMPWD',activity_code FROM activity_desig_map WHERE desig_code = 'CMP' AND 
+	activity_code NOT IN (SELECT activity_code FROM activity_desig_map WHERE desig_code = 'CMPWD')   
+
+
+
+UPDATE chapter SET proof_page=0,completed_date=CURRENT_TIMESTAMP() WHERE proj_id='146404'
+
+UPDATE chapter SET ship_date=CURRENT_TIMESTAMP() WHERE proj_id='146406'
+
+UPDATE chapter SET proof_page=null,completed_date=null,ship_date=Null WHERE proj_id='146588' and ship_date is not null 
+
+
+	
+SELECT * FROM chapter WHERE proj_id='146404'
+
+
+
+SELECT * FROM shift WHERE emp_id='959' AND shift_start_time LIKE '%2012-12-03%'
+
+SELECT * FROM activity WHERE emp_id='959' AND begin_time LIKE '%2012-12-03%'
+
+
+UPDATE `s4`.`activity` 
+	SET 
+	`begin_time` = '2012-12-03 15:19:04' , 
+	`end_time` = '2012-12-03 22:13:04' , 
+	`entry_date` = '2012-12-03 15:19:04'	
+	WHERE
+	`activity_id` = '2152180' ;
+
+
+UPDATE `s4`.`shift` 
+	SET 
+	`shift_start_time` = '2012-12-03 11:57:20' , 
+	`shift_end_time` = '2012-12-03 22:15:20' 	
+	WHERE
+	`shift_id` = '300940' ;
+
+       
+
+chapter   daily_queries  filename   fmproj_drive   messages   proj_filetypepath 
+
+
+UPDATE `fmproj_drive` SET `proj_id` = '146155'  WHERE `proj_id` = '11615' ;   
+
+UPDATE `proj_filetypepath` SET `proj_id` = '146155'  WHERE `proj_id` = '11615' ;
+
+UPDATE `filename` SET `proj_id` = '146155'  WHERE `proj_id` = '11615' ;
+
+
+
+UPDATE `daily_queries` SET `proj_id` = 'proj_id'  WHERE `proj_id` = 'proj_id' ;
+
+UPDATE `chapter` SET `proj_id` = 'proj_id'  WHERE `proj_id` = 'proj_id' ;
+
+UPDATE `messages` SET `proj_id` = 'proj_id'  WHERE `proj_id` = 'proj_id' ;
+
+
+
+
+
+INSERT INTO `secdbbkup`.`milestone_order` 
+	(`stage_code`, 
+	`milestone_act_code`, 
+	`milestone_order_number`)
+	VALUES
+	('RP','7','1'),('RP','9','2'),('RP','10','3'),('RP','12','4'),('RP','13','5'),
+	('RP','14','6'),('RP','15','7'),('RP','16','8'),('RP','17','9'),('RP','19','10'),('RP','18','11'),('RP','20','12')
+	
+	
+SELECT pma.milestone_act_code,pma.milestone_act_name,ps.stage,ps.stage_code,mo.milestone_order_number 
+	FROM proj_milestone_act pma,project_stage ps,milestone_order mo 
+	WHERE ps.stage_code=mo.stage_code AND mo.milestone_act_code=pma.milestone_act_code AND pma.milestone_act_status='1'
+	AND mo.stage_code='RP' ORDER BY mo.milestone_order_number 
+
+
+SELECT MAX(plan_id) FROM chapter_plan
+ 
+ SELECT * FROM chapter_plan WHERE chapter_id='1545'
+
+INSERT INTO `pathfinderv2`.`chapter_plan` 
+	(`plan_id`, 
+	`chapter_id`, 
+	`milestone_id`, 
+	`end_date`, 
+	`planned_date`)
+	VALUES
+	('1693', 
+	'1545', 
+	'13', 
+	'2012-12-12 13:00:00', 
+	'2012-12-10 12:45:15'
+	);
+
+
+ 
+UPDATE `pathfinderv2`.`chapter` 
+	SET 
+	`stage` = 'TXTEXT' 
+	WHERE
+	stage LIKE '%selec%' AND proj_id='146497'
+
+
+
+SELECT * FROM self_appraisal WHERE entry_date BETWEEN '2012-12-14' AND '2012-12-31'
+
+SELECT * FROM USER WHERE emp_id IN (SELECT emp_id FROM self_appraisal WHERE entry_date BETWEEN '2012-12-14' AND '2012-12-31')
+
+SELECT u.emp_id,u.emp_name,d.department,de.designation 
+	FROM USER u,department d,designation de 
+	WHERE u.emp_id IN (SELECT sa.emp_id FROM self_appraisal sa WHERE sa.entry_date BETWEEN '2012-12-14' AND '2012-12-31') AND u.dept_code='CHN-WKH'
+	AND u.dept_code=d.dept_code AND de.desig_code=u.desig_code ORDER BY d.department,de.designation 
+
+
+
+
+SELECT * FROM projects WHERE proj_name LIKE '%146609%'
+
+SELECT * FROM fmproj_drive WHERE proj_id='146609'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='146609'
+
+SELECT * FROM chapter WHERE proj_id='613' AND ship_date IS NULL
+
+SELECT * FROM activity WHERE chapter_id='12140'
+
+SELECT * FROM dropoff WHERE chapter_id='12140'
+
+
+UPDATE `pathfinderv2`.`chapter` 
+	SET 
+	`milestone_empcompleted` = NULL , 
+	`milestone_status` = NULL , 
+	`stage_empcompleted` = NULL
+	WHERE
+	`chapter_id` = '12140' ;
+
+
+UPDATE `pathfinderv2`.`activity` 
+	SET  
+	`milestone_comp_flag` = '0', 
+	`activity_comp_flag` = '0' 	
+	WHERE
+	`activity_id` = '21115' ;
+
+
+DELETE FROM `pathfinderv2`.`dropoff` 
+	WHERE `chapter_id` = '12140' AND `dropoff_to` = '13'
+	;
+
+
+
+
+SELECT * FROM milestone_order WHERE stage_code='RP' AND milestone_order_number>4 ORDER BY milestone_order_number
+
+SELECT * FROM milestone_order WHERE stage_code='RP' ORDER BY milestone_order_number
+
+UPDATE milestone_order SET milestone_order_number=milestone_order_number+1 WHERE milestone_order_number>4 AND stage_code='RP'
+
+INSERT INTO `pathfinderv2`.`milestone_order` 
+	(`stage_code`, 
+	`milestone_act_code`, 
+	`milestone_order_number`)
+	VALUES
+	('RP','11','5');
+
+
+
+
+Project Deletion:
+
+SELECT * FROM projects WHERE proj_name LIKE '%BLJ%'
+
+
+SELECT * FROM project_bookmap WHERE proj_id='146932'
+
+UPDATE `project_bookmap`  SET  `proj_id` = 'as276' WHERE `proj_id` = '146932' ;
+
+
+SELECT * FROM project_schedule WHERE proj_id='146932'
+
+UPDATE `project_schedule`  SET  `proj_id` = 'as276' WHERE `proj_id` = '146932' ;
+
+UPDATE `project_schedule`  SET  `batch` = 'Spring_2013' WHERE `proj_id` = '146932' AND `batch` = 'Spring 2013'  ;
+
+
+SELECT * FROM chapter WHERE proj_id='146932'
+
+DELETE FROM chapter WHERE proj_id='146932'
+
+UPDATE `chapter`  SET  `proj_id` = 'as276' WHERE `proj_id` = '146932' ;
+
+
+SELECT * FROM fmproj_drive WHERE proj_id='146932'
+
+DELETE FROM fmproj_drive WHERE proj_id='146932'
+
+
+SELECT * FROM messages WHERE prj_id='146932'
+
+DELETE FROM messages WHERE prj_id='146932'
+
+
+SELECT * FROM `msgforward` WHERE `msg_id` = '4272' ;
+
+DELETE FROM `msgforward` WHERE `msg_id` = '8716' ; 
+
+
+SELECT * FROM proj_filetypepath WHERE proj_id='146932'
+
+DELETE FROM proj_filetypepath WHERE proj_id='146932'
+
+
+SELECT * FROM daily_queries WHERE proj_id='146932'
+
+DELETE FROM daily_queries WHERE proj_id='146932'
+
+
+SELECT * FROM projects WHERE proj_id='146932'
+
+DELETE FROM projects WHERE proj_id='146932'
+
+
+
+
+SELECT * FROM proj_filetypepath WHERE proj_id = '146831'
+
+UPDATE `pathfinderv2`.`proj_filetypepath` 
+	SET
+	`filetype_path` = '/Levack_111113_146831/Final QA//'	
+	WHERE
+	`proj_id` = '146831' AND 
+	`filetype_id` = '11' 
+	
+UPDATE `pathfinderv2`.`proj_filetypepath` 
+	SET
+	`filetype_path` = '/Levack_111113_146831/E-Deliver//'	
+	WHERE
+	`proj_id` = '146831' AND 
+	`filetype_id` = '12' 
+
+
+Duplicate File creation [Delete]
+
+SELECT * FROM filename WHERE proj_id='148009' AND filetype_id='6' AND group_name = 'Chapter 13'
+
+SELECT * FROM file_property WHERE file_id='1208954'    
+
+SELECT * FROM fileupload_info WHERE file_id='1208954'  
+
+
+DELETE FROM `fileupload_info` 
+	WHERE
+	`file_id` = '1285243' ;
+
+DELETE FROM `file_property` 
+	WHERE
+	`file_id` = '1285243' ;                            
+
+DELETE FROM `filename` 
+	WHERE
+	`file_id` = '1285243' ;
+		
+
+SELECT proj_id,proj_name,proj_date AS Booked_Date,contacts.company FROM projects,contacts WHERE contacts.contact_id=projects.client_name 
+ORDER BY proj_date DESC LIMIT 25
+
+
+Sort Order:
+
+select est_number from estimate_lineitems where est_number in 
+	(select est_number from estimate_lineitems where sort_order='1' GROUP BY est_number HAVING count(est_number) > 1)
+	GROUP BY est_number 
+
+
+
+
+

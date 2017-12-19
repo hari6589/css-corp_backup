@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	</head>
+	<body>
+		<script id="address-template" type="text/x-handlebars-template">
+			{{#each people}}
+				<p>Hi, My name is {{fullName this}}, and i am a {{#uppercase}} {{language}} {{/uppercase}}  {{designation}}</p>
+			{{/each}}
+		</script>
+
+		<div id="placeHolder"></div>
+	</body>
+
+	<script type="text/javascript">
+		$(function() {
+			// It grabs the Template
+			var addressTemplate = $("#address-template").html();
+
+			Handlebars.registerHelper('fullName', function(people){
+				return people.firstname + " " + people.lastname;
+			});
+
+			Handlebars.registerHelper('uppercase', function(options){
+				return options.fn(this).toUpperCase();
+			});
+
+			// It compiles the template
+			var handlebarsTemplate = Handlebars.compile(addressTemplate);
+
+			// Context
+			var context = {
+				people: [ 
+					{"firstname":"Hari", "lastname":"Prasath", "language":"Java", "designation":"Developer", "trigger":"<button>Trigger</button>"},
+					{"firstname":"Chandra", "lastname":"Prakash", "language":"PHP", "designation":"Test Engineer", "trigger":"<button>Trigger</button>"},
+					{"firstname":"Viru", "lastname":"Mandi", "language":".NET", "designation":"Designer", "trigger":"<button>Trigger</button>"}
+				]
+			};
+
+			// Pass the Context to Template
+			var templateOutput = handlebarsTemplate(context);
+
+			// Add the compiled html to page
+			$("#placeHolder").html(templateOutput);
+
+			
+		});
+	</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Amazon - Cookie Check</title>
+
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+
+		<script type="text/javascript">		
+			
+			// Extract query parameter value from url
+			$.urlParam = function (name) {
+			    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+			    if(results != null) {
+			    	return results[1];
+				} else {
+					return 0;
+				}
+			}
+
+			// Check URL has access_token, if does then set expire datetime for amazon cookie (which is created by amazon)
+			if($.urlParam('access_token') != "0") {
+				if (typeof $.cookie('amazon_Login_state_cache') === 'undefined') {
+					console.log("access_token found - Creating cookie");
+					var date = new Date();
+					date.setTime(date.getTime() + (1 * 60 * 1000));
+					$.cookie("amazon_Login_state_cache", $.cookie('amazon_Login_state_cache'), { expires: date, path:'/' });
+				}
+			}
+
+			// Redirect to login page if amazon cookie not found
+			if (typeof $.cookie('amazon_Login_state_cache') === 'undefined') {
+				window.location.href = "/bsro/html-test-files/login1.html"
+			}
+
+			// To avoid reverse navigation (prevent Back button event)
+			history.pushState(null, null, location.href);
+			window.onpopstate = function(event) {
+			    history.go(1);
+			};
+
+		</script>
+
+	</head>
+
+	<body>
+		<div>Amazon - Cookie Check</div>
+	</body>
+
+</html>

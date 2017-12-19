@@ -1,0 +1,95 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 116 (0x74)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=NY, L=New York, O=Razorfish, OU=Technology, CN=Razorfish CA/name=EasyRSA/emailAddress=lorem@ipsum.com
+        Validity
+            Not Before: Oct 25 14:22:40 2016 GMT
+            Not After : Oct 23 14:22:40 2026 GMT
+        Subject: C=US, ST=New York, L=New York, O=The Hearst Corporation, OU=Engineering, CN=SangeethaGanesan/emailAddress=sangeetha.ganesan@csscorp.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:c9:f0:e6:b2:c7:a9:76:e0:74:55:60:bc:fd:75:
+                    2f:41:b0:29:bf:41:62:b0:84:a2:0d:7c:4f:94:09:
+                    f3:ac:f2:55:e8:90:b7:ec:39:f4:7f:ba:89:ab:1e:
+                    4c:ca:68:af:e1:10:49:0b:80:b6:18:0a:87:de:cd:
+                    35:47:14:a2:1a:ae:98:4a:93:ae:61:fe:b4:fb:37:
+                    86:07:0e:7c:10:8b:07:14:f8:2c:c0:ae:2c:0e:6e:
+                    a8:6d:90:9e:7c:37:fb:f0:e5:3d:30:2b:2c:8d:90:
+                    4d:a8:4e:dc:a4:db:d4:47:89:e5:a8:cc:ed:fd:56:
+                    37:22:7a:de:e7:84:30:d8:a3:94:c4:cc:69:b1:6e:
+                    ab:d7:a2:c5:72:73:81:29:5e:25:ca:6f:ea:49:1c:
+                    7f:71:42:78:43:44:fc:e1:85:43:00:e5:11:c8:82:
+                    85:77:08:07:9f:f5:8e:ce:b2:66:4c:01:d4:02:a8:
+                    2f:6c:da:48:19:f6:f5:a9:a2:34:ea:71:a7:60:5a:
+                    23:53:40:90:5b:bd:b4:0d:63:e9:60:12:1c:d7:72:
+                    8d:c8:2c:43:14:8e:dc:7e:5c:0c:b7:4b:72:cf:56:
+                    18:79:b8:84:e1:1a:54:4c:0a:37:c0:75:60:91:c0:
+                    4a:b4:e6:97:42:d8:ef:21:25:af:ea:bc:23:aa:05:
+                    97:31
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                Easy-RSA Generated Certificate
+            X509v3 Subject Key Identifier: 
+                FB:E1:AF:A8:3A:F5:E1:0F:D0:8F:CA:EA:24:3C:0E:5B:16:DB:FC:83
+            X509v3 Authority Key Identifier: 
+                keyid:52:1F:7D:FE:08:7F:95:CF:60:2B:5B:0C:65:0A:33:6C:F4:3C:3B:6C
+                DirName:/C=US/ST=NY/L=New York/O=Razorfish/OU=Technology/CN=Razorfish CA/name=EasyRSA/emailAddress=lorem@ipsum.com
+                serial:DF:80:82:B1:74:85:B2:99
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+    Signature Algorithm: sha256WithRSAEncryption
+         6f:bd:dc:bd:9c:d2:c7:f6:44:63:48:6a:fe:91:79:08:21:ad:
+         4a:75:a8:92:06:6e:db:4c:72:cc:4c:81:b6:33:02:97:f5:04:
+         75:83:3e:f1:59:3c:5e:a3:50:35:80:32:cf:f2:f3:0a:e1:80:
+         51:6e:8a:7b:ca:e4:22:4c:8f:a4:85:1b:fd:ee:59:62:f0:53:
+         49:07:52:32:6f:10:c8:43:f8:9e:82:23:dc:8d:63:ee:d2:4c:
+         06:68:a1:4a:fc:ed:63:87:57:69:ff:65:d6:6b:d1:79:d4:d9:
+         71:57:d7:84:c1:ba:62:90:80:f8:25:c8:7b:4b:29:de:9b:52:
+         3f:06:62:0c:85:b7:0a:2f:09:d5:64:0d:45:e5:8d:d3:56:c7:
+         3f:e7:0f:a7:88:65:29:7f:4c:b1:1a:49:15:a9:8b:1c:52:bd:
+         c7:06:2f:af:ee:b3:df:df:ce:5a:ab:97:9c:6d:52:cc:ad:fa:
+         0d:cb:f7:38:5f:54:97:60:62:8c:ba:79:19:e8:91:aa:90:cd:
+         e5:4a:13:20:60:7f:48:bb:52:b4:ac:f2:78:39:85:a8:07:b1:
+         d5:3f:5b:9c:17:12:f7:f1:f8:9f:eb:88:e0:9e:39:4c:0f:52:
+         78:f3:22:09:e2:81:79:3d:fa:41:ba:14:6a:da:a1:63:3a:9d:
+         35:22:02:22
+-----BEGIN CERTIFICATE-----
+MIIFJzCCBA+gAwIBAgIBdDANBgkqhkiG9w0BAQsFADCBnzELMAkGA1UEBhMCVVMx
+CzAJBgNVBAgTAk5ZMREwDwYDVQQHEwhOZXcgWW9yazESMBAGA1UEChMJUmF6b3Jm
+aXNoMRMwEQYDVQQLEwpUZWNobm9sb2d5MRUwEwYDVQQDEwxSYXpvcmZpc2ggQ0Ex
+EDAOBgNVBCkTB0Vhc3lSU0ExHjAcBgkqhkiG9w0BCQEWD2xvcmVtQGlwc3VtLmNv
+bTAeFw0xNjEwMjUxNDIyNDBaFw0yNjEwMjMxNDIyNDBaMIGzMQswCQYDVQQGEwJV
+UzERMA8GA1UECAwITmV3IFlvcmsxETAPBgNVBAcMCE5ldyBZb3JrMR8wHQYDVQQK
+DBZUaGUgSGVhcnN0IENvcnBvcmF0aW9uMRQwEgYDVQQLDAtFbmdpbmVlcmluZzEZ
+MBcGA1UEAwwQU2FuZ2VldGhhR2FuZXNhbjEsMCoGCSqGSIb3DQEJARYdc2FuZ2Vl
+dGhhLmdhbmVzYW5AY3NzY29ycC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDJ8Oayx6l24HRVYLz9dS9BsCm/QWKwhKINfE+UCfOs8lXokLfsOfR/
+uomrHkzKaK/hEEkLgLYYCofezTVHFKIarphKk65h/rT7N4YHDnwQiwcU+CzAriwO
+bqhtkJ58N/vw5T0wKyyNkE2oTtyk29RHieWozO39Vjciet7nhDDYo5TEzGmxbqvX
+osVyc4EpXiXKb+pJHH9xQnhDRPzhhUMA5RHIgoV3CAef9Y7OsmZMAdQCqC9s2kgZ
+9vWpojTqcadgWiNTQJBbvbQNY+lgEhzXco3ILEMUjtx+XAy3S3LPVhh5uIThGlRM
+CjfAdWCRwEq05pdC2O8hJa/qvCOqBZcxAgMBAAGjggFWMIIBUjAJBgNVHRMEAjAA
+MC0GCWCGSAGG+EIBDQQgFh5FYXN5LVJTQSBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUw
+HQYDVR0OBBYEFPvhr6g69eEP0I/K6iQ8DlsW2/yDMIHUBgNVHSMEgcwwgcmAFFIf
+ff4If5XPYCtbDGUKM2z0PDtsoYGlpIGiMIGfMQswCQYDVQQGEwJVUzELMAkGA1UE
+CBMCTlkxETAPBgNVBAcTCE5ldyBZb3JrMRIwEAYDVQQKEwlSYXpvcmZpc2gxEzAR
+BgNVBAsTClRlY2hub2xvZ3kxFTATBgNVBAMTDFJhem9yZmlzaCBDQTEQMA4GA1UE
+KRMHRWFzeVJTQTEeMBwGCSqGSIb3DQEJARYPbG9yZW1AaXBzdW0uY29tggkA34CC
+sXSFspkwEwYDVR0lBAwwCgYIKwYBBQUHAwIwCwYDVR0PBAQDAgeAMA0GCSqGSIb3
+DQEBCwUAA4IBAQBvvdy9nNLH9kRjSGr+kXkIIa1KdaiSBm7bTHLMTIG2MwKX9QR1
+gz7xWTxeo1A1gDLP8vMK4YBRbop7yuQiTI+khRv97lli8FNJB1IybxDIQ/iegiPc
+jWPu0kwGaKFK/O1jh1dp/2XWa9F51NlxV9eEwbpikID4Jch7Synem1I/BmIMhbcK
+LwnVZA1F5Y3TVsc/5w+niGUpf0yxGkkVqYscUr3HBi+v7rPf385aq5ecbVLMrfoN
+y/c4X1SXYGKMunkZ6JGqkM3lShMgYH9Iu1K0rPJ4OYWoB7HVP1ucFxL38fif64jg
+njlMD1J48yIJ4oF5PfpBuhRq2qFjOp01IgIi
+-----END CERTIFICATE-----

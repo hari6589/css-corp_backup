@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Loop Array | Loop Object | Sort list | Filter</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	</head>
+	<body>
+		<!-- Loop Array Start - ->
+		<div ng-app="" ng-init="names=['Ari','Vivek','David','Sathish']">
+			<ul>
+				<li ng-repeat="x in names"> {{x}} </li>
+			</ul>
+		</div>
+		<!-- Loop Array End-->
+
+		<!-- Loop Object Start -->
+		<div ng-app="" ng-init="names=[{name:'Ari',country:'India'}, {name:'Vivek',country:'Koria'}, {name:'David',country:'China'}]">
+			Filter: <input type="text" ng-model="filterStr"/>
+			<ul>
+				<li ng-repeat="x in names | filter:filterStr | orderBy:'country'"> {{x.name + " from " + x.country}} </li>
+			</ul>
+		</div>
+		<!-- Loop Object End -->
+	</body>
+</html>

@@ -1,0 +1,57 @@
+Hibernate
+
+Hibernate is a high-performance Object/Relational persistence and query service which is licensed under the open source GNU Lesser General Public License (LGPL) and is free to download. Hibernate not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities.
+-------------
+JDBC stands for Java Database Connectivity and provides a set of Java API for accessing the relational databases from Java program. These Java APIs enables Java programs to execute SQL statements and interact with any SQL compliant database.
+-------------
+Pros of JDBC
+
+    Clean and simple SQL processing
+
+    Good performance with large data
+
+    Very good for small applications
+
+    Simple syntax so easy to learn
+
+Cons of JDBC
+
+    Complex if it is used in large projects
+
+    Large programming overhead
+
+    No encapsulation
+
+    Hard to implement MVC concept
+
+    Query is DBMS specific
+-------------
+Configuration Object
+SessionFactory Object
+Session Object
+Transaction Object
+Query Object
+Criteria Object
+-------------
+These are 
+	Mapping of collections, 
+	Mapping of associations between entity classes and 
+	Component Mappings
+-------------
+
+======================================================
+Is that hibernate stores all data from db and displays according to the criteria we are giving?
+Where does the hibernate values are stored? in Heap?
+When the data will be cleared?
+When the Session closed?
+When the Session factory closed?
+
+Can we create dynamic form elements in Springs and Hibernate?
+How ease to get complex query data?
+What if i need to pass output of query into another query and send the data to view?
+Can we pass Object as a parameter from jsp to Servlet?
+
+Hibernate
+Springs
+Tiles
+JSTL

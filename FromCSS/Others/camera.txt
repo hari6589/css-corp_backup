@@ -1,0 +1,21 @@
+Shutter
+Aperture
+ISO
+Auto-focus
+Manual-focus
+Override Auto-focus
+Save Custom settings
+Firmware Update
+Auto noise remover
+Faster Memory Cards
+Flash diffuser
+Timelapsing
+Distortion
+
+
+
+jdbc:oracle:thin:@//10.8.18.15:1521/bsro
+
+battery-overview h3
+
+product-spec h3

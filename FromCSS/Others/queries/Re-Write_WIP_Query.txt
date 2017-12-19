@@ -1,0 +1,117 @@
+//Solve the time-vary problem
+
+SELECT * FROM activity WHERE chennai_err_start IS NOT NULL AND chennai_err_end IS NULL
+
+UPDATE `pathfinderv2`.`activity` SET `chennai_err_start` = begin_time,`chennai_err_end` = end_time 
+	WHERE chennai_err_start IS NOT NULL AND chennai_err_end IS NULL
+
+SELECT begin_time,end_time,chennai_err_start,chennai_err_end FROM activity WHERE chennai_err_start IS NOT NULL AND chennai_err_end IS NULL
+
+SELECT * FROM activity WHERE dubuque_err_start IS NOT NULL AND dubuque_err_end IS NULL
+
+SELECT * FROM activity WHERE outside_err_start IS NOT NULL AND outside_err_end IS NULL
+
+UPDATE `pathfinderv2`.`activity` SET `outside_err_start` = begin_time,`outside_err_end` = end_time 
+	WHERE outside_err_start IS NOT NULL AND outside_err_end IS NULL
+
+
+SELECT * FROM shift WHERE shift_end_time < shift_start_time
+
+UPDATE `pathfinderv2`.`shift` SET `shift_end_time` = shift_start_time WHERE shift_end_time < shift_start_time
+
+SELECT * FROM activity WHERE end_time < begin_time
+
+UPDATE `pathfinderv2`.`activity` SET `end_time` = begin_time WHERE end_time < begin_time
+
+SELECT * FROM activity WHERE chennai_err_end < chennai_err_start
+
+SELECT * FROM activity WHERE dubuque_err_end < dubuque_err_start
+
+SELECT * FROM activity WHERE outside_err_end < outside_err_start
+
+
+
+
+//Re-written QUERY - PO line-items put IN SUPER category	
+
+SELECT SUM(po.total),po.activity_description,
+	(CASE WHEN sc.super_cat_id IS NULL THEN '9' ELSE sc.super_cat_id END) CATY_ID ,
+	(CASE WHEN sc.super_category  IS NULL THEN 'Uncategorized' ELSE sc.super_category  END) CATY_NAME 
+	FROM po_lineitems po
+	LEFT JOIN billing_lineitems_master blm ON (po.activity_description=blm.name)
+	LEFT JOIN estimate_super_category sc ON (blm.super_cat_id = sc.super_cat_id)
+	WHERE po.proj_id = '11183' GROUP BY sc.super_cat_id
+	
+
+//Re-written QUERY - JCO-WIP INTO Milestone Grouping
+	
+SELECT ma.milestone_act_name, MAX(p.proj_name) PN, 
+	SUM((CASE WHEN (a.chargeable_flag='0' AND a.chennai_err_start IS NULL AND a.dubuque_err_start IS NULL AND a.outside_err_start IS NULL) THEN 
+	TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600 ELSE 0 END)) FBH, 
+	SUM((CASE WHEN (a.chargeable_flag='0' AND a.chennai_err_start IS NULL AND a.dubuque_err_start IS NULL AND a.outside_err_start IS NULL) THEN 
+	TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600*f.fcy_cost ELSE 0 END)) FBC, 
+	SUM((CASE a.chargeable_flag WHEN '1' THEN TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600 ELSE 0 END)) RBH, 
+	SUM((CASE a.chargeable_flag WHEN '1' THEN TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600*f.fcy_cost ELSE 0 END)) RBC, 
+	SUM(TIME_TO_SEC(TIMEDIFF(a.chennai_err_end,a.chennai_err_start))/3600) CHNERRH, 
+	SUM(TIME_TO_SEC(TIMEDIFF(a.chennai_err_end,a.chennai_err_start))/3600*f.fcy_cost) CHNERRC, 
+	SUM(TIME_TO_SEC(TIMEDIFF(a.dubuque_err_end,a.dubuque_err_start))/3600) DBQERRH, 
+	SUM(TIME_TO_SEC(TIMEDIFF(a.dubuque_err_end,a.dubuque_err_start))/3600*f.fcy_cost) DBQERRC, 
+	SUM(TIME_TO_SEC(TIMEDIFF(a.outside_err_end,a.outside_err_start))/3600) OUTERRH, 
+	SUM(TIME_TO_SEC(TIMEDIFF(a.outside_err_end,a.outside_err_start))/3600*f.fcy_cost) OUTERRC, 
+	SUM(TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600) BH, SUM(TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600*f.fcy_cost) BC, 
+	t.activity,(SUM((CASE WHEN (u.facility_id = '2' AND a.chargeable_flag='0' AND a.chennai_err_start IS NULL 
+	AND a.dubuque_err_start IS NULL AND a.outside_err_start IS NULL) THEN 
+	TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600*f.fcy_cost ELSE 0 END)) + SUM((CASE WHEN (u.facility_id = '2' AND a.chargeable_flag='1') THEN 
+	TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600*f.fcy_cost ELSE 0 END))) WIP 	
+FROM activity a, USER u, facility f, chapter c,projects p, department d, activity_type t, proj_milestone_act ma
+WHERE u.dept_code = d.dept_code AND a.chapter_id = c.chapter_id AND t.productive='1' AND a.emp_id = u.emp_id AND u.facility_id = f.facility_id 
+	AND c.proj_id = '11183' AND p.proj_id=c.proj_id AND a.end_time IS NOT NULL AND a.activity_code = t.activity_code 
+	AND ma.milestone_act_code=a.milestone_code AND ma.JCO_WIP_enable_flag='1' AND a.end_time <= '2013-07-11'
+	GROUP BY ma.milestone_act_code ORDER BY ma.milestone_act_name
+
+
+//Re-written QUERY - JCO-WIP INTO SUPER-category Grouping (FPP)
+
+SELECT ma.milestone_act_name,
+	(CASE WHEN sc.super_cat_id IS NULL THEN '9' ELSE sc.super_cat_id END) CATY_ID,
+	(CASE WHEN sc.super_category  IS NULL THEN 'Uncategorized' ELSE sc.super_category  END) CATY_NAME,
+	(SUM((CASE WHEN (u.facility_id = '2' AND a.chargeable_flag='0' AND a.chennai_err_start IS NULL 
+	AND a.dubuque_err_start IS NULL AND a.outside_err_start IS NULL) THEN 
+	TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600*f.fcy_cost ELSE 0 END))) WIP 
+FROM activity a, USER u, facility f, chapter c,projects p, department d, activity_type t, proj_milestone_act ma
+LEFT JOIN estimate_category ec ON (ec.category_id=ma.est_category_id)
+LEFT JOIN estimate_super_category sc ON (sc.super_cat_id = ec.super_category)
+WHERE u.dept_code = d.dept_code AND a.chapter_id = c.chapter_id AND t.productive='1' AND a.emp_id = u.emp_id AND u.facility_id = f.facility_id 
+	AND c.proj_id = '11183' AND p.proj_id=c.proj_id AND a.end_time IS NOT NULL AND a.activity_code = t.activity_code 
+	AND ma.milestone_act_code=a.milestone_code AND ma.JCO_WIP_enable_flag='1' AND a.end_time <= '2013-07-11'
+	GROUP BY sc.super_cat_id ORDER BY sc.super_cat_id
+
+
+//Re-written QUERY - JCO-WIP INTO SUPER-category Grouping (Alteration)
+
+SELECT (CASE WHEN sc.super_cat_id IS NULL THEN '9' ELSE sc.super_cat_id END) CATY_ID,
+	(CASE WHEN sc.super_category  IS NULL THEN 'Uncategorized' ELSE sc.super_category  END) CATY_NAME,
+	(SUM((CASE WHEN (u.facility_id = '2' AND a.chargeable_flag='1') THEN 
+	TIME_TO_SEC(TIMEDIFF(a.end_time,a.begin_time))/3600*f.fcy_cost ELSE 0 END))) WIP 
+FROM activity a, USER u, facility f, chapter c,projects p, department d, activity_type t, proj_milestone_act ma
+LEFT JOIN estimate_category ec ON (ec.category_id=ma.est_category_id)
+LEFT JOIN estimate_super_category sc ON (sc.super_cat_id = ec.super_category)
+WHERE u.dept_code = d.dept_code AND a.chapter_id = c.chapter_id AND t.productive='1' AND a.emp_id = u.emp_id AND u.facility_id = f.facility_id 
+	AND c.proj_id = '11183' AND p.proj_id=c.proj_id AND a.end_time IS NOT NULL AND a.activity_code = t.activity_code 
+	AND ma.milestone_act_code=a.milestone_code AND ma.JCO_WIP_enable_flag='1' AND a.end_time <= '2013-07-11'
+	GROUP BY sc.super_cat_id ORDER BY sc.super_cat_id
+
+
+//Re-written QUERY - Estimate category INTO SUPER-category Grouping 
+
+ SELECT SUM(esl.total),est.proj_id,
+	(CASE WHEN sc.super_cat_id IS NULL THEN '9' ELSE sc.super_cat_id END) CATY_ID ,
+	(CASE WHEN sc.super_category  IS NULL THEN 'Uncategorized' ELSE sc.super_category  END) CATY_NAME
+	FROM estimate est,estimate_lineitems esl
+	LEFT JOIN estimate_category es ON (esl.category_id=es.category)
+	LEFT JOIN estimate_super_category sc ON (es.super_category = sc.super_cat_id) 
+	WHERE est.est_number = esl.est_number AND est.proj_id = '11183' 
+	GROUP BY sc.super_cat_id ORDER BY sc.super_cat_id
+
+
+

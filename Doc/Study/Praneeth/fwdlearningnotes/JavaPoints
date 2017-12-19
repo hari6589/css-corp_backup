@@ -1,0 +1,35 @@
+Servlet Listener:
+Event is occurrence of something, in web application world an event can be initialization of application, destroying an application, request from client, creating/destroying a session, attribute modification in session etc.
+
+transient:
+==========
+To make a memmber variable as transient to avoid it as a serializable while trasnfer through network when persisted as stream bytes.	
+
+Actually the object need to transfer through network in stream bytes by serilazation.so it converts the state of object to byte stream using serilazation.
+
+
+Volitile:
+=========
+Declaring a volatile Java variable means: The value of this variable will never be cached thread-locally: all reads and writes will go straight to "main memory";
+Access to the variable acts as though it is enclosed in a synchronized block, synchronized on itself.
+
+MethodOverridding:
+
+*methodoverriding is allowing the method with same method name with same return type or child type of the base class method return type
+*The method name of the overridden method and overridding method should be same .
+*The overridding method scope should be lower than or equal scope but should not more than overridden method.
+*private ,static ,final methods are not allowed for method overridding.
+*if The overridding method throws any exception that should not be higher than the overridden method.
+
+Method overloading:
+*Methodoverloading is the no.of paremeters and the types of parameters and order of parameters.
+*In method overloading if we change the return type it doesn't comes under the methodoverloading..
+
+Dynamic polymorphism will implment in method overrridding.
+
+Static polymorphism will implement in method overloading.
+
+ 
+
+
+ 

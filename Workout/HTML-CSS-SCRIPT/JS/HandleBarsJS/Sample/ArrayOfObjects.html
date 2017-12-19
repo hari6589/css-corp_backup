@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>HandleBar ArrayList</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+		<script>
+			var _servicesData = '{"statusCode":"SUCCESSFUL","payload":{"acesVehicleId":"202541","total":"10","data":[{"mileage":"15000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element11","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"30000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element22","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"45000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element33","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"60000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"75000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"90000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"105000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"120000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"135000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]},{"mileage":"150000","services":[{"operationType":"REPLACE","components":[{"name":"Air Cleaner Element","note":"Replace every 15,000 miles if the vehicle is driven primarily in dusty conditions."},{"name":"Cabin Air Filter","note":"Replace every 15,000 miles if the vehicle is driven primarily in urban areas that have high concentrations of soot in the air from industry and from diesel-powered vehicles."}]}]}]}}';			
+		</script>
+
+	</head>
+	<body>
+
+		<div data-mileage-template style="display:none">
+            <div class="slide"><a class="mileage" href="#">{{mileage}}</a></div>
+		</div>
+
+		<div class="result_container"></div>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var obj = $.parseJSON(_servicesData);
+				var data = obj.payload.data;
+
+				var templateDiv = $('[data-mileage-template]').clone();
+				console.log(templateDiv.html());
+                var _container = self.$('.result_container');
+
+				var handlebarsTemplate = Handlebars.compile(templateDiv.html());
+
+				console.log("dataLength: " + data.length);
+				for(var i=0; i < data.length; i++) {
+					var dat = handlebarsTemplate(data[i]);
+					var services = data[i].services;
+					console.log("serviceLength: " +  services.length);
+					for(var j=0; j < services.length; j++) {
+						console.log(JSON.stringify(services[j]));
+						var comps = services[j].components;
+						console.log("compLength: " + comps.length);
+						for(var k=0; k < comps.length; k++) {
+							console.log(comps[k].name);
+						}
+					}
+				}
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,40 @@
+SET autocommit=0
+
+#PATHFINDER (BATCHES)
+SELECT * FROM projects WHERE proj_name LIKE '%151577%'
+SELECT * FROM chapter WHERE proj_id='151577' AND stage='FP'
+SELECT * FROM activity WHERE chapter_id='90840' AND emp_id='187'
+SELECT * FROM dropoff WHERE chapter_id='90840'
+SELECT * FROM USER WHERE emp_id='75'
+------------------------------------------------------------------
+#FILE MANAGEMENT (FILES)
+SELECT * FROM projects WHERE proj_id=''
+SELECT * FROM filename WHERE proj_id='' AND filetype_id=''
+SELECT * FROM fileupload_info WHERE file_id=''
+DELETE FROM projects WHERE proj_id=''
+DELETE FROM filename WHERE proj_id='' AND filetype_id=''
+DELETE FROM fileupload_info WHERE file_id=''
+------------------------------------------------------------------
+#FILE MANAGEMENT (PROJECT FOLDER)
+SELECT * FROM projects WHERE proj_id=''
+SELECT * FROM projects WHERE proj_name LIKE '%Thompson_150675%'
+SELECT * FROM proj_filetypepath WHERE proj_id='150675'
+SELECT * FROM fmproj_drive WHERE proj_id='150675'
+------------------------------------------------------------------
+# COMMON (LOGIN)
+SELECT * FROM logininfo WHERE emp_id='R&D' ORDER BY logintime DESC
+SELECT * FROM logoutinfo WHERE emp_id='R&D' ORDER BY logout_time DESC
+------------------------------------------------------------------
+# USER
+select * from user where emp_id=''
+select * from user where emp_name like '%bev%'
+
+COMMIT
+
+#if any issue then use:
+
+ROLLBACK
+
+#after completion of process, set autocommit as true
+
+SET autocommit=1

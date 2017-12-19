@@ -1,0 +1,166 @@
+JVM:
+	Java Virtual Machine is a combination of Execution Engine(interpreter) + Class loader system + Runtime data area
+
+	JRE is a combination of Java Runtime libraries and Java Package classes(util, math, lang..)
+	JDK = JRE + development tools (like debug)
+
+Class:
+	Class is a prototype of entity which has states and behaviours
+
+Object:
+	Object is an instance of class
+
+Inheritance:
+	Inheriting the public-protected attributes and methods of parent class
+
+Interface:
+	- Interface is a mechanisum to achieve abstraction, support multiple inheritance and used to achieve loose coupling.
+	- It helps to achieve Multiple Inheritance and write safe-code
+
+Abstract Class:
+	Abstract class is a class with keyword Abstract which contains atleast one abstract method. Abstract class can have method with definition. Abstract class can not be instantiated.
+
+Polymorphism:
+	Compile-time Polymorphism / Method Overloading:
+		- One in Many form. A class can contain n number of methods with same name, but those are differentiated with methods' signature
+	Run-time Polymorphism / Method Overriding:
+		- Overriding is ability to override the parent class's methods in a child class.
+		- Static method can not be overrided
+
+Exception:
+	> Exception is the problem occured in program
+	Checked-Exception:
+		- The exceptions that we have to deal with explicitly, either we have to throw it or catch & deal with it.
+		- FileNotFound, IOException
+	Unchecked-Exception:
+		- The exceptions that are not checked with compile-time.
+		- ArithmeticException, IndexOutOfBoundException
+Error:
+	> Error is the problem occured in the environment
+	- All errors are Unchecked exception
+	- OutOfMemoryError, StackOverflowError
+
+Generic:
+	- Generics is used to create type-safe object. Particularly generics helps collection to know what type of object is going to be stored.
+	- Advantages: Type Safty, Autoboxing & Unboxing and Compile-time checking
+
+Datatype:
+	Premitive: byte, char, short, int, long, float, double, boolean
+	Reference: String, Integer, Float...
+
+	- Primitive variables stores data value in memory
+	- Reference variables stores reference of object in memory
+
+String is immutable:
+	String litrans stores value in 'String Constant Pool' and stores the reference in variable.
+	'String Constant Pool' does not allow duplicate values, it returns the reference of existing value if new variable stores existing value.
+	Hence more than one variable refers same value is SCP, we can not change it.
+-------------
+SOAP
+	Simple Object Access Protocol
+		- uses XML data format
+		- defines the mechanism of services, what to call and what we will get
+		- Uses more bandwith so slow in performance
+REST
+	Representational State Transfer
+		- uses XML, JSON, Plain text..
+		- uses less bandwith so best in performance
+
+WSDL : Web Service Description Language
+	- Definition
+	- Operation
+	- Service Binding
+-------------
+Spring:
+	Spring is the most widly used lightweigh framework, the core concepts are 'Dependency Injection' and 'Aspect Oriented Programming'
+
+	Dependency injection is a pattern that implements inversion of control. means the object is injected into the service, instade of service litrally pointing the required object.
+
+IoC container:
+	IoC container is the core of spring, which used to instantiate the object and inject where it is required
+
+Importang Spring Modules:
+	- Spring Context
+	- Spring AOP
+	- Spring JDBC
+	- Spring ORM
+	- Spring DAO
+	- Spring MVC
+	- Spring Web Module
+
+Spring AOP
+	Aspect
+	Join Point
+	Advice
+		- Before
+		- After
+		- AfterReturning
+		- AfterThrowing
+	Pointcut
+-------------
+Hibernate:
+	Hibernate is a ORM (Object Relational Mapping) tool, which provides framework for mapping an object-oriented domain with relational database
+
+-------------
+
+Springboot:
+
+	Spring Framework provides flexible to configure bean in multiple ways such as XML, Annotations, and JavaConfig.
+	When features increases, the configuration becomes complex.
+	SpringBoot is created to address the configuration complexity of Spring Framework
+
+	Opinionated Default configuraiton - Its the way to create spring standalone application with minimal or no configuraitons:
+		1. Easy Dependency Management
+		2. Auto Configuration
+		3. Embedded Servlet Container Support
+
+	Based on the classpath it identifies the dependencies and add into our project
+	
+	Properties:
+		database.host = localhost
+		database.user = admin
+		server.port = 8081
+
+Microservice:
+
+	Distributed Transaction:
+		Event Driven Architecture & Two Phase Commit
+
+Load Balancing :
+	- Client side load Balancing
+		We will have service running in constant number of instances with different ports and will do load balancing among those instances in client(deployment machine) side itself. For instance, Ribbon we could achieve this.
+
+			Statergies:
+				- Simple Round Robin LB
+				- Weighted Response Time LB
+				- Zone Aware Round Robin LB
+				- Random LB
+
+	- Server side load balancing
+		We will have service running in n number of instances with different ports and will do load balancing among those instances in server(external Service Discovery) side. For instance, Eureka is a open-source service discovery provider which will monitor our service running instances and ports and it helps to minitor the load among instance and redirect the request accordingly
+
+Service Discovery:
+	In microservice architecture, the services are going to be running in differnt instances & ports which is dynamic.
+	Service Discovery used to collect the list of services and their network status in a list called Service Registry.
+	When a client request, it identify the less busy services over multiple instance and sends the request that particular instance.
+
+We are using Eureka Server which uses Spring Cloud
+
+@EnableEurekaServer annotation allows us to register microservices to the spring cloud.
+@EnableDiscoveryClient annotation also allows us to query Discovery server to find miroservices.
+@LoadBalanced - Spring provide smart RestTemplate for service discovery and load balancing by using @LoadBalanced annotation with RestTemplate instance.
+
+@EnableEurekaClient
+
+Docker:
+	Dcoker is a portable container which can have application package, portable among any running linux OS
+
+
+Myself Aravind working as Java developer for the last 4.6 years
+
+	Normalize and separated the core logics from front end
+		Front end contents and designs are managed by AEM. I worked for OSGi which communicates with Microservice
+	Next they started migrating the web services into microservices
+		We are using single Oracle DB as a backed for all microservice, due to the complex relationship between services
+		My role is to extracts the serivces from monolethic program and group it based on business servies
+

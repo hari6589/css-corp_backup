@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+    <title>File upload Node.</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.js"></script>
+	<script src="https://cdn-orig.socket.io/socket.io-1.2.0.js"></script>  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+  </head>
+  <body>
+	
+	<div class="container-fluid">
+	<header>
+		<div class="row"><br>
+			<div class="col-md-4 col-sm-4">
+				<img class="logo" src="images/ikea.png"/>
+			</div>
+			<div class="col-md-8 col-sm-8 " >
+				<img class="pull-right"  src="images/css_logo.png"/>
+			</div>
+		  </div>
+	</header>
+		  <br>
+		<div class="row">
+		<div class="col-md-4 col-sm-12 inner-div">
+			<h2>Knowledge Base</h2>
+				<ul id="files"></ul>
+		</div>	
+		
+		<div class="col-md-8">
+			<form id="form" action="">
+				<div class="device_div">
+					<input type="text" id="question" class="form-control inputclass" autocomplete="off" placeholder="Ask a Question" onkeypress="enable_send(event,this)" />
+					<!-- Microphone -->
+					<img class="image" data-toggle="tooltip" title="ask question by voice"  onclick="interpret_voice()" id="microphone" src="images/microphone.png"/>
+					<!-- Send -->
+					<img class="image" data-toggle="tooltip" title="send" style="display:none;" onclick="getAnswer()" id="send" src="images/send-icon.png"/>
+				</div>
+				<!--button onclick="getAnswer()">Send</button--><br>
+				<textarea id="answer" rows="5" placeholder="Your Answer" class="form-control inputclass"></textarea>
+				<!-- Speaker -->
+				<img class="image" data-toggle="tooltip" title="mute" onclick="speaker_toggle()" src="images/sound.png" id="speaker_image"/>
+			</form>
+			<form action="/api/photo"  enctype="multipart/form-data" method="post">			
+				<div class="download-box">
+					<h2>Upload Files to server</h2>
+					<svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43"><path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path></svg>
+					<label class="download-text"><strong>Choose a file</strong> or drag it here.</label>
+					<input class="dropzone" id="my-awesome-dropzone" type="file" multiple name="userPhoto" onchange="javascript:this.form.submit();" />
+				</div>
+			</form>
+			
+		</div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="footer_bottom">
+				<div class="left">Copyright © 2017 CSS Corp. All Rights Reserved.</div>
+				<div class="right">
+					<section id="custom_nav_menu-10" class="widget widget_custom_nav_menu">
+					<div class="widget-wrap"><ul id="menu-footer-menu-right" class="nav nav-pills"><li id="menu-item-16170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16170"><a href="https://www.csscorp.com/privacy-policy/" target="_blank" itemprop="url">Privacy Policy</a></li>
+						<li id="menu-item-16178" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16178"><a href="https://www.csscorp.com/legal/" itemprop="url" target="_blank">Legal</a></li>
+						<li id="menu-item-16678" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16678"><a href="https://www.csscorp.com/sitemap/" itemprop="url" target="_blank">Sitemap</a></li>
+						</ul>
+					</div>
+					</section>
+				</div>
+				<div class="clear"></div>
+			</div>
+	</footer>
+  </body> 
+  
+  <script>
+  var url = window.location.toString();
+  $(document).ready(function() {
+
+	alert(url+"------11111-------"+window.location);
+	alert(url.indexOf("/api/photo"));
+	//self['location'].replace(location['href'])
+	if(url.indexOf("/api/photo") != -1){
+		self['location'].replace(url);
+	}
+	
+	$( "#form" ).submit(function( event ) {
+		ques = $('#question').val();	
+		socket.emit('get_answer',ques);
+		
+		socket.on("answer",function(answer){
+			$('#answer').val(answer);
+			read_back_response(answer);
+		});
+		event.preventDefault();
+	});
+	
+	$('[data-toggle="tooltip"]').tooltip(); 
+  });
+</script>
+
+</html>

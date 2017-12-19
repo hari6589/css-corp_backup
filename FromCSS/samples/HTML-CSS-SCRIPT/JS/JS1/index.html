@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<title>JSON Parse</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+		<!-- <script src="main.js"></script> -->
+		<script src="main1.js"></script>
+
+		<script data-product-compare-template  type="text/x-handlebars-template">
+		    <td class="white-bg outer-row">
+		        <table class="inner-table">
+		            <thead>
+		                <tr>
+		                    <th>
+		                        {{tire.tire.tireName}} ___ {{rearTire.tire.tireName}}
+		                    </th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr class="product-img">
+		                    <td>
+		                        <img src="/content/dam/bsro/fcac/static-fcac/tires/zoom-60/{{tire.tireName}}.jpg" alt="{{tire.tireName}}" onError="this.onerror=null;this.src='/content/dam/bsro/fcac/static-fcac/tires/zoom-60/NoPic.jpg'">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        <img src="/content/dam/bsro/fcac/static-fcac/tires/brands/{{tire.tireBrandImage}}" width="150" alt="{{tire.tireBrandName}}">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        {{tire.tire.speedRating}} ___ {{rearTire.tire.speedRating}}
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        {{tire.tire.mileage}} ___ {{rearTire.tire.mileage}}
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        None
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        {{tire.tire.sidewallDescription}} ___ {{rearTire.tire.sidewallDescription}}
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        {{tire.tire.tireSize}} ___ {{rearTire.tire.tireSize}}
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        {{tire.tire.retailPrice}} ___ {{rearTire.tire.retailPrice}}
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        N/A
+		                    </td>
+		                </tr>
+		                <tr class="characteristics">
+		                    <td>
+		                        <i class="icon-all-season"></i>
+		                        <i class="icon-summer"></i>
+		                        <i class="icon-eco-friendly"></i>
+		                    </td>
+		                </tr>
+		            </tbody>
+		            <tfoot>
+		                <tr>
+		                    <td>
+		                        <a href="#" class="btn">Get Quote</a>
+		                    </td>
+		                </tr>
+		            </tfoot>
+		        </table>
+		    </td>
+		</script>
+
+		<script data-product-compare-header-template  type="text/x-handlebars-template">
+		    <th class="white-bg outer-row">
+		        <table class="inner-table-title">
+		            <thead>
+		                <tr>
+		                    <th>
+		                        Product Name
+		                    </th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr class="product-img">
+		                    <td>
+		                        Product Detail
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Brand
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Speed Rating
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Mileage Warranty
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Technology
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Sidewall Type
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Size
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Price Per Tire
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>
+		                        Special Offers
+		                    </td>
+		                </tr>
+		                <tr class="characteristics">
+		                    <td>
+		                        Characteristic
+		                    </td>
+		                </tr>
+		            </tbody>
+		        </table>
+		    </th>
+		</script>
+
+	</head>
+	<body>
+		<section class="product-compare modal" id="compare">
+		    <h2>Tire Compare</h2>
+		    <div class="outer-table-wrapper">
+		        <div class="inner-table-wrapper">
+		            <table>
+		                <tbody>
+		                    <tr id="product-result-placeholder"></tr>
+		                </tbody>
+		            </table>
+		        </div>
+		    </div>
+		</section>
+	</body>
+</html>

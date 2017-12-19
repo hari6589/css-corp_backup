@@ -1,0 +1,1482 @@
+﻿JVM = Class loader system + runtime data area + Execution Engine
+
+JRE = JVM + Java Packages Classes(like util, math, lang, awt,swing etc) + Runtime libraries.
+
+JDK = JRE + Development/debugging tools
+
+Java Architecture
+	- Javac compiles our java code into Bytecode.
+	- JVM means Java Virtual Machine, runs/interprets/translates Bytecode into Native Machine Code. JIT is used to compile the given bytecode instruction sequence to machine code at runtime before executing it natively. JVM is a interpreter.
+
+Java Datatypes:
+
+	byte, short, int, long, float, double, char, boolean
+
+	Javascript Datatypes: Number, String, Boolean, Symbol, Null, Undefined, 
+
+Java 8 Features:
+	
+	- Lambda Expression
+		Java's first step into Functional Programming. A function which can be created without belogs to any class.
+		Functional interfaces - an Interface with only one abstract method
+
+	- Default Method (Defender method)
+	- Stream
+	- Method reference
+	- Optional
+	and so...
+
+classpath helps vm to collect classess of our project from machine
+
+Autoboxing and Unboxing:
+	
+	Integer i = 10; // Autoboxing
+
+	Integer i = 20;
+	i += 10;		// Unboxing
+
+Generics:
+	
+	Used to create type-safe object. Before generics we can store any type of object in collection. Generics provides compile-time type checking and removes risk of ClassCastException.
+
+	Advantages:
+		- Type safety
+		- Type casting is not requied
+		- Compile-time checking
+
+	Generic Class
+
+	Type Parameters
+		T - Type
+		E - Element
+		K - Key
+		N - Number
+		V - Value
+
+OOPS:
+	Object Based language
+		It does not support all the features of OOPS, like Inheritance and Polymorphism
+		It has in-built object, like javascript has 'window' object
+		Javascript, VB
+	Partially Object Oriented Language
+		Object oriented language supports all features of OOPS
+		It does not have any in-built object
+		C++, C#, Java
+		Java is not purly oops language, only because it has Primitive data type, which are not a class/object
+	Purly Object Oriented Language
+		Everything is in the form of Object
+		Objective C
+
+	What are the OOPS concepts implemented in project?
+
+Inheritance
+	Inheriting the public & protected methods & attribute of parent class
+		- Single inheritance
+		- Multiple inheritance - by interface
+		- Multilevel inheritance
+		- Hierarchical inheritance
+		- Hybrid inheritance
+
+	Child class construction calls the parent class's constructor by default with no-arg parameter. No need to specify explicitly. If parent constructor needs args then we could use 'super(arg)' to invoke Parent class's arg-constructor.
+
+Interface
+	It is a collection of abstract methods
+	In interface all objects are public and final.
+	It can have Constants and Nested types
+	From Java 8 we could have Static and Default methods in interface
+
+	Interface can have Method definition using default-method feature introduced in Java8
+	Default Method and Multiple Inheritance Ambiguity - 2 implementing interfaces having same default method
+	To Solve
+		- We can define our own method in Child class or
+		- We can choose any default implementation or both as part of our new method. //InterfaceA.super.defaultMethod();
+
+Marker Interface:
+	Interface which has no method declarations(empty interface). By implementing this marker interface, we can simply mark some class for special functionality.
+	For instance, ClassA implements InterfaceA then instanceof(classAobj instanceof InterfaceA) will return true. So it identified the class by the marker and perform special action.
+
+	For instance, RamdomAccess marker interface is implemented in ArrayList implementation class. So that it allows pick data ramdomly.
+
+Abstract Class
+	Abstraction is the process of hiding implementation
+	Abstract class can not be instantiated
+	Abstract can have Constructor, Data member(state), methods(behaviour)...
+	Abstract class provides flexibility like private and protected
+
+Interface vs Abstract Class:
+	- Multiple inheritance possible with Interface, not in Abstract Class
+	- Interface doesn't contains Data Member, Abstract class does
+	- Interface contains only incomplete members(before Java 8), Abstract class contains both complete and incomplete members
+	- All Interface elements' access-modifiers are public by default, Abstract class can contains subs, functions, properties
+	- Member of interface can not be Static(before Java 8), Only complete member of Abstract class can be Static
+
+Should i use Interface and Abstract Class?
+	Two ways: Abstract Class (0 to 100% abstraction) and Interface (100% abstraction)
+	When we need full implementation in subclass then we choose Interface. If we need partial piece of your design then go for Abstract(for reusability)
+	
+	Use Abstract class to establish relationship between related class. For unrelated classes use Interface
+
+	For example: Bank Abstract class shares resource 'RBI' to all banks.. but the extended ChildObject have their own rateOfInterest method. So the Bank object is partially inherited
+
+Overloading vs Overriding
+	Overloading - Two methods in a same class has same name but the method signature is different. The method invocation is depend up on the input which user given. If overload a method by its return-type, compile time error.
+*	Overriding - Two methods have same name, no of parameters, return type. One in parent class and another in Sub class. The invocation is depend up on the object which is used to call.
+
+	Static methods can not be overriden because the method calls are resolved in compile time itself.
+	We can wirte overriding method in child class, but the parent method will be called, hence it is resolve in compile time itself. This is called method Hiding.
+
+	syso method is overloaded to accept all premitive data type parameters. We can give int, double, char, string... datatypes in syso.
+	Overloading can be done by simply changing the order of parameters
+
+	Final class can not be Extended. So we can not override.
+	We can also make the parent class constructor as Private. So the super class constructor is not visible to subclass. Then user can not extend it.
+
+	In Singleton Design Pattern, parent class constructor purposefully made as private and a static getInstance() method is provided to access the singleton instance.
+
+	Co-varient overriding - return type of overriding method no need to be same type.
+
+Exception:
+	A problem that raise during the execution(compile-time and run-time) of program.
+	It terminates the programm obnormally which is not recommended. therefore the exceptions are to be handled.
+
+	Checked Exception / Compiletime exception:
+		Reading a file from class but the file may not exist. The compiler prompts the programmer to handle that excpetion, is Checked Exception.
+
+	Unchecked Exception / Runtime exception:
+		This runtime exception is occured due to Logic errors, bugs, and improper use of API. For instance an array have 4 records, if we get the 6th record, then 'ArrayIndexOutOfBoundException' occurs. These are not exceptions at all, but problems beyond the control of user/programmer
+
+	CODE:
+		class UserNotFound extends Exception { //extends RuntimeException to create custom RuntimeException class
+			UserNotFound(String msg) {
+				super(msg);
+			}
+		}
+		class UserTest {
+			public static void display() throws UserNotFound {
+				throw new UserNotFound("No user found!");
+			}
+			public static void main(String[] args) {
+				try {
+					display();
+				} catch(Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		}
+
+Errors:
+	Errors happens at runtime that will not be known by compiler.
+	It is impossible to recover from error
+	All Errors are unchecked
+	Errors mostly caused by environment (whereas exception are caused by application)
+	Ex: StackOverflowError, OutOfMemoryError..
+
+Datatype:
+	Primitive Data Type : byte, short, int, long, float, double, boolean and char
+	Reference Type: String, Integer, Car, HelloWorld
+
+	Primitive type variable stores data value in memory. But the Refrence Type stores reference of object in memory.
+	
+	If int i; is defined and the default value will be 0. But Integer i = new Integer(); is defined then the default value is null, means there is no reference pointed yet.
+
+	Void is not a Primitive data type
+
+String:
+
+	String are immutable
+
+		String a = "Hello";
+		String b = "Hello";
+		String c = new String("Hello");
+		System.out.println(a.hashCode()); // 69609650
+		System.out.println(b.hashCode()); // 69609650
+
+		Totaly two object will be created,
+			- While initializing first String litral a it will create 'intern object' in String Constant Pool
+			- While initializing litral b there will be no new object created hence the value is already exist in String Constant Pool
+			- While initializing c with 'new' operator, JVM creates new object in heap and refers the same 'intern object' from String Constant Pool
+
+	If we change the value of 'b', then new reference will be created and mapped to 'b'. The  69609650's value is not changed, thats why String are immutable
+	Both String are sharing same reference in String Pool
+
+StringBuffer vs StringBuilder
+	StringBuffer is Synchronous, ie., thread-safe whereas StringBuilder is not Synchronous
+	StringBuffer is less effecient than StringBuilder
+
+'this' Object:
+	- 'this' refers the current object
+	- All non-static methods/attributes are runs in the context of an Object. If a non-static method says 'this' means the current object.
+
+> Class without constructor, by default no-arg constructor will be created
+
+Heap Memory :
+	To setup Minimum and Maximum heap memory which the JAR is going to use
+
+	> java -jar standalone.jar -Xms126m - Xmx512m
+
+	-Xms specifies the minimum heap memory and -Xmx specifies the maximum heap memory that our JAR can use
+
+System.exit(0) or EXIT_SUCCESS;  ---> Success
+System.exit(1) or EXIT_FAILURE;  ---> Exception
+System.exit(-1) or EXIT_ERROR;   ---> Error
+	
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Collections:
+	
+	List:
+		ArrayList
+		LinkedList
+		Vector
+		Stack
+	Set:
+		HashSet (impl of Set)
+		LinkedHashSet (impl of SortedSet)
+		TreeSet
+	Queue:
+		PriorityQueue (implementation of Queue)
+		ArrayDequeue (implementation of Dequeue)
+	-------------------------------------------------------
+	List:
+		ArrayList:
+			Order : Insertion Order
+			Duplicate : Yes
+			Synchronized : No
+
+			Access : Fast - Random access because ArrayList works at the index basis.
+			//Hence the ArrayList class implements RandomAccess marker interface. The purpose of this interface is to allow generic algorithm to alter their behavior to provide good performance.
+			Manipulation Performance : Slow - because lot of shifting needs to be done on removal of element
+
+		LinkedList:
+			Order : Insertion Order
+			Duplicate : Yes
+			Synchronized : No
+
+			Access : Slow - because it traverse from the first to find the requested element
+			Manipulation Performance : Fast - because no shifting needs to be done on removal of element
+
+		Vector:
+			Order : Insertion Order
+			Duplicate : Yes
+			Synchronized : Yes
+
+			Access : Fast - Random access because Vector works at the index basis.
+			//Hence the ArrayList class implements RandomAccess marker interface. The purpose of this interface is to allow generic algorithm to alter their behavior to provide good performance.
+
+	Set:
+		HashSet:
+			Synchronized : Yes
+			Duplicate : No
+			Access : Fast - hence it is using hashing mechanism
+			Null : Allow single Null value
+		LinkedHashSet:
+			Order : Insertion Order
+			Duplicate : No
+			Access : Fast - hence it is using hashing mechanism
+			Null : Allow single Null value
+		TreeSet:
+			Duplicate : No
+			Order : Ascending Order
+			Access : Fast
+
+	Queue:
+		PriorityQueue:
+			FIFO
+			It maintains Ascending order
+				- Peek method is used to return the head of queue
+				- Poll method is used to return the head of queue and remove the element
+		Deque: (Double ended Queue)
+			Insertion and Deletion at both ends
+				- offerFirst & offerLast to add elements in First and Last position of queue
+				- pollFirst & pollLast is to return and remove first and last element from queue
+
+Synchronized Collection Classes:
+
+	HashTable, HashSet, Vector and Synchronized ArrayList
+
+	Slower hence it Locks the whole collection
+
+Concurrent:
+
+	ConcurrentHashMap, CopyOnWriteArrayList, CopyOnWriteHashSet
+
+	Faster than Synchronized, hence it Locks a relavent segment which allows multiple thread access the Collection but not the particular segment. This technique is called Lock Stripping
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Map:
+	HashMap:
+		Order : No
+		Synchronized : No
+		Null : May contain One Null key and multiple Null value
+
+		Duplicate : No duplicate key but allows duplicate value
+
+	LinkedHashMap:
+		Order : Insertion Order
+		Synchronized : No
+		Null : May contain One Null key and multiple Null value
+
+		Duplicate : No duplicate key but allows duplicate value
+		
+	TreeMap:
+		Order : Ascending Order
+		Synchronized : No
+		Null : No Null key and multiple Null value
+
+		Duplicate : No duplicate key but allows duplicate value
+	
+	HashTable:
+
+		- HashTable is an array of list
+		- Each list is known as a bucket
+		- The position of bucket is identified by calling the hashCode() method
+		- It contains value based on key
+
+		Synchronized : Yes
+		Null : No Null key or value
+
+HashMap vs HashTable
+	- HashMap is not synchronized, but HashTable is
+	- HashMap allows one Null key and multiple Null value, but HashTable does not allow Null key or value
+	- HashMap is Fast, HashTable is slow
+	- HashMap can be iterated using Iterator, HashTable can be iterated using Iterator and Enumerator
+	- Iterator in HashMap is fail-fast, but not in HashTable
+
+'fail-fast' - Iterators from java.util package throw ConcurrentModificationException if collection was modified by collection's methods (add / remove) while iterating
+
+'weakly-consistent' - Iterators from java.util.concurrent package typically iterate over a snapshot and allow concurrent modifications but may not reflect collection updates after the iterator was created.
+
+EnumSet
+	enum days {
+		SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY  
+	}
+
+	Set<days>
+
+EnumMap:
+	public enum Days {
+		Monday, Tuesday, Wednesday, Thursday
+	};
+
+	EnumMap<Days, String>
+--------------------------------------------
+Iterator and ListIterator
+	- ListIterator is to traverse only List not Set.
+	- ListIterator can traverse both direction but List can not.
+	- We can obtain index while using ListIterator by nextIndex() and previousIndex()
+	- We can add element while traverse using ListIterator but not in Iterator, if we do will get ConcurrentModificationException
+	- We can replace the existing element while traverse using ListIterator but not in interator
+
+	Iterator:
+		hasNext(), next(), remove()
+	ListIterator:
+		add(E e), hasNext(), hasPrevious(), next, nextIndex(), previous(), previousIndex(), remove(), set(E e)
+
+Iterator and Enumeration:
+	
+	- We can not modify while traverse using Enumeration where as in Iterator we can remove element from collection while iteration.
+	- Iterator is Fail-fast and Enumeration is fail-safe which does not throws ConcurrentModificationException. So Enumeration is not-safe to use hence it does not intimate when the data modified concurrently.
+	- Enumeration uses to traverse Vector, Stack and HashTable. Iterator used to traverse most of collections ArrayList, LinkedList, HashMap, HashSet and so..
+
+Iterator and For loop:
+	- For loop is used to traverse the collection by using Index
+	- For loop can be used to traverse only List only, hence Set and Map does not have index
+	- ForEach loop internally uses Interator
+	- We can traverse both directions and we can add or remove element in interation by using ListIterator, but we can't do it in For loop
+--------------------------------------------
+Comparable vs Comparator
+
+	- Comparable used to provide single way of sorting, Comparator interface is used to provide different ways of sorting
+	- For Comparable, class needs to be implemented. For Comparator, we don't need to make any changes in class
+	- Comparable interface is in java.lang, Comparator interface is present in java.util package
+	- For Comparable we don't need to make any changes at client side (Array.sort(), Collection.sort() methods automatically uses the compareTo() method of the class). For Comparator client need to provide the Comparator class to use in comapre() method
+
+	Comparable:
+		public class Student implements Comparable {
+			private int rollno;
+    		private int age;
+    		// Getter setters for attributes
+    		@Override
+		    public int compareTo(Student stud) {
+		        return this.age-stud.getAge(); // For ascending order
+		        //return compareage-this.studentage; // For descending order
+		    }
+		}
+
+		// Sort by Comparable
+		Collections.sort(arraylist);
+
+	Comparator:
+		public static Comparator<Student> StuNameComparator = new Comparator<Student>() {
+			public int compare(Student s1, Student s2) {
+			   return StudentName1.compareTo(StudentName2); //ascending order
+			   //return StudentName2.compareTo(StudentName1); //descending order
+		    }
+		}
+
+		// Sort by Comparator
+		Collections.sort(arraylist, Student.StuNameComparator);
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+PermGen Memory:
+	Memory(Heap) is managed in generations, or memory pools holding objects of different ages. Garbage collection occurs in each generation when the generation fills up. Objects are allocated in a generation for younger objects or the young generation, and because of infant mortality most objects die there.
+
+	When any new object is constructed it goes to Eden space which is a part of Young Generation.
+
+	If object is still alive after some time it goes to tenured generation where long lived objects lie.
+
+	If object is supposed to live until over process exist then object is moved to Perm Generation.Java classes are stored in the permanent generation.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+REST:
+	
+	Methods - GET, POST, PUT, DELETE and PATCH
+
+	Param - PathParam, QueryParam(separated by &), MatrixParam(seperated by ;), FormDataParam
+	
+	@FormDataParam - to pass file content as input to webservice
+
+	PathParam vs QueryParam
+		- Use required parameter in PathParam and Optional parameter in QueryParam
+		- We could use unique-identifier in PathParam and non-unique values in QueryParam
+
+	PUT and DELETE are idempotent methods. ie., same input with multiple request results no impact in resource(DB). For non-idempotent methods like POST, each request impacts the resource(DB)
+
+HTTP vs REST:
+
+	SOAP provides mechanisum of service describe themself to client. REST does not, user need to know what to send and what to expect.
+	SOAP is slower and REST is faster.
+	SOAP requires more bandwidth, but REST does not.
+	SOAP permits only XML data, but REST permits plain-text, XML, HTML, JSON.. etc
+	SOAP based reads cannot be cached, whereas REST based reads can be cached
+
+HTTP vs HTTPS:
+
+		HTTP - Hyper Text Transfer Protocol. The protocol to transfer data over network which is not confidential.
+
+		HTTPS - Hyper Text Transfer Protocol Secure, transfer data over network in an encrypted format and decript the data by the receiver, which the help of same SSL certificate(Secure Socket Layer). Even if the intruder gets the data, that will be a encrypted one. HTTPS is somewhat slower than HTTP hence it take some time to Encrypt and Decrypt process.
+
+		That is why HTTP is used for common network transactions, so the transaction will be fast and HTTPS is used for confidential informations, eventhough it takes time, it is safe.
+
+GET vs POST:
+	
+	Get - Data as query parameter, as a key value pair.
+
+	POST - Data as Message body, will not visible to user. Can not be cached.
+		- If you POST a resource twice, then litrally it considered as two requests
+		- POST is for new resource
+	PUT - With PUT we must send all the attribute values, whereas POST will work fine if attribute value misses.
+		- If you PUT a resource twice, then no effect. 
+		- PUT create new resource if already exist then edit the existing resource
+		- PUT is idempotent
+	OPTIONS - Allow multiple methods(GET,PUT,POST,DELETE) for the same http request
+
+CORS - access-control-allow-origin:*
+
+Application State - Application level / Session level. To current image index in galary
+Resource State - Database level. To save MultiStep purchasing process.
+
+WSDL:
+
+	***************
+	- Definition
+	- Operations
+	- Service Binding
+
+SOA
+
+	***************
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Monolithic Architecture:
+
+	Write bussiness logics at core and providing adapters to connect with DB, API, Administrator,...
+	The acutal format is depend upon the Language and framework
+
+	- This Monolithic Architecture has limitations. Adding new stories and featurs the application becomes huge which is difficult to maintain and bug fix.
+	- For a single developer, its difficult to understand fully
+	- Takes more start-up time. If the project is very huge, it takes more time to start-up, and the developer needs to sepend most of the time in a day for start-up
+	- Even a small change in a part, needs to rebuild the whole project which takes more time
+	- Reliability issue - Bug in one module down the entire application
+	- Difficult to adopt to new framework which will take more time
+
+Microservice Architecture - Tackling the above complexities
+
+	- In a microservice typically implements a set of distinct features/functionalities
+	- Some microservices expose API that consumed by other microservices
+	- More than one deployment instances. Handle the request to instances with the help of loadbalance
+
+	Microservice architecture significantly affect the relationship between application and database. Rather than sharing same DB, each service has its own DB
+
+	Drawback:
+		- Developer may create less than 100 LOC as a microservice. Many microservices also make difficult to maintain
+		- Sometime Microservice communicate each other, which take time to response
+		- If there is a change in ModuleA which is depend on Module B and C. Need significant change in dependent services also. In Monolithic we can directly change it
+
+	Direct client-to-microservice communication make difficult to do split/merge service in future. and client need to request multiple services to get complete data(item, order history, status...). API Gateway helps to handle this issue. we can fix in API Gateway if any changes in microservice. And single API call can get data from multiple services.
+
+	Benifits and Drawbacks of API Gateway:
+		- b - reduse roundtrip of communication betwee client and application
+		- d - highly available component which needs to be developed, deployed and maintained. 
+
+	Service Discovery:
+		API Gateway need the service location (IP and Port). For monolithic it is just a hardware IP. For Infrastructure services  such as message broker will have static location which can be specified via OS environment variable
+
+		For Application services we need to discover the microservice location. We have Server Side Discovery and Client Side Discovery method
+
+	API Gateway uses cache which returns data if no response from service.
+
+	Communication between microservice:
+		Synchronous and Asynchronous
+		Message Format: JSON and XML
+		Communicate through HTTP Protocol
+		also called Distributed Transaction
+
+	Event-Driven Architecture:
+		Creating Order and Customer Limits are two services
+		To create Order, customer limits is required.
+		So, whenever we creating order publish an event. Customer consumes that event and publish create event
+		Then the Creting order is consumes the create event and change the Order status to open
+
+	Microservice risks ACID - Atomicity, Consistency, Isolation and Durability
+
+	Atomicity:
+		Completion of transaction. If ther are 5 transaction in a service, it should not break on 3rd service. then the DB becomes inconsistent.
+
+----------------------------------------------------------------------------------------------------
+Spring:
+	
+	Spirng is the most widly used JEE framework, the core concepts are 'Dependency Injection' and 'Aspect Oriented Programming'
+
+	Dependency injection is the pattern to remove the hard-coded dependences and make our application componenet loosely couple, extendable and maintenable.
+	We can implement dependency injection to move dependency resolution from compile-time to runtime
+	Benifits: Boilerplate code reduction, Configurable components and easy to unit test
+	(OR)
+	Dependency injection is a pattern that implements inversion of control. means the object is injected into the service, instead of service litrally pointing the required object. So that the service and objects are independent. Hence both are independent we can add new object or new service in future with no code change in existing structure. dependency injection is a pattern that implements inversion of control for resolving dependencies.
+
+	- We can perform cross cutting task such as Logging, Authentication, Transaction Management and Data Validation using spring support for 'Aspect Oriented Programming'.
+
+	Spring - latest version 5
+	// DispatcherServlet
+
+Features and Advantages:
+	
+	- Redusing the dependencies between components of application.
+	- Writing Unit test is easy in spring framework because our bussiness logic doesn't have direct dependency. We can write test bean and inject our mock beans for testing purpose
+	- Spring taking care of boiler-plate code like opening, closing resource. like JDBC
+
+Important Spring Modules:
+	> Spring Core
+		_ IoC Container
+	> Spring AOP
+		_ Spring AOP
+		_ AspectJ integration
+
+		> Spring DAO
+			_ Spring JDBC
+			_ Transaction Management
+		> Spring ORM
+			_ Hibernate
+			_ JPA
+			_ JDO
+			_ iBatis
+			...
+	> Spring JEE
+		_ EJBs
+		_ JMX
+		_ JCA
+		...
+	> Spring Web Module
+		_ Spring Web MVC
+		_ Struts
+		_ JSPs
+		...
+
+Spring Request flow:
+	- Client request via HTTP
+	- Webserver/Appserver is responsible to receive the HTTP request
+	- It finds the matching application within the server using the web.xml configuration
+	- In SpringMVC application we will be configure spring's DispatcherServlet in web.xml, so that spring will receive all the request
+	- Spring Dispatcher Servlet identifies the controller using @RequestMapping, @GetMapping, @PostMapping, @Controller, @RestController
+	- After proceses controller returns logical-view-name and Model to DispatcherServlet
+	- DispatcherServlet consults ViewResolver to find the view using logical-view-name and render data with the Model we have passed
+	- The rendered output is returned to Client via HTTP
+
+Types of Bean Injections:	
+	- By Constructor
+	- By Setter
+	
+Constructor vs Setter based Dependency Injection:
+	
+	Partial dependency: can be injected using setter injection but it is not possible by constructor. Suppose there are 3 properties in a class, having 3 arg constructor and setters methods. In such case, if you want to pass information for only one property, it is possible by setter method only.
+	
+	Overriding: Setter injection overrides the constructor injection. If we use both constructor and setter injection, IOC container will use the setter injection.
+	
+	Changes: We can easily change the value by setter injection. It doesn't create a new bean instance always like constructor. So setter injection is flexible than constructor injection.
+
+	While injection object Constructor we are invoking the parent class's Constructors as well.
+	Constructor is mandatory to instantiate an object. So the injection will happen without fail. In Setter, may or may not be called. So the instance may never be provided with dependency. To force it @Required or @Autowired should be used.
+
+How Singleton Class serves concurrently to multiple users?
+	Singleton class should be stateless ie., it should not have state. Only prototype objects can have state which is depend on every request.
+	If two request simultaniously access Singleton then it should be stateless, or atleast synchronous to avoid concurrency problem.
+	Each request is served with individual thread, so no conflicts among concurrent requests.
+
+	Spring creates proxy as soon as you call controller and spring forwards the method call to the right instance.
+
+Proxy Object:
+	Proxy Object is created at runtime, around our custom class. When we are calling our class's methods, the Proxy object will be invoked indirectly and it helps to do some actions before, after, around, after-returning, and after-throwing our custom method. Using Spring AOP.
+
+	Achieved by implementing java.lang.reflect.InvocationHandler - invoke(Object proxy, Method method, Objects[] args)
+
+	For example: We have an interface for service and we specify @Transactional in a service implementation class, Spring creates Proxy object hence the implementation class is annotated with @Transactional. Spring also create TransactionalInterceptor and pass it to the generated proxy object. When the controller calls the service, the proxy's method(interceptor) will be invoked(not our custom service method), once the target method invocation is finished the TransactionInterceptor commits/rollback the transaction. It is transpparent to the client code.
+
+	If you bean invokes one of its own method, then it will not be doing via the Proxy. Spring wraps our bean with proxy, our bean does not have knowledge of it. Only calls from outside, your bean go through the proxy.
+
+AOP vs AspectJ
+	AOP can be applied only to the bean created through Spring Context
+	AOP support method execution pointcut, AspectJ support all kind of pointcuts
+
+IoC Container:
+	IoC container use the following to identify the components depend upon the project and helps to decouple the dependencies
+
+	- AnnotationConfigApplicationContext for standalone java app using annotation based config
+	- ClassPathXmlApplicationContext for standalone java app using xml based config
+	- FileSystemXmlApplicationContext, same as above but the xml file will be loaded anywhere from the file-system
+	- AnnotationConfigWebApplicationContext and XmlWebApplicationContext for web applications.
+
+Spring Bean:
+	
+	Any normal class which is initialized by Spring IoC container is called spring bean. We use 'ApplicationContext' to get the spring bean instance.
+	Spring IoC manages the lifecycle of Spring Bean, Bean Scope and Injecting any required dependency
+
+Spring Bean Lifecycle:
+
+	- Spring container finds the bean config from the xml file and instantiates
+	- Using dependency injection, spring populates all the properties as specified in bean definition
+	- If the bean implements BeanNameAware interface, then the factory calls setBeanName() passing the bean's id
+	- If the bean implements BeanFactoryAware interface, then the factory calls setBeanFactory() passing the bean's id
+	- If any PostProcessors associated with bean, then postProcessBeforeInitialization() method will be called
+	- If any init-method is specified for the bean, then it will be called
+	- If any PostProcessors associated with bean, then postProcessAfterInitialization() method will be called
+
+	Lifecycle Methods:
+		setup() and teardown()
+
+	Spring Bean life Cycle:
+	
+		Spring beans are initialized by spring container and all the dependencies are injected. Once the context is destroyed, it also destroys all the initialized beans.
+
+		Spring framework support post-initialization and pre-destroy methods in spring beans
+
+		We can do this in two ways - by implementing 'InitializingBean' and 'DisposableBean' interface or using 'init-method' and 'destroy-method' attribute in bean configuration.
+
+Autowire Types:
+	
+	- byName
+	- byType
+	- constructor
+	- autodetect
+
+
+		By Name:
+            public class Customer {
+                private Person person;
+
+               @Autowired
+                public void setPerson(Person person) {
+                    this.person = person;
+                }
+            }
+
+        By Constructor:
+            public class Customer {
+                private Person person;
+
+                @Autowired
+                public Customer(Person person) {
+                        this.person = person;
+                }
+            }
+        By field (Type):
+            public class Customer {
+                @Autowired         //@Autowired(required=false) avoid injecting if no bean matched
+                private Person person;
+            }
+
+Spring Bean Configuration file:
+	
+	We use Spring Bean configuration file to define all the beans that will be initialized by Spring Context. When we create the instance of Spring ApplicationContext, it reads the spring bean xml file and initialize all of them.
+
+Different ways to configure class as Spring bean:
+	
+	- XML Configuration : context file to configure a Spring Bean
+		<bean name="myBean" class="com.journaldev.spring.beans.MyBean"></bean>
+	
+	- Java Based Configuration: Use @Bean annotation in class contains @Configuration annotation to configure a spring bean
+		@Configuration
+		@ComponentScan(value="com.journaldev.spring.main")
+		public class MyConfiguration {
+
+			@Bean
+			public MyService getService(){
+				return new MyService();
+			}
+		}
+		---
+	- AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfiguration.class);
+		MyService service = ctx.getBean(MyService.class);
+
+	- Annotation Based Configuration : We can also use @Component, @Service, @Repository and @Controller annotation to configure a spring bean. For this we need to provide basic package location to scan for bean like below
+		<context:component-scan base-package="com.journaldev.spring" />
+
+Scope of Spring Bean:
+	
+*	1. Singleton : 
+		- Only one instance of bean will be created for each container. This is default scope of spring bean.
+		- While using this make sure the bean is not share instance variable, which leads data inconsistency coz its not thread safe
+	2. Prototype : (for each bean request)
+		New instance will be created for every time the bean is requested
+	3. Request : (for each http request)
+		Same as Prototype, however its ment to be used for web application. New instance will be created for every HTTP request received.
+	4. Session : 
+		New bean will be created for each HTTP session by the container
+	5. Global-Session :
+		This is used to create global session bean for portlet application. We can customize, but better with the scope provided framework
+
+	To setup scope of bean, add scope attribute in xml or use @Scope annotation for annotation based configuration
+
+	Syntax:
+		@Scope("singleton")
+
+Get ServerletContext in spring bean:
+	@Autowired
+	ServletContext servletContext;
+
+@Autowired
+	Injects the dependent object into bean automatically
+	- autowire byName
+	- autowire byType
+	- autowire byConstructor
+	- autowiring by @Autowired and @Qualifier annotation
+
+	By Name:
+		public class Customer {
+			private Person person;
+
+			@Autowired
+			public void setPerson(Person person) {
+				this.person = person;
+			}
+		}
+
+	By Constructor:
+		public class Customer {
+			private Person person;
+
+			@Autowired
+			public Customer(Person person) {
+				this.person = person;
+			}
+		}
+
+	By field (Type):
+		public class Customer {
+			@Autowired 	//@Autowired(required=false) avoid injecting if no bean matched
+			private Person person;
+		}
+
+@Qualifier :
+	- Same bean declared twice, which bean will be autowired. In such case you can use @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired.
+
+	Config:
+		<bean id="javaOrderBean" class="com.java2novice.beans.Order" >
+	        <property name="item" value="Java Book" />
+	    </bean>
+	    <bean id="oracleOrderBean" class="com.java2novice.beans.Order" >
+	        <property name="item" value="Oracle Book" />
+	    </bean>
+
+    @Autowired
+    @Qualifier("oracleOrderBean")
+    private Order order;
+
+Controller in Spring MVC
+	Takes care of all the client requests and send them to the configured resources to handle it
+	We can create a controller class by using @Controller annotation. Usually it’s used with @RequestMapping annotation to define handler methods for specific URI mapping
+		org.springframework.web.servlet.DispatcherServlet
+
+@Component, @Controller, @Service, @Repository
+
+	@Component is used to indicate that a class is a component. These classes are used for auto detection and configured as bean, when annotation based configurations are used.
+
+	@Controller is a specific type of component, used in MVC applications and mostly used with RequestMapping annotation.
+
+	@Repository annotation is used to indicate that a component is used as repository and a mechanism to store/retrieve/search data. We can apply this annotation with DAO pattern implementation classes. It means the unchecked exceptions eligible for translation into Spring DataAccessException
+
+	@Service is used to indicate that a class is a Service. Usually the business facade classes that provide some services are annotated with this.
+
+Dispatcher Servlet:
+	DispatcherServlet is the front controller in the Spring MVC application and it loads the spring bean configuration file and initialize all the beans that are configured. If annotations are enabled, it also scans the packages and configure any bean annotated with @Component, @Controller, @Repository or @Service annotations.
+
+View Resolver:
+	ViewResolver implementations are used to resolve the view pages by name. Usually we configure it in the spring bean configuration file.
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	If handler method returns 'home', then the view resolver will use page located at '/WEB-INF/views/home.jsp'
+
+Handle exceptions in Spring Framework:
+	
+	Controller Based – We can define exception handler methods in our controller classes. All we need is to annotate these methods with @ExceptionHandler annotation.
+	
+	Global Exception Handler – Exception Handling is a cross-cutting concern and Spring provides @ControllerAdvice annotation that we can use with any class to define our global exception handler.
+	
+	HandlerExceptionResolver implementation – For generic exceptions, most of the times we serve static pages. Spring Framework provides HandlerExceptionResolver interface that we can implement to create global exception handler. The reason behind this additional way to define global exception handler is that Spring framework also provides default implementation classes that we can define in our spring bean configuration file to get spring framework exception handling benefits.
+
+	- DAO classes does not throw any technology related exception such as SQLException.
+	- It throws exception which are subclass of DataAccessException
+
+	@ControllerAdvice
+	Class HandleTest {
+		@ExceptionHandler(Exception.class)
+		public void handleConflict(Exception e) {
+			System.out.println("GlobalExceptionHandler - Exception!!!");
+			e.printStackTrace();
+		}
+	}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring Boot:
+	
+	Spring Framework provides flexible to configure bean in multiple ways such as XML, Annotations, and JavaConfig.
+	When features increases, the configuration becomes complex.
+
+	SpringBoot is created to address the configuration complexity of Spring Framework
+
+	1. Easy Dependency Management
+		- springboot-starter-web < pulls spring-webmvc, jackson-json, validation-api
+		- spring-boot-starter-data-jpa < pulls all the spring-data-jpa dependencies and also adds Hibernate libraries
+	2. Auto Configuration
+		- spring-boot-starter-web < Autoconfig the commonly registered beans like DispatcherServlet, ResourceHandler, MessageService...
+		- If we have any in-memory database like H2/HSQL in our classpath, then springboot will automatically creates in-memory DataSource and then registers EntityManagerFactory, and TransactinManager with sensible defaults
+	3. Embedded Servlet Container Support
+		spring-boot-starter-web < pulls the spring-boot-starter-tomcat automatically. When we run main() tomcat will start as a embedded containers
+
+	> If we want to custom configure the above by specifying the custom options in 'application.properties'
+	> Copy the SQL Queries into resource (data.sql)
+
+EntryPoint Class - @SpringBootApplication
+
+	- @SpringBootApplication annotation is equavalent to @Configuration, @EnableAutoConfiguration and @ComponentScan
+	- @SpringBootApplication scans for components in its sub-packages. If the @SpringBootApplication class exist in com.test then Spring boot will scan for components under the package com.test alone.
+	- If you want to provide custom configuration, then use @Configuration, @EnableAutoConfiguration and @ComponentScan ie., @ComponentScan(com.test.service)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring AOP:
+	
+	Spring AOP is the concept of interceptor, which helps to achieve cross cutting concerons in our project. like Logging, Security, Transaction
+
+	Aspect : An Aspect is a class that implements enterprices application concerns that cut across multiple classes, such as transaction management.
+
+	Join Point : Execution of method
+
+	Advice : Advices are action taken for a particular join point.
+
+	Pointcut : Pointcut is the expression that is matched with the Join point to determine the Advice needs to be executed or not.
+
+	Target Object : They are the object on which advices are applied. Spring AOP is implemented using runtime proxies so this object is always a proxied object. What means is that a subclass is created at runtime where the target method is overriden and advices are included based on their configuration.
+
+	AOP Proxy : Spring AOP uses JDK dynamic proxy to create the proxy classes with the target class and adice invocation, these are called AOP Proxy classes.
+
+	Weaving : It is the process of linking aspects with other objects to create the advised proxy objects.
+
+
+Advice Types:
+		
+	Before Advice : Before method execution i.e., Join Point - @Before
+
+	After Advice : After method execution, whether normally or by throwing exception - @After
+
+	After Returning Advice : After method execution normally (without thowing exception) - @AfterReturning
+
+	After Throwing Advice : This advice gets executed only when the join-point method throwing exception. We can rollback the transaction declaratively- @AfterThrowing
+
+	Around Advice : Important advices surrounds the join point method and we can also choose whether the join methode to execute or not. We can write advice code to execute before and after the execution of join point method. It is the responsibility to invoke the join point method and return values if the method is returning something.
+
+Weaving: The process of aspect to a target object, to create new proxy object is called weaving
+
+Transaction Management:
+	Transaction Propogation:
+		This is the ability to decide how the bussiness method should be encapsulated in both logical or physical transactions
+		- Required : Code will run in a transaction. Create a new transaction or reuse one if available
+		- Required_new : Code will always run in a new transaction. Suspend transaction if one already exist
+
+		Syntax:
+			@Transactional(propagation=Propagation.REQUIRED)
+			@Transactional(propagation=Propagation.REQUIRED_NEW)
+
+	Transaction Isolation:
+		Isolation mesurement of same data among different transaction
+		- Read Uncommited : Allows dirty reads
+			[thread1 write(), thread2 read(), and thread1 write(), then the thread2 is now dirty]
+		- Read Commit : Does not allow dirty reads 
+		- Repeatable Read : If a row is read twice in a transaction, result will always be the same
+			[t1 write(), t2 read(), t1 update(), then t2 read() is different from previous read]
+		- Panthom Read : Number of records read from same table in different transaction is different. 
+			[t1 read() 10 results, t1 insert() more records, then t1 read() count is different from actual]
+		- Serializable : Performs all transaction in a sequence
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hibernate:
+	How to connect db with Hibernate:
+		- Create Persistent/Entity class (Employee.class)
+		- Resource mapping for that persistent class (Employee.hbm.xml)
+		- Hibernate configuration (hibernate.cfg.xml)
+			> Config Database url, username, password, and driver class
+			> Mapping resource (Employee.hibernate.xml)
+		- Service class
+			> Get Configuration (Hibernate.cfg.xml)
+			> Create Seesion Factory
+			> Open Session
+			> Begin Transaction
+			> Create object and persist (session.persist(obj))
+			> Commit Transaction
+			> Close Session
+
+FetchType
+	Lazy : 
+		- Fetches parent table record alone, not the dependent object. It will be fetched when we try to access the dependent object. ie., User entity depends on Address, the address data will not be fetched at Get-User call, and it get data from DB when the getAddress attribute is requested.
+		
+		Advantage : Load faster and less memory consumption
+		Disadvantage : Might impact performance during unwanted movements. Need more care else will endup with exception.
+
+	Eager : Eager fetch type will get the complete data of Object and its dependency on first get itself 
+
+		Advantage : No delayed while fetching related data
+		Disadvantage : Unnecessary data fetching could cause memory consumption and performance
+
+		Syntax:
+		@OneToOne(fetch=FetchType.EAGER) 
+
+Session vs Transaction
+	
+	A Session can have multiple transaction. A session can have cache.
+
+	For example: Getting into Bank is Session, Making Deposit and Withdraw are two transaction.
+
+Hibernate Template in Spring:
+	
+	Spring framework provides HibernateTemplate class which takes care of Create Configuration, BuildSessionFactory, Session, beginning and committing transaction
+
+JDBCTemplate:
+	
+	Two simple interfaces: PreparedStatementCreator and BatchPreparedStatementSetter
+
+RowCallbackHandler:
+	
+	This is the interface provided by spring, there is a method processRow() which needs to be implemented, so that it is applicable for each and every row.
+
+Connect Database in Spring & Hibernate:
+
+	**************
+
+Save, Persist, Merge, SaveOrUpdate:
+
+	Save - Insert new record and returning ID
+	
+	Persist - Insert new record and returns nothing. It is a JPA method
+
+	Update - Update used to update an existing record, if identifier missing, throws exception. Update use to convert the detached object to persistence state
+
+	Merge - Merge is used to convert the detached object to persistent object. Object loaded in Session1 and Session closed. then we can edit the object and merge with Session2 then commit
+
+	SaveOrUpdate - Update if record already exist, and inserts if not
+
+	---
+
+	load - Always get object from 'proxy' with the given identifier. Temporary object.
+
+	get - Always get object from database
+
+Hibernate Two level of cache:
+	
+	> First Level Cache - Session Level
+	> Second Level Cache - Session Factory Level
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Security:
+
+	Authentication
+	Authorization	
+	Filters (Interseptors in Spring)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+JNDI:
+	
+	Java Naming and Directory Interface
+
+Transaction Management:
+
+	**************
+
+	Rollback
+
+	PROPOGATION_REGISTER_NEW
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Database :
+
+	ACID:
+		A - Automicity - All or none
+		C - Consistency - Consistent data around relative tables
+		I - Isolation - Isolating transactions, wait until the write-transaction completed so we will get consitent data using read-transaction
+		D - Durability - Completed transaction data is saved in Disk
+
+	Joins : 
+		LeftOuterJoin - All values from left table and matching values from right table
+		RightOuterJoin - All values from right table and matching values from left table
+		InnerJoin - matching data from both tables
+		FullJoin - all values from both tables, unmatched records will be null
+
+		SelfJoin - Table is joined with itself
+
+	Delete, Truncate and Drop:
+		Delete - DML command remove records from table. We can use conditions. Can rollback.
+		Truncate - DDL command which delete all the records from table. cannot rollback.
+		Drop - DDL command which drop the table, indexes, and Privileges also removed. cannot rollback.
+
+	Stored Procedure:
+		- A Miniature program in SQL server which can have simple/complex statements that add, delete, update, and/or read data from table
+		- Can implement Loops and cursors to do row by row operations in data
+		- Should be called using EXEC and EXECTE statement
+		- Return table but we can not return Out parameter
+		- Support Transactions
+
+	SQL Functions:
+		- Can not used to add, update, or delete records in database
+		- Can only used to select records and do simple manipulation in result to show
+		- simple returns single value or table value
+		- Does not support Trnsactions
+			select dbo.functionName("Param") from sysObjects;
+
+	Queries:
+
+		Constrains:
+			NOT NULL - Ensures that a column cannot have a NULL value
+			UNIQUE - Ensures that all values in a column are different
+			PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+			FOREIGN KEY - Uniquely identifies a row/record in another table
+			CHECK - Ensures that all values in a column satisfies a specific condition
+			DEFAULT - Sets a default value for a column when no value is specified
+			INDEX - Used to create and retrieve data from the database very quickly
+
+			// Create table with constrains
+				CREATE TABLE persons(
+					PersonID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+					name varchar(30) NOT NULL DEFAULT 'Ari',
+					panNumber int UNIQUE
+				)
+
+				CREATE TABLE Orders (
+				    OrderID int NOT NULL,
+				    OrderNumber int NOT NULL,
+				    PersonID int,
+				    PRIMARY KEY (OrderID),
+				    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+				);
+
+				CREATE TABLE Persons (
+				    ID int NOT NULL,
+				    LastName varchar(255) NOT NULL,
+				    FirstName varchar(255),
+				    Age int,
+				    City varchar(255),
+				    CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+				);
+
+				CREATE INDEX idx_pname ON Persons (LastName, FirstName);
+
+		// Fetch top second element from table
+			select * from persons limit 1 offset 1; 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+OAuth:
+
+	**************
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+AWS:
+	IAM - Identity & Access Management
+	CLI - Command Line Interface
+	EC2 - Elastic Compute Cloud
+	S3 - Simple Storage Service
+	ARN - Amazon Resource Names
+	AMI - Amazon Machine Image
+	ACL - Access Control List
+
+	User is a individual
+	Role is a temporary identity
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Singleton Design Pattern:
+
+	Singleton pattern ensure there is only one instance of class created in Java Virtual Machine. It is used to provide global point of access to the object.
+
+	In terms of practical using Singleton patterns are used in logging, caches, thread pools, configuration settings, device driver, objects.
+
+	Code:
+
+	public class Singleton {
+	
+		private static Singleton singleton;
+		
+		private Singleton() { }
+		
+		public static Singleton getInstance() {
+			if(singleton == null) {
+				singleton = new Singleton();
+			}
+			return singleton;
+		}
+		
+		public void printSingleton() {
+			System.out.println("Inside print Singleton!");
+		}
+		
+	}
+
+
+Way to break Singleton Design pattern:
+	
+	1. Clone - Override clone method to prevent
+	2. Serialization - Implement readResolve() method
+	3. Reflection - Use Enum datatype to prevent
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java 8
+	Concrete methods
+
+.equals and .hashCode
+
+Transient
+	'transient' is a Java keyword which marks a member variable not to be serialized when it is persisted to streams of bytes. When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes.
+
+	In Hibernate 'transient' is a keyword which ignores the attribute in DB transaction. i.e., the value of particular file will not be updated in DB
+
+Volitile:
+	Declaring a volatile Java variable means:
+		- The value of this variable will never be cached thread-locally: all reads and writes will go straight to "main memory";
+		- Access to the variable acts as though it is enclosed in a synchronized block, synchronized on itself.
+
+FactoryMethod: The method that returns the instance of a class is known as factory method
+
+Dependency Injection:
+	factory pattern
+	service locator pattern
+	dependency injection of any given below type:
+		a constructor injection
+		a setter injection
+		an interface injection
+
+<%@ page isErrorPage = "true"%>
+<%@ page errorPage="error.jsp"%>
+"errorPage" attribute informs the webcontainer that if an exception occures in the current page,fwd the request to specified error page.
+
+Class vs Servlet
+
+Spring:
+	- Applicationcontext
+
+	- relate runtimepolymorphism and dependencyinjection
+
+Hibernate:
+	- HibernateVersioning Concept
+	- transient
+	- Transaction Handling
+	- session.load()
+	- session.get()
+	- LazyinitilizationException()
+
+ReflectionAPI
+
+ShutdownHook
+
+equals method in realtime
+
+List and set diffs
+
+Webservice :
+	- SOAP (Simple Object Access Protocol)
+	- REST (Representational State Transfer)
+	- SOAP vs REST
+	- Why PUT while POST itself works?
+
+use of serilization
+
+jsonlibraries
+
+RDBMS :
+	JOIN, INNERJOIN, OUTERJOIN
+	GroupBy
+
+
+HashMap: Why it does not allow duplicate?
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Build:
+
+	- Ant
+	- Maven
+		It is Project management tool that is based on Project Object Model(POM). It is used to Build, Dependency, and Documentation.
+		- Clean generated files such as .class
+		- Run JUnit test
+		- Generate JavaDoc for project
+		- Consistent project structure
+	- Profile
+	- Embedded Tomcat
+	- Parent and Child projects
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+transient - in Core and Hibernate
+
+serilazation
+
+ReflectionAPI
+
+ShutdownHook : The shutdown hook can be used to perform cleanup resource or save the state when JVM shuts down normally or abruptly
+
+LazyInitilizationException
+
+Jenkins
+	- Different build triggers
+	- Reports
+
+Dispatch Servlet:
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Javascript:
+	
+	AJAX - Asynchronous Javascript And Xml
+
+Hibernate cache levels? First-leven cache and Second-level cache
+
+PLSQL
+
+Service Discovery
+
+AJAX
+
+	var req = new XMLHttpRequest();
+	req.open("GET", "https://httpbin.org/get", true);
+	req.send();
+
+	req.onreadystatechange = function() {
+		if(this.readyState == 4 && this.status == 200) {
+			document.getElementById("testElement").innerHTML = req.responseText;
+		}
+	}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Myself Aravind, MCA graduate, working as a Java developer for the past 4.6 years
+
+Started my careeer with a startup company called Techartus solutions
+
+	There i worked with an Web application and ERP System.
+	
+	Technologies used: J2EE, Struts, Hibernate, Tiles, JSP, MVC Framework, Glassfish and MySQL
+
+	Role: My role was a full stack developer. I used to communicate with onshore and offshore client to clarify the requirement, Develop, Test, Deliver the changes into Production and DB management as well. 4 in Team.
+
+	Challenges:
+		- Write store procedure to monitor the data changes in db table (DB Table change log), Productivity reports, Implemented HR Management system and Finance Module
+
+Moved to CSS Corp due to project contract close.
+
+	Here i am working for a client Bridgestone, and we are maintenaing 6 different e-commerce sites, 2 admin modules and report generating crons
+
+	Technologies used:
+		- J2EE, Spring, Hibernate, Websphere and Oracle
+		- AEM, CQ5, OSGi, Microservice, SpringBoot, REST
+		- AWS Lambda, DynamoDB, EC2, S3, SES, SQS and Jenkins
+
+	Role:
+		- Requirement Analysis and clarify with Client if any doubts
+		- Status update on Agile methodology
+		- Solution find and implementation
+		- Coordinating with 4 of my team members
+		- Deliver the changes on sprint basis
+
+	Challenges:
+		- sequence number, relation between tables, no media datatype like BLOB and CLOB, no Date datatype
+-----------------------------------------------------------------------------------------------------------------------------------------------
+What is Docker?
+Role of Docker in DevOps?
+Spring Web Service
+Spring Web application (with view resolver)
+Spring Dependency injection
+Spring AOP
+Global Exception Handling
+Spring Security and Filters
+
+Hibernate with DB
+JPATemplate
+JTA - Java Transaction API
+Relationships between entities
+Transaction Management
+
+Database Queries for complex conditions
+What are Triggers, PLSQL, Indexes, Cursors
+
+Microservice
+* Spring Boot and its features
+How to achieve ACID in Microservice
+Service Discovery
+
+Design Patterns:
+	Singleton design pattern
+	Factory design pattern
+Algorithms implementation
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Core - JVM and its responsibilities - JRE
+Core - Two ways to implement thread - Thread lifecycle - Synchronous Block
+Core - ConcurrentModification Exception
+Core - Fail-fast and weakly-consistent
+Core - Hashing Machanisum - Same bucket data is stored in Sorted tree? - Increase Hashmap's memory allocation
+Core - Implement Java 8 Features (Lambda expression, Default method(in Java 1.8 interface), Stream)
+Core - InstanceOf - is this related to ReflectionAPI?
+Core - Nested Class types
+Core - CORS - how to setup a requset to allow & restrict CORS
+Core - How to define custom Hashing mechanism - Custom hashing mechanism to avoid Collusion
+Core - Marker Interface (RandomAccess, Serializable, Cloneable, Remote, ThreadSafe)
+Core - How to read a file, what are File IO stream
+
+REST - OPTIONS method in HTTP requst
+REST - File as input parameter in Webservice
+REST - List of api-services available in webservice - implement
+
+Spring - How Singleton and Prototype objects serves to multiple requests
+Spring - Object scope - Default scope - How to specify the scope
+Spring - Transaction Management using AOP - Code sample
+Spring - Security - Filters
+Spring - application-context.xml - how to have different configuration filename and tell to Spring about the new file-name
+Spring - When objects(Singleton, Prototype, Request) are created in Spring and how it serves for multiple requests?
+Spring - How does Singleton object handles different user request and still maintains data consistency
+Spring - What if multiple transaction parallely updates the same record in DB?
+
+Hibernate - Generator types
+Hibernate - Transaction is in Service level or DAO level
+Hibernate - Criteria
+
+DB - Constrains in DB (Primary Key, ForignKey)
+DB - Indexes and types
+
+Other - CICD - Main features (Feature Toggle & Avoid Manual)
+Other - AWS Elastic Search
+Other - Different JDBC methods
+Other - JSP default object
+Other - Servlet methods - Servlet life cycle
+Other - Connection Pool
+Other - GlobalExceptionHandler - Can we make this as optional for some class?
+Other - How to handle SMTP Email bounce - what would be the status if 1 of 2 recipients failed to receive the mail. Identify the failed recipient.
+Other - Vertex Framework
+Other - jUnit - test DB insertion service with Mockito
+
+----------------
+Spring latest version - Spring 5.0
+Spring Boot latest version - 1.5.9 (2.0 in snapshot)
+Hibernate 5.2
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* JUnit test case - test on pom build
+
+ConcurrentModificationException
+Thread implementation
+Singleton object serves multiple request
+Proxy
+Hibernate relationship and configurations
+Hibernate Criteria
+SMTP fail case handling
+
+MediaType - Comsumer and Producer in REST
+SSL Certificates to restrict REST API access from outsider
+DB Connection pooling in cloud
+Different ways to have properties file
+
+How to setup log configuration in Spring Boot application
+
+Run jar in debug mode:
+	java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -jar yourJar.jar
+	java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -Dcwh.env=dev  -DskipSecurity=false -jar yourJar.jar
+
+JUnit Test Case:
+	@Test to create test case class
+	assertEquals(<expected>, <result>); method to test method
+
+Build lambda function with Spring Boot
+
+Return with custom status code in Spring boot:
+	@ControllerAdvice
+	class
+		@ResponseStatus(HttpStatus.CONFLICT)  // 409
+		@ExceptionHandler(DataIntegrityViolationException.class)
+		method()
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Java Architecture
+How many compilers available in Java
+Interpretor in Java
+What is JVM
+What are JRE and JDK, describe the difference
+Can we run a java program with JDK without JRE
+What will be the lifecycle of Java program
+
+What are the features of Java8 and explain it with example
+
+What is Docker Image
+What is Custom Docker Image
+What is Unix Kernal Image how it is different from Docker Image
+
+How load balancing happens.
+How instances are created and destried based on request load
+Where the above instance will be running
+
+How to achieve Database connection pooling
+
+Differences between RDBMS and NoSQL DB
+How to handle relationships between table in NoSQL DB structure (by using Document type with tree strutre of data)
+
+Design Patterns:
+	• Factory
+	• Abstract Factory
+	• Singleton
+	• Decorator
+	• Builder
+	• Facade
+	• Strategy
+
+
+Javac compiles our java code into Bytecode.
+JVM means Java Virtual Machine, runs/interprets/translates Bytecode into Native Machine Code. JIT is used to compile the given bytecode instruction sequence to machine code at runtime before executing it natively. JVM is a interpreter.
+
+JVM implementations:
+	- HotSpot (Interpreter + JIT Compiler)
+	- Dalvik (AOT Compiler + JIT Compiler)
+	- ART (AOT Compiler + JIT Compiler)
+	- GCJ (AOT Compiler)
+	- JamVM (Interpreter)
+
+Load Balancing :
+	Client Side Load balancing - using Ribbon Code:
+		Statergies:
+			- Simple Round Robin LB
+			- Weighted Response Time LB
+			- Zone aware Round Robin LB
+			- Random LB
+
+		listOfServers: localhost:8090,localhost:9092,localhost:9999
+		ServerListRefreshInterval: 15000
+
+	Load Balancing using Eureka:
+		Spring Cloud integrates Eureka and Ribbon to provide a load balanced HTTP client when using Feign.
+		
+Circuit Breaker design pattern:
+	Circuit breakers are used to check the availability of external systems/services, and in case these are down, an application can be prevented from sending requests to these external systems

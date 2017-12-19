@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	</head>
+	<body>
+		<div data-template style="display:none">
+			<td>
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								Hi, My name is {{name}}, and i am a {{language}} {{designation}}
+							</td>
+						</tr>
+					</tbody>
+				<table>
+			</td>
+		</div>
+		<table>
+			<tbody>
+				<tr id="placeHolder">
+					
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+	<script type="text/javascript">
+		$(function() {
+			// It grabs the Template
+			var addressTemplate = $("[data-template]").html();
+
+			// It compiles the template
+			var handlebarsTemplate = Handlebars.compile(addressTemplate);
+
+			var context = {"name":"Hari", "language":"Java", "designation":"Developer", "trigger":"<button>Trigger</button>"};
+
+			var templateOutput = handlebarsTemplate(context);
+
+			$("#placeHolder").html(templateOutput);
+		});
+	</script>
+
+</html>

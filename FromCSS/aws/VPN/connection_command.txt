@@ -1,0 +1,7 @@
+openvpn.exe --config "D:\Ari\aws\VPN\sangeetha.ganesan.qa.ovpn" --ca "D:\Ari\aws\VPN\ca.qa.crt" --cert "D:\Ari\aws\VPN\sangeetha.ganesan.qa.crt" --key "D:\Ari\aws\VPN\sangeetha.ganesan.key"
+
+openvpn.exe --config "D:\Ari\aws\VPN\sangeetha.ganesan.qa.ovpn" --ca "D:\Ari\aws\VPN\ca.qa.crt" --cert "D:\Ari\aws\VPN\sangeetha.ganesan.qa.crt" --key "D:\Ari\aws\VPN\sangeetha.ganesan.key" --log "E:\AEM VPN\SR0016201_openvpn_admin.log"
+
+________________
+
+openvpn.exe --config "C:\Program Files\OpenVPN\config\sangeetha.ganesan.qa.ovpn (file:///C:/Program%20Files/OpenVPN/config/sangeetha.ganesan.qa.ovpn)" --ca "C:\Program Files\OpenVPN\config\ca.qa.crt (file:///C:/Program%20Files/OpenVPN/config/ca.qa.crt)" --cert "C:\Program Files\OpenVPN\config\sangeetha.ganesan.qa.crt (file:///C:/Program%20Files/OpenVPN/config/sangeetha.ganesan.qa.crt)" --key "C:\Program Files\OpenVPN\config\sangeetha.ganesan.key (file:///C:/Program%20Files/OpenVPN/config/sangeetha.ganesan.key)"

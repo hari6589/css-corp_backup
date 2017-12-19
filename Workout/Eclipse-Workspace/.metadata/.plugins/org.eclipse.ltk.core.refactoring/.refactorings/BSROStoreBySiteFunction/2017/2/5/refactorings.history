@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Store.java&apos; to &apos;BSROStoreBySite/src/com.store&apos;&#x0D;&#x0A;- Original project: &apos;BSROStoreBySiteFunction&apos;&#x0D;&#x0A;- Destination element: &apos;BSROStoreBySite/src/com.store&apos;&#x0D;&#x0A;- Original element: &apos;com.store.model.Store.java&apos;" description="Copy compilation unit" destination="=BSROStoreBySite/src&lt;com.store" element1="/src&lt;com.store.model{Store.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1485930170437" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,79 @@
+http://www.aemcq5tutorials.com/interview-questions/adobe-aem-cq5-interview-questions-beginners/
+
+AEM
+Adobe CQ5
+  JCR
+  Apache Sling - Access jcr over http
+  OSGi - Apache Felix
+Template
+Component
+CMS - Advantages
+  - Author mode
+  - Digital assets
+  - Queries to find content
+  - Social Collaboration
+MSM - Multi Site Management
+Project Architecture
+live copy and Blueprints
+Workflow
+  - Model
+  - Step
+  - Transition
+  - Workitem
+  - payload
+  - Lifecycle
+    - terminate
+    - suspend
+    - resume
+    - restart
+  Inbox
+  Launcher
+
+Create Model in workflow console and drag and drop steps, start the workflow, view status in Instances tab
+
+Dialog and Design Dialog
+  Dialog - /content
+  design Dialog - /etc/designs
+
+Adaptive Form - enables end user to focs on filling out the form when it is required
+
+Adaptive Document - display output to end user
+
+Clientlibs - site specific js, css and thirdparty js. jcr:primaryType of clientlibs folder is cq:ClientLibraryFolder
+
+Connect external DB in CQ - create node with sling:OsgiConfig
+
+Dispatcher in CQ5
+  - Caching
+  - Load-balancing
+
+Package - zip file contains the content in the form of file-system serialization
+
+Bundle - Collection of classes, jars and config files
+
+OSGi - Open System Gateway initiative
+
+OSGI is a framework which allows modular development of applications using java. small reusable components(bundle) each are independently start & stop
+
+States of OSGi- Installed, Resolved(all classes that the buncle needs are available), Starting, Active, Stopping, Uninstalled
+
+OSGi vs jar
+- MANIFEST.MF
+- Versions - simutaneously access different versions
+- Bundle depend on another Bundle. Ensure that dependencies are met before the bundle is 'resolved'
+- Activator.java - optinal listener class to nitified of buncle start and stop event
+
+SCR Annotations
+	- Component
+	- Service
+	- Properties
+	- Reference
+Replication agent
+Representational State Transfer (REST)
+The publish environment is usually kept in a Demilitarized Zone (DMZ)
+
+What design patterns are used in AEM?
+	Since AEM is built using OSGI, many of the design patterns for OSGI are valid. Some of these design patterns are Singleton (Service), Adapter Service, Resource Adapter Service, and Whiteboard. Also, since AEM is modular, you should be able to use any design pattern in your application.
+
+Reverse replication
+EditConfig - behaviour of component

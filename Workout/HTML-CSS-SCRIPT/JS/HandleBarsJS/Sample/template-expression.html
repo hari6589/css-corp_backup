@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	</head>
+	<body>
+		<script id="address-template" type="text/x-handlebars-template">
+			<p>Hi, My name is {{name}}, and i am a {{language}} {{designation}}</p>
+			<p>{{{trigger}}}</p>
+		</script>
+
+		<div id="placeHolder" style="display:none"></div>
+	</body>
+
+	<script type="text/javascript">
+		$(function() {
+			// It grabs the Template
+			var addressTemplate = $("#address-template").html();
+
+			// It compiles the template
+			var handlebarsTemplate = Handlebars.compile(addressTemplate);
+
+			var context = {"name":"Hari", "language":"Java", "designation":"Developer", "trigger":"<button>Trigger</button>"};
+
+			var templateOutput = handlebarsTemplate(context);
+
+			$("#placeHolder").html(templateOutput);
+		});
+	</script>
+
+</html>

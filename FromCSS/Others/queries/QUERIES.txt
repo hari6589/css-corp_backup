@@ -1,0 +1,350 @@
+
+APPRAISAL DETAILS:
+------------------
+
+SELECT u.emp_id,u.emp_name,d.dept_code,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY d.department,d1.designation 
+
+SELECT sa.emp_id,u.emp_name,d.department,d1.designation,sa.entry_date FROM 
+self_appraisal sa, USER u,department d,designation d1 WHERE sa.appraisal_year LIKE '%2012%' AND entry_date BETWEEN '2012-12-14' AND '2012-12-31' and
+sa.emp_id=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT sa.emp_id FROM 
+self_appraisal sa, USER u,department d,designation d1 WHERE sa.appraisal_year LIKE '%2013%' AND entry_date BETWEEN '2013-03-16' AND '2013-04-18' AND
+sa.emp_id=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY department,d1.designation) ORDER BY d.department,d1.designation 
+
+SELECT sa.member_empid,u.emp_name,d.department,d1.designation,sa.supervisor_entry_date,sa.performance_param_id FROM 
+supervisor_appraisal sa, USER u,department d,designation d1 WHERE sa.supervisor_entry_date BETWEEN '2013-01-02' AND '2013-02-08' AND
+sa.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code ORDER BY department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT sa.member_empid FROM supervisor_appraisal sa,USER u,department d,
+designation d1 WHERE sa.supervisor_entry_date BETWEEN '2013-03-16' AND '2013-04-18' AND sa.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY department,d1.designation) ORDER BY d.department,d1.designation 
+
+SELECT * FROM ann_appraisal_review_approve WHERE review_entry_date LIKE '%2012%'
+
+SELECT aara.member_empid,u.emp_name,d.department,d1.designation,aara.review_entry_date FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.review_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' AND
+d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT aara.member_empid FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.review_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation ) ORDER BY d.department,d1.designation 
+
+SELECT aara.member_empid,u.emp_name,d.department,d1.designation,aara.approval_entry_date FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.approval_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation 
+
+SELECT u.emp_id,u.emp_name,d.department,d1.designation FROM USER u, department d,designation d1 WHERE u.status='1' AND u.annual_appraisal_status='1' 
+AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code AND u.emp_id NOT IN (SELECT aara.member_empid FROM 
+ann_appraisal_review_approve aara, USER u,department d,designation d1 WHERE aara.appraisal_year LIKE '%2012%' 
+AND aara.approval_entry_date LIKE '%2012%' AND aara.member_empid=u.emp_id AND d.dept_code=u.dept_code AND d1.desig_code=u.desig_code 
+ORDER BY d.department,d1.designation) ORDER BY d.department,d1.designation 
+
+
+Add Pagename:
+-------------
+
+SELECT * FROM pagename WHERE page_name LIKE '%AddProjWorkFlow%'
+
+SELECT * FROM pagefunction WHERE page_id='169'
+
+SELECT * FROM pages WHERE pages_id='169'
+
+INSERT INTO `pagename` (`page_name`) VALUES ('AddProjWorkFlow.jsp');	
+	
+INSERT INTO `pagefunction` (`page_function`, `page_id`)	VALUES ('Project Time Spent Report(Month-Wise)', '194');
+
+INSERT INTO `pages` (`pages_id`, `group_id`) VALUES ('194', '2');
+
+
+Message Deletion:
+-----------------
+
+SELECT * FROM messages WHERE prj_id='9145' AND msg_postdate LIKE '%2012-05-10%'
+
+SELECT * FROM msgforward WHERE `msg_id` = '317152'
+
+DELETE FROM `s4`.`msgforward` 
+	WHERE
+	`msg_id` = '317152' ;
+
+DELETE FROM `s4`.`messages` 
+	WHERE
+	`msg_id` = '317152' ;
+
+
+Update one project info into another and delete one project (with out batch/any other info added):
+--------------------------------------------------------------------------------------------------
+
+SELECT * FROM projects WHERE proj_name LIKE '%109809%' 9836
+
+SELECT * FROM fmproj_drive WHERE proj_id='9836'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='9836'
+
+
+UPDATE `projects` SET `proj_name` = 'LLP_Vol_1_2012-2S' WHERE `proj_id` = '9295'
+
+UPDATE fmproj_drive SET proj_id='9836' WHERE proj_id = '9295'
+
+update `proj_filetypepath` set `filetype_path` = '/Morimoto_109809/Text//' where `proj_id` = '9837' and `filetype_id` = '1'
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/App//' WHERE `proj_id` = '9837' AND `filetype_id` = '2' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/PDF//' WHERE `proj_id` = '9837' AND `filetype_id` = '5' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Art//' WHERE `proj_id` = '9837' AND `filetype_id` = '6' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Fonts//' WHERE `proj_id` = '9837' AND `filetype_id` = '7' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Script//' WHERE `proj_id` = '9837' AND `filetype_id` = '8' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Design//' WHERE `proj_id` = '9837' AND `filetype_id` = '9' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Templ//' WHERE `proj_id` = '9837' AND `filetype_id` = '10' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Key1//' WHERE `proj_id` = '9837' AND `filetype_id` = '11' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Key2//' WHERE `proj_id` = '9837' AND `filetype_id` = '12' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Cmp1//' WHERE `proj_id` = '9837' AND `filetype_id` = '13' 
+
+update `proj_filetypepath` set `filetype_path` = '/Morimoto_109809/Cmp2//' where `proj_id` = '9837' and `filetype_id` = '14' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Cmp3//' WHERE `proj_id` = '9837' AND `filetype_id` = '15' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Forms//' WHERE `proj_id` = '9837' AND `filetype_id` = '16' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Support//' WHERE `proj_id` = '9837' AND `filetype_id` = '17' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Rpc//' WHERE `proj_id` = '9837' AND `filetype_id` = '21' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Fus//' WHERE `proj_id` = '9837' AND `filetype_id` = '22' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/ArtPf//' WHERE `proj_id` = '9837' AND `filetype_id` = '23' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/ArtSrc//' WHERE `proj_id` = '9837' AND `filetype_id` = '24' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Edtr//' WHERE `proj_id` = '9837' AND `filetype_id` = '25' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Fst//' WHERE `proj_id` = '9837' AND `filetype_id` = '26' 
+
+update `proj_filetypepath` set `filetype_path` = '/Morimoto_109809/Links//' where `proj_id` = '9837' and `filetype_id` = '27' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Word//' WHERE `proj_id` = '9837' AND `filetype_id` = '28' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Logs//' WHERE `proj_id` = '9837' AND `filetype_id` = '29' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Uploads//' WHERE `proj_id` = '9837' AND `filetype_id` = '30' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Doc//' WHERE `proj_id` = '9837' AND `filetype_id` = '31' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Misc//' WHERE `proj_id` = '9837' AND `filetype_id` = '32' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Srctxt//' WHERE `proj_id` = '9837' AND `filetype_id` = '33' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/Castoff//' WHERE `proj_id` = '9837' AND `filetype_id` = '34' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/RefXML//' WHERE `proj_id` = '9837' AND `filetype_id` = '35' 
+
+UPDATE `proj_filetypepath` SET `filetype_path` = '/Morimoto_109809/MFXML//' WHERE `proj_id` = '9837' AND `filetype_id` = '36' 
+ 
+
+
+(after batch/any other info added):
+-----------------------------------
+
+SELECT * FROM batch WHERE proj_id='10378'
+
+SELECT * FROM chapter WHERE proj_id='10266'
+
+SELECT * FROM daily_queries WHERE proj_id='10266'
+
+SELECT * FROM filename WHERE proj_id='10266'
+
+SELECT * FROM fmproj_drive WHERE proj_id='10266'
+
+SELECT * FROM mergefile_order WHERE proj_id='10266'
+
+SELECT * FROM messages WHERE prj_id='10266'
+
+SELECT * FROM proj_editor WHERE proj_id='10266'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='10266'
+
+SELECT * FROM project_action WHERE proj_id='10266'
+
+SELECT * FROM project_bookdetail WHERE proj_id='10266'
+
+SELECT * FROM project_database WHERE proj_id='10266'
+
+SELECT * FROM project_properties WHERE proj_id='9930'
+
+SELECT * FROM project_team WHERE proj_id='10266'
+
+SELECT * FROM projectgroup WHERE proj_id='10266'
+
+SELECT * FROM projects WHERE proj_id='10266'
+
+SELECT * FROM query_attachment WHERE proj_id='10266'
+
+SELECT * FROM schedulegroup_projmap WHERE proj_id='10266'
+
+SELECT * FROM uploadpath WHERE proj_id='10266'
+
+
+Update Queries
+--------------
+
+UPDATE `batch` SET `proj_id` = '10378' WHERE `proj_id` = '10266'; 
+
+UPDATE `chapter` SET `proj_id` = '10378' WHERE `proj_id` = '10266';
+
+UPDATE `filename` SET `proj_id` = '10378' WHERE `proj_id` = '10266';
+
+DELETE FROM `fmproj_drive` WHERE `proj_id` = '10266' AND `drive_id` = '3' ;
+
+UPDATE `messages` SET `prj_id` = '10378' WHERE `prj_id` = '10266';
+
+DELETE FROM `proj_filetypepath` WHERE `proj_id` = '10266';
+
+DELETE FROM `projects` WHERE `proj_id` = '10266';
+
+UPDATE `projects` SET `proj_date` = '2012-06-06 02:49:02' WHERE `proj_id` = '10378';
+
+
+Duplicate Shift delete:
+-----------------------
+
+SELECT * FROM shift WHERE emp_id='115' AND shift_start_time LIKE '%2012-10-25%'
+
+DELETE FROM `shift` WHERE `shift_id` = '276307' ;
+
+
+Reset chapter shipped as NULL:
+------------------------------
+
+UPDATE chapter SET proof_page=null,completed_date=null,ship_date=Null WHERE proj_id='146588' and stage='RP' and ship_date is not null
+
+
+Milestone/Activity Revert:
+--------------------------
+
+SELECT * FROM projects WHERE proj_name LIKE '%146609%'
+
+SELECT * FROM fmproj_drive WHERE proj_id='146609'
+
+SELECT * FROM proj_filetypepath WHERE proj_id='146609'
+
+SELECT * FROM chapter WHERE proj_id='613' AND ship_date IS NULL
+
+SELECT * FROM activity WHERE chapter_id='12140'
+
+SELECT * FROM dropoff WHERE chapter_id='12140'
+
+UPDATE `pathfinderv2`.`chapter` 
+	SET 
+	`milestone_empcompleted` = NULL , 
+	`milestone_status` = NULL , 
+	`stage_empcompleted` = NULL
+	WHERE
+	`chapter_id` = '12140' ;
+
+UPDATE `pathfinderv2`.`activity` 
+	SET  
+	`milestone_comp_flag` = '0', 
+	`activity_comp_flag` = '0' 	
+	WHERE
+	`activity_id` = '21115' ;
+
+DELETE FROM `pathfinderv2`.`dropoff` 
+	WHERE `chapter_id` = '12140' AND `dropoff_to` = '13';
+
+
+Project Deletion:
+-----------------
+
+SELECT * FROM projects WHERE proj_name LIKE '%BLJ%'
+
+
+SELECT * FROM project_bookmap WHERE proj_id='146932'
+
+DELETE FROM project_bookmap WHERE proj_id='146932'
+
+
+SELECT * FROM chapter WHERE proj_id='146932'
+
+DELETE FROM chapter WHERE proj_id='146932'
+
+
+SELECT * FROM fmproj_drive WHERE proj_id='146932'
+
+DELETE FROM fmproj_drive WHERE proj_id='146932'
+
+
+SELECT * FROM messages WHERE prj_id='146932'
+
+DELETE FROM messages WHERE prj_id='146932'
+
+
+SELECT * FROM `msgforward` WHERE `msg_id` = '4272' ;
+
+DELETE FROM `msgforward` WHERE `msg_id` = '8716' ; 
+
+
+SELECT * FROM proj_filetypepath WHERE proj_id='146932'
+
+DELETE FROM proj_filetypepath WHERE proj_id='146932'
+
+
+SELECT * FROM daily_queries WHERE proj_id='146932'
+
+DELETE FROM daily_queries WHERE proj_id='146932'
+
+
+SELECT * FROM projects WHERE proj_id='146932'
+
+DELETE FROM projects WHERE proj_id='146932'
+
+
+Duplicate File creation [Delete]:
+---------------------------------
+
+SELECT * FROM filename WHERE proj_id='148009' AND filetype_id='6' AND group_name = 'Chapter 13'
+
+SELECT * FROM file_property WHERE file_id='1208954'    
+
+SELECT * FROM fileupload_info WHERE file_id='1208954'  
+
+
+DELETE FROM `fileupload_info` 
+	WHERE
+	`file_id` = '1285243' ;
+
+DELETE FROM `file_property` 
+	WHERE
+	`file_id` = '1285243' ;                            
+
+DELETE FROM `filename` 
+	WHERE
+	`file_id` = '1285243' ;
+		
+
+Sort Order [TO ARAVINDH]:
+-------------------------
+
+select est_number from estimate_lineitems where est_number in 
+	(select est_number from estimate_lineitems where sort_order='1' GROUP BY est_number HAVING count(est_number) > 1)
+	GROUP BY est_number 
+
+
+
+
+

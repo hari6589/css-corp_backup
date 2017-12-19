@@ -1,0 +1,21 @@
+SpringAOP:
+*Spring AOP takes out the direct dependency of crosscutting tasks from classes that we can’t achieve through normal object oriented programming model.
+
+*Most of the enterprise applications have some common crosscutting concerns,
+ that is applicable for different types of Objects and modules.
+ Some of the common crosscutting concerns are "logging, "transaction management", "data validation"etc.
+ 
+*Need to implements these annotations in Aspect class.
+ @Before,@After,@BeforeThrowing,@Around,@AfterReturning
+	
+ In Object Oriented Programming, modularity of application is achieved by Classes ,
+ whereas in Aspect Oriented Programming application modularity is achieved by Aspects and they are configured to cut across different classes.
+ 
+*Aspect: An aspect is a class that implements enterprise application concerns that cut across multiple classes, such as transaction management.
+ Aspects can be a normal class configured through Spring XML configuration or we can use Spring AspectJ integration to define a class as Aspect using @Aspect annotation.
+ 
+ *Join Point: A join point is the specific point in the application such as method execution, exception handling, changing object variable values etc. In Spring AOP a join points is always the execution of a method.
+ 
+ *Advice: Advices are actions taken for a particular join point. In terms of programming, they are methods that gets executed when a certain join point with matching pointcut is reached in the application. You can think of Advices as Struts2 interceptors or Servlet Filters.
+ 
+*Pointcut: Pointcut are expressions that is matched with join points to determine whether advice needs to be executed or not. Pointcut uses different kinds of    expressions that are matched with the join points and Spring framework uses the AspectJ pointcut expression language.

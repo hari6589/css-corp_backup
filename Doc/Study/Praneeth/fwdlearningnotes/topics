@@ -1,0 +1,68 @@
+hibernate:
+lazyloading
+generaterclass in hbrnet
+
+Handle transactions in hbernet
+
+equals method in realtime
+
+List and set diffs
+
+where we use spring
+dpenedcy injection
+
+webservices
+Soap and REST
+
+sort certain objectyyyy-mm-dd
+
+use of serilization
+
+jsonlibraries
+
+plsql
+Innerjoin
+connectionpoll
+annotaions use injava
+
+Applicationcontext
+
+String why immutatble?
+1.To reduce the duplicates of objects in String pool.
+2.Using litrals and new String();
+3.using Literals String s="test";
+	it will store in String pool.
+4.If we create String s = new String();
+every time you create String object it will generate an new String in String pool.
+
+5.If Two literals have same string attribute if compare 
+
+
+get and post mehtods
+
+what is idempotenet in http methods
+
+hashmap allow duplicates?
+
+algorithams
+(=1
+)=1
+()=1
+
+())))(())))))(((((())))))
+
+0?
+Spring
+scopes 
+why do we go for dependency injection?
+factroydesing pattern
+polymarphism
+relate runtimepolymorphism and dependencyinjection
+
+
+
+
+
+
+
+

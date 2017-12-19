@@ -1,0 +1,32 @@
+CSS Records:
+	Appointment letter
+	Increment letters
+	ID Card scan copy
+	Pay slip - From DOJ to end
+	Tax slip - From DOJ to end
+	Form 16 - From DOJ to end
+	All Appraisal data backup
+
+Documents:
+	Legacy web service document
+	Application documents from shared location
+	Websphere to Tomcat app server migratino document
+	AEM study documents
+	Docker image handling document
+	AWS Architecture documents
+	Alexa documents and code sample
+	Study notes
+	Backup and Delete personal documents
+
+Code:
+	AEM jar and license
+	Legacy complete code and libraries
+	Legacy Oracle scheduled jobs code and shell scripts
+	AEM complete code of all branche
+	AEM Varlish cache and Microservice confiuration files
+	AWS complete code and configuration backup from AWS Service
+	DIY code samples
+	Oracle to MySQL code
+
+Note:
+	List out the technologies you learned new in CSS. (api.ai, Jenkins, AngularJS, OSGi, curl, AWS CLI, Reverse Engineering, Hobbes, jUnit, jMeter, Gulp..)

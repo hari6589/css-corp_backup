@@ -1,0 +1,16 @@
+HibernatePoints:
+
+@Entity is used for making a persistent pojo class.For this java class,you will have corresponding table in database. @Column is used to map annotated attribute to corresponding column in table
+
+this is the command to connect to databases "use Mysql";
+LocalMySql:
+localhost:3306
+admin
+
+
+
+dataSource bean is used to specify java data source. We need to provide driver, URL , Username and Password
+
+hibernate4AnnotatedSessionFactory
+bean is used to configure FactoryBean that creates a Hibernate SessionFactory. This is the common way 
+to set up a shared Hibernate SessionFactory in a Spring application context, so you can use this SessionFactory to inject in Hibernate data access objects.

@@ -1,0 +1,143 @@
+hibernate:
+lazyloading
+generaterclass in hbrnet
+
+Handle transactions in hbernet
+
+equals method in realtime
+
+List and set diffs
+
+where we use spring
+depenedcy injection
+
+webservices
+Soap and REST
+
+sort certain objectyyyy-mm-dd
+
+use of serilization
+
+jsonlibraries
+
+plsql
+Innerjoin
+connectionpoll
+annotaions use injava
+
+Applicationcontext
+
+String why immutatble?
+1.To reduce the duplicates of objects in String pool.
+2.Using litrals and new String();
+3.using Literals String s="test";
+	it will store in String pool.
+4.If we create String s = new String();
+every time you create String object it will generate an new String in String pool.
+
+5.If Two literals have same string attribute if compare 
+
+
+get and post mehtods
+
+what is idempotenet in http methods
+
+hashmap allow duplicates?
+
+algorithams
+(=1
+)=1
+()=1
+
+())))(())))))(((((())))))
+
+0?
+Spring
+scopes 
+why do we go for dependency injection?
+factroydesing pattern
+polymarphism
+relate runtimepolymorphism and dependencyinjection
+
+
+how readonly list with out adding any elements
+
+diff btw restfull and soap
+
+to update will work as post 
+why we use put? then
+
+
+Reverse a string without loop:
+static String reverse(String str) {
+   if(str.length() == 0)
+     return "";
+   return str.charAt(str.length() - 1) +    reverse(str.substring(0,str.length()-1));
+ }
+ 
+ using stringbuilder:
+ static String reverse(String str){
+	if(str.isEmpty() || str == null) return str; 
+	return new StringBuilder(str).reverse().toString(); 
+} 
+
+*GroupBy method in sql
+SampleQuery:
+
+SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;
+
+CustomerID   Country
+2			India
+6   		China
+8			America
+
+orderBy:
+By default it will sort in ascending order.
+SELECT * FROM Customers ORDER BY  Country desc;
+
+To order by query:
+id		Country
+1		Venuzula
+2		vicotria
+
+
+
+
+Hibernate versining Concepet:
+============================
+If an object is save in database,we can modify the object any no of times you want.
+And if we want to check that how many number of times object being modifed.
+We need to apply the Versioning concept.
+http://www.java4s.com/hibernate/hibernate-versioning-example-hibernate-versioning-of-objects/
+
+SingletonDesing Pattern:
+-----------------------
+Singleton pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the java virtual machine.
+The singleton class must provide a global access point to get the instance of the class.
+Singleton pattern is used for logging, drivers objects, caching and thread pool.
+
+Steps to make a class as singleTonDesing pattern:
+=====================================================
+	*Private Counstructor to restrict the instantiation of class from outside the class.
+	*Private static variable that is the only instance of the class.
+	*public static method returns the instatnce of the class and it is the access point for outer world to get the instance of the class.
+
+	Types and approaches of singleton desing patterns:
+	====================================================
+1Eager initialization
+2Static block initialization
+3Lazy Initialization
+4Thread Safe Singleton
+5Bill Pugh Singleton Implementation
+6Using Reflection to destroy Singleton Pattern
+7Enum Singleton
+8Serialization and Singleton
+	
+
+
+
+
+
+
+
+

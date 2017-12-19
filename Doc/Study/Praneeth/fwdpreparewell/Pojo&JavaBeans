@@ -1,0 +1,89 @@
+JavaBean&POJO:
+JavaBean:
+
+1.Setter&Getter's for Properites
+2.Having a default constructor
+3.Bean should being serialisable or Externelisable
+
+
+POJO:
+1.No requirment to implement any inteface or  derived from any base class
+2.No need of using annotation to compatable with anyframework.
+
+It should be a simple java class.
+
+Throws&Throw:
+1.throws clause is used to declare an exception and throw keyword is used to throw an exception explicitly.
+2.If we see syntax wise then throw is followed by an instance variable and throws is followed by exception class names.
+3.The keyword throw is used inside method body to invoke an exception and throws clause is used in method declaration (signature).
+
+Throw:
+throw new Exception("You have some exception")
+throw new IOException("Connection failed!!")
+
+throws
+public int myMethod() throws IOException, ArithmeticException, NullPointerException {}
+
+Jsp Exception Handling:
+"<%@ %>"pageDirective tag:
+In Error Page:
+<%@ page isErrorPage = "true"%>
+<%@ page errorPage="error.jsp"%>
+"errorPage" attribute informs the webcontainer that if an exception occures in the current page,fwd the request to specified error page.
+
+using ErrorPAge tag in deployement descriptor:
+<error-page>
+<exception-type>java.lang.throwalbe</exception-type>
+<location>/error.jsp</location>
+</error-page>
+
+<error-page>
+<exception-type>java.lang.ArthameticException</exception-type>
+<location>/error.jsp</location>
+</error-page>
+<error-page>
+<error-code>404</error-code>
+<location>/error.jsp</location>
+</error-page>
+
+sendRedirect()&RequestDispatcher:
+
+sendRedirect will go throuht the client user can see the url change in browser
+sendRedirect will work on response object
+sendRedirect will go for resource outside the server and inside also.
+
+RequestDispatcher will work on request object.
+
+Diff Bw Jsp And Servlet:
+
+SERVLET	JSP
+A servlet is a server-side program and written purely on Java.	JSP is an interface on top of Servlets. In another way, we can say that JSPs are extension of servlets to minimize the effort of developers to write User Interfaces using Java programming.
+Servlets run faster than JSP	JSP runs slower because it has the transition phase for converting from JSP page to a Servlet file. Once it is converted to a Servlet then it will start the compilation
+Executes inside a Web server, such as Tomcat	A JSP program is compiled into a Java servlet before execution. Once it is compiled into a servlet, it's life cycle will be same as of servlet. But, JSP has it's own API for the lifecycle.
+Receives HTTP requests from users and provides HTTP responses	Easier to write than servlets as it is similar to HTML.
+We can not build any custom tags	One of the key advantage is we can build custom tags using JSP API (there is a separate package available for writing the custom tags) which can be available as the re-usable components with lot of flexibility
+Servlet has the life cycle methods init(), service() and destroy()	JSP has the life cycle methods of jspInit(), _jspService() and jspDestroy()
+Written in Java, with a few additional APIs specific to this kind of processing. Since it is written in Java, it follows all the Object Oriented programming techniques.	JSPs can make use of the Javabeans inside the web pages
+In MVC architecture Servlet acts as controller.	In MVC architecture JSP acts as view.
+Servlet advantages include:
+1. Performance : get loaded upon first request and remains in memory idenfinately.
+2. Simplicity : Run inside controlled server environment. No specific client software is needed:web broser is enough
+3. Session Management : overcomes HTTP's stateless nature
+4. Java Technology : network access,Database connectivity, j2ee integration	JSP Provides an extensive infrastructure for:
+1. Tracking sessions.
+2. Managing cookies.
+3. Reading and sending HTML headers.
+4. Parsing and decoding HTML form data.
+5. JSP is Efficient: Every request for a JSP is handled by a simple Java thread
+6. JSP is Scalable: Easy integration with other backend services
+7. Seperation of roles: Developers, Content Authors/Graphic Designers/
+
+Interview Question:
+1.Bean Properties
+2.
+
+
+
+
+
+

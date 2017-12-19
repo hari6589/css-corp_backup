@@ -1,0 +1,156 @@
+Docker:
+	Docker Deamon - controls Image, Container, Volume and Network
+	Docker API
+	Docker CLI
+
+	Docker Registry - contains Docker Images which can pull and use
+
+	Docker container - Runnable instance of an Image
+
+AWS
+***
+
+AWS Lambda
+	Function:
+		It is a compute service that lets our code without managing a server. It exeutes only when it needed and autoscales automatically.
+		We can run our lambda function responsive to the events such as, DynamoDB, S3 bucket, or API Gateway
+
+		When running lambda function it creates container with the give provision such as max memory and minimum execution time.
+
+		Time limit: 300 seconds max
+		Memory limit: 128MB to 1536MB  	// CodeStorageExceededException
+		Concurrent execution: 1000
+		Package size: 50MB
+
+		Environment variable: 4KB size
+
+	Pricing:
+		Will pay what we use
+
+
+DynamoDB
+	
+	DynamoDB is a NoSQL database service.
+	Internally AWS stores our DynamoDB data into Solid State Disk(SSD) and stored across different availability zones.
+
+	Table, Item, attributes
+
+	Partition Key:
+		Patition key is simple primary key. DynamoDb internally uses that partition key value as a input to hash function, to define where the item is going to be stored.
+
+	Sort Key:
+		While Partition key is used to compute the hash value and defines the storeage place, sort key used to sort the values of same Partition key
+
+	Secondary Indexes:
+		It helps to query data using alternate key. Only 5 secondary indexes can be created.
+
+		Global Secondary Index - An index with partition key and sort key which is not same as on Table
+		Local Secondary Index - An index that has same Partition key but different sort key
+
+	Datatype
+		Scalar - number, String, binary, boolean and null
+		Document Type - JSON Document, this could be list and map (32 level deep and 400KB of size)
+		Set types - String set, number set, and binary set
+
+	Strong Consistent Reads and Eventuall Consistent Reads
+
+	Provition Throughput: 		// ProvisionedThroughputExceededException
+		Read 1 unit = 4 KB (5 unit means 5*4=20 KB per second)
+		Write 1 unit = 1 KB (10 unit means 10*1=10 KB per second)
+
+		Max Read capacity
+			- 40000 for NV region and 80000 for account
+			- Other 10000 for region and 20000 for account
+
+	256 tables per region
+
+
+	Autoscaling:
+		Autoscal the throughput by defining min & max read capacity and the target utilization percentage within range.
+	Reserved Capacity:
+
+	BatchGet - 100 items
+	BatchWriteItem - 25
+
+	DAX - DynamoDB Accelerator for cache
+
+EC2
+	- Virtuall computing environment known as Instance
+	- Amazon Machine Image (AMI) - preconfigured template of instance including OS and Application server
+
+	- Instance Store volumn - Temp storage space which will be deleted when instance stop and terminated
+	- Persistent storage using EBS (Elastic Block Store)
+
+	- Firewall to specify the protocol, port, source ip ranges that can reach EC2 instance
+	- Virtual private network, we can optionally connect with our own network known as Virtual Private Clouds(VPCs)
+
+	t2.micro / EC2 - 750 hours / 5GB DynamoDB / 1 Million Requests in Lambda Function
+
+CloudWatch
+	
+	Cloudwatch monitors the running resources and applications on AWS. It is a metrics repository, whcich collects information about resource activities
+
+	We can set alarm or resource change based on rule we are creating
+
+		- CloudWatch Console
+		- AWS CLI
+		- CloudWatch API
+		- AWS SDKs
+IAM:
+	AWS Identity and Access Management is helps to control access of resource to our users
+
+	USER - Individual identity/user who can access AWS accout
+
+	GROUP - Group of users
+
+	POLICIES - permission to particular resource
+
+	ROLE - Similar to user but it do not have permanent identity. For instance Federated users, which logins with amazon using their corporate login faiclity provided by aws. When they login, they will be associated with the role and granted permission that are defined in that role.
+
+S3
+	
+	Simple Storage Service is storage for internet. It provides highly scalable, reliable, fast, inexpensive data storage infrastructure.
+
+	Access Control List (ACL) to setup read and write permission for buckets
+
+	Cross Origin Replication - to replicate data in every region different buckets, for particular account.
+
+SES
+	Simple Email Service is an email platform.
+	We can receive mails in SES and save into S3, AWS WorkMail, SNS...
+
+	200 mails for 24 hours
+	1 mail per second
+
+Route 53:
+	- Register Domain Names
+	- Route internet traffic to resource
+	- Check health of resource
+
+SQS
+	Fully managed messaging queue
+	It helps to resolve communication among application/microservices
+	Message size : 256KB
+
+CloudFront
+	It is a web service that speedups the distribution of static and dynamic content to our users. It delivers content through Worldwide network of data center called edge location. It helps to serve the data from edge location so less latency.
+
+EBS
+	
+	Using Elastic Bean Stalk we can quickly deploy and manage application in AWS cloud without worrying about the infrastructure
+
+Amazon Elastic MapReduce  - EMR - ETL - AWS Glue
+
+Kinesis
+	Streams to collect large streams of data records in realtime
+		- Accelerated log
+		- Realtime Metric and reporting
+		- Realtime data analysis
+
+AWS ELB - Elastic Load Balancer
+
+ADP Solutions - Friday
+Accenture - Saturday
+Symbiosis - Sunday
+
+Sam Local - Run lambda function in local machine
