@@ -1,0 +1,224 @@
+select * from appointment order by appointment_id desc
+APPOINTMENT
+select * from APPOINTMENT_CHOICE order by appointment_id desc
+select * from APPOINTMENT_SERVICE order by appointment_id desc
+select * from APPOINTMENT_CUSTOMER order by appointment_id desc
+select * from APPOINTMENT_METADATA order by appointment_id desc
+select * from APPOINTMENT_SENT_STATUS order by appointment_id desc
+
+select * from APPOINTMENT_CHOICE where choice=1
+order by appointment_id desc
+
+SELECT to_char(datetime,'MM/DD/YYYY HH24:MI:SS') datetime
+FROM   rtms_webdb.appointment_choice ac
+WHERE  ac.appointment_id = '631858'
+AND    rownum <= 3
+ORDER BY ac.datetime;
+
+SELECT to_char(datetime,'MM/DD/YYYY HH24:MI:SS') datetime
+FROM   rtms_webdb.appointment appt,
+       rtms_webdb.appointment_choice apptc
+WHERE  appt.appointment_id = '631858'
+AND    appt.appointment_id = apptc.appointment_id
+AND    appt.appointment_choice_confirmed = apptc.choice;
+
+select * from appointment_choice where appointment_id='631858'
+select choice from appointment_choice where appointment_id='631858'
+select appointment_choice_confirmed from appointment where appointment_id='631858'
+select * from appointment where appointment_choice_confirmed is not null
+select * from appointment
+
+select rtms_webdb.get_serv_desc(631858) from dual
+select rtms_webdb.get_appt_choice(631858) from dual
+|02/18/2016 21:30:00|||
+|02/18/2016 21:30:00||
+
+SELECT APPOINTMENT_ID ||'|'||
+       rtms_webdb.get_serv_desc ('631858')||'|'||
+       rtms_webdb.get_appt_choice ('631858') ||'|'||
+from appointment where appointment_id='631858'
+
+select appointment_id || '|' || 
+       REPLACE(WEB_SITE,'|','') ||'|'||
+       rtms_webdb.get_serv_desc ('630940') ||'|'||
+       rtms_webdb.get_appt_choice ('630940') ||'|'||
+       replace(replace(ECOMM_REF_NUMBER,CHR(13),''),CHR(10),'') data
+from appointment where appointment_id='630940'
+
+replace(replace(appt.ECOMM_REF_NUMBER,CHR(13),''),CHR(10),'') data
+
+select * from appointment where ecomm_ref_number is not null
+select * from appointment where email_signup is not null order by appointment_id desc
+select substr('test',2,4) from dual
+
+select * from appointment_service_desc
+
+
+SELECT  appointment_id
+       ,STUFF((SELECT ', ' + CAST(service_id AS VARCHAR(10)) [text()]
+         FROM appointment 
+         WHERE appointment_id = t.appointment_id
+         FOR XML PATH(''), TYPE)
+        .value('.','NVARCHAR(MAX)'),1,2,' ') List_Output
+FROM appointment t where t.appointment_id='631858'
+GROUP BY appointment_id
+
+APPOINTMENT
+APPOINTMENT_SERVICE
+APPOINTMENT_CHOICE
+APPOINTMENT_CUSTOMER
+APPOINTMENT_METADATA
+APPOINTMENT_SENT_STATUS
+
+select * 
+  from 
+    appointment a, appointment_choice apch, appointment_customer apcu, appointment_metadata apm, appointment_sent_status ass
+  where 
+    a.appointment_id=apch.appointment_id and a.appointment_id=apcu.appointment_id and a.appointment_id=apm.appointment_id and 
+    a.appointment_id=ass.appointment_id 
+    and a.appointment_id='631858'
+    select count(*) from appointment where  appointment_id not in (select appointment_choice.appointment_id from appointment_choice);
+    select count(*) from appointment_choice where  appointment_id not in (select appointment.appointment_id from appointment);
+select * from appointment_choice where 
+select count(*) from appointment_choice
+select count(*) from appointment join appointment_choice on appointment.appointment_id = appointment_choice.appointment_id;
+select count(*) from appointment join appointment_choice on appointment.appointment_id = appointment_choice.appointment_id;
+___________________________________________________________________________________________________________________
+
+select count(*) from appointment a where 
+  TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) from 
+  appointment a left join appointment_choice apch on a.appointment_id=apch.appointment_id
+  and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) from 
+  appointment a 
+    left join appointment_choice apch on a.appointment_id=apch.appointment_id
+    left join appointment_customer apcu on a.appointment_id=apcu.appointment_id
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) from 
+  appointment a 
+    left join appointment_choice apch on a.appointment_id=apch.appointment_id
+    left join appointment_customer apcu on a.appointment_id=apcu.appointment_id
+    left join appointment_metadata apm on a.appointment_id=apm.appointment_id
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) from 
+  appointment a 
+    left join appointment_choice apch on a.appointment_id=apch.appointment_id
+    left join appointment_customer apcu on a.appointment_id=apcu.appointment_id
+    left join appointment_metadata apm on a.appointment_id=apm.appointment_id
+    left join appointment_sent_status aps on a.appointment_id=aps.appointment_id
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+___________________________________________________________________________________________________________________
+
+select count(*) from appointment a where 
+  TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) from 
+  appointment a, appointment_choice apch where a.appointment_id=apch.appointment_id
+  and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) 
+  from appointment a left join appointment_customer apcu on a.appointment_id=apcu.appointment_id,
+  appointment_choice apch 
+  where a.appointment_id=apch.appointment_id 
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) 
+  from appointment a left join appointment_customer apcu on a.appointment_id=apcu.appointment_id,
+  appointment_choice apch, appointment_metadata apm
+  where a.appointment_id=apch.appointment_id and a.appointment_id=apm.appointment_id 
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+select count(*) 
+  from appointment a left join appointment_customer apcu on a.appointment_id=apcu.appointment_id,
+  appointment_choice apch, appointment_metadata apm, appointment_sent_status aps
+  where a.appointment_id=apch.appointment_id and a.appointment_id=apm.appointment_id and a.appointment_id=aps.appointment_id 
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+
+select count(*) 
+  from appointment a left join appointment_customer apcu on a.appointment_id=apcu.appointment_id,
+  appointment_choice apch, appointment_metadata apm, appointment_sent_status aps
+  where a.appointment_id=apch.appointment_id and a.appointment_id=apm.appointment_id and a.appointment_id=aps.appointment_id 
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY')
+______________________________________
+
+select a.APPOINTMENT_ID, a.STORE_NUMBER, a.VEHICLE_YEAR, a.VEHICLE_MAKE, a.VEHICLE_MODEL, a.VEHICLE_SUBMODEL,
+	a.MILEAGE, a.COMMENTS, a.FIRST_NAME, a.LAST_NAME, a.ADDRESS1, a.ADDRESS2, a.CITY, a.STATE, a.ZIP, a.DAYTIME_PHONE,
+	a.EVENING_PHONE, a.CELL_PHONE, a.EMAIL_ADDRESS, a.EMAIL_SIGNUP, to_char(a.CREATED_DATE, 'yyyy-mm-dd hh24:mi:ss'), a.WEB_SITE, a.WEB_SITE_SOURCE, a.BATTERY_QUOTE_ID,
+	a.PHONE_REMINDER_IND, a.EMAIL_REMINDER_IND, a.ECOMM_REF_NUMBER, apch.CHOICE, to_char(apch.DATETIME, 'yyyy-mm-dd hh24:mi:ss'), apch.DROP_WAIT_OPTION,
+	apch.PICKUP_TIME, apch.DROPOFF_TIME, apcu.APPOINTMENT_CUSTOMER_ID, apm.EMPLOYEE_ID, apm.LOCATION_ID, apm.SERVICES_CSV, apm.APPOINTMENT_STATUS_ID,
+    NVL(SUBSTR(apm.OTHER_DETAILS, INSTR(apm.OTHER_DETAILS, 'Services=')+9, INSTR(apm.OTHER_DETAILS, ' Status=')-9), apm.OTHER_DETAILS), 
+    aps.STATUS, to_char(aps.UPDATE_DATE, 'yyyy-mm-dd hh24:mi:ss'), aps.BOOKING_CONFIRMATION_ID, aps.EMAIL_STATUS_MESSAGE,	aps.EMAIL_TRACKING_NUMBER
+    from appointment a left join appointment_customer apcu on a.appointment_id=apcu.appointment_id,
+    appointment_choice apch, appointment_metadata apm, appointment_sent_status aps
+  where a.appointment_id=apch.appointment_id and a.appointment_id=apm.appointment_id and a.appointment_id=aps.appointment_id 
+    and TO_DATE(a.created_date,'DD-MON-YY') > TO_DATE('31-DEC-16','DD-MON-YY');
+______________________________________
+
+private Long appointmentId;
+private Long customerId;
+private Long storeNumber;
+private Long vehicleYear;
+private String vehicleMake;
+private String vehicleModel;
+private String vehicleSubmodel;
+private int mileage;
+private String comments;
+private String firstName;
+private String lastName;
+private String address1;
+private String address2;
+private String city;
+private String state;
+private String zip;
+private String daytimePhone;
+private String eveningPhone;
+private String cellPhone;
+private String emailAddress;
+private String emailSignup;
+private String createdDate;
+private String webSite;
+private String webSiteSource;
+	private String appointmentChoiceConfirmed; // required?
+private Long batteryQuoteId;
+private String phoneReminderInd;
+private String emailReminderInd;
+private String ecommRefNumber;
+private int choice;
+private String dateTime;
+private String dropWaitOption;
+private String pickupTime;
+private String dropOffTime;
+private String appointmentServices;
+private String appointmentServicesDesc;
+private Long employeeId;
+	private Long roomId;
+private Long locationId;
+private Long appointmentStatusId;
+private String otherDetails;
+private String status;
+private String updateDate; // required?
+private String bookingConfirmationId;
+private String emailStatusMessage;
+private String emailTrackingNumber;
+___________________________________________________________________________________________________________________
+previousWeeks[0][0] = 500;
+previousWeeks[0][1] = 100;
+previousWeeks[0][2] = 100;
+previousWeeks[0][3] = 100;
+previousWeeks[0][4] = 100;
+
+previousWeeks[1][0] = 50;
+previousWeeks[1][1] = 100;
+previousWeeks[1][2] = 100;
+previousWeeks[1][3] = 100;
+previousWeeks[1][4] = 100;
+
+previousWeeks[2][0] = 20;
+previousWeeks[2][1] = 100;
+previousWeeks[2][2] = 100;
+previousWeeks[2][3] = 100;
+previousWeeks[2][4] = 99;
+
+previousWeeks[3][0] = 1;
+previousWeeks[3][1] = 25;
+previousWeeks[3][2] = 25;
+previousWeeks[3][3] = 25;
+previousWeeks[3][4] = 25;
+___________________________________________________________________________________________________________________

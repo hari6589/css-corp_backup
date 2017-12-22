@@ -1,0 +1,768 @@
+Appointment:
+
+    Tables:
+        APPOINTMENT
+        APPOINTMENT_CHOICE
+        APPOINTMENT_SERVICE
+        APPOINTMENT_CUSTOMER
+        APPOINTMENT_METADATA
+        APPOINTMENT_SENT_STATUS
+             
+    APPOINTMENT APPOINTMENT_ID  NUMBER(9,0), 
+        STORE_NUMBER    NUMBER(6,0), 
+        VEHICLE_YEAR    NUMBER(4,0), 
+        VEHICLE_MAKE    VARCHAR2(30 BYTE),
+        VEHICLE_MODEL   VARCHAR2(40 BYTE),
+        VEHICLE_SUBMODEL    VARCHAR2(80 BYTE),
+        MILEAGE NUMBER(6,0), 
+        COMMENTS    VARCHAR2(2000 BYTE),
+        FIRST_NAME  VARCHAR2(50 BYTE),
+        LAST_NAME   VARCHAR2(80 BYTE),
+        ADDRESS1    VARCHAR2(50 BYTE),
+        ADDRESS2    VARCHAR2(50 BYTE),
+        CITY    VARCHAR2(50 BYTE),
+        STATE   VARCHAR2(2 BYTE),
+        ZIP VARCHAR2(10 BYTE),
+        DAYTIME_PHONE   VARCHAR2(25 BYTE),
+        EVENING_PHONE   VARCHAR2(25 BYTE),
+        CELL_PHONE  VARCHAR2(25 BYTE),
+        EMAIL_ADDRESS   VARCHAR2(255 BYTE),
+        EMAIL_SIGNUP    VARCHAR2(10 BYTE),
+        CREATED_DATE    DATE, 
+        WEB_SITE    VARCHAR2(10 BYTE),
+        APPOINTMENT_CHOICE_CONFIRMED    NUMBER(1,0), 
+        BATTERY_QUOTE_ID    NUMBER(10,0), 
+        PHONE_REMINDER_IND  VARCHAR2(1 BYTE),
+        EMAIL_REMINDER_IND  VARCHAR2(1 BYTE),
+        WEB_SITE_SOURCE VARCHAR2(20 BYTE),
+        ECOMM_REF_NUMBER    VARCHAR2(50 BYTE)
+
+    APPOINTMENT_CHOICE  "   APPOINTMENT_CHOICE_ID"  NUMBER(9,0), 
+        "   CHOICE" NUMBER(1,0), 
+        "   DATETIME"   DATE, 
+        "   DROP_WAIT_OPTION"   VARCHAR2(10 
+        "   APPOINTMENT_ID" NUMBER(9,0), 
+        "   PICKUP_TIME"    DATE, 
+        "   DROPOFF_TIME"   DATE 
+
+    APPOINTMENT_SERVICE APPOINTMENT_SERVICE_ID  NUMBER(9,0), 
+        "   SERVICE_ID" NUMBER(10,0), 
+        "   APPOINTMENT_ID" NUMBER(9,0) 
+        APPOINTMENT_SERVICE_ID  NUMBER(9,0), 
+        "   SERVICE_ID" NUMBER(10,0), 
+        "   APPOINTMENT_ID" NUMBER(9,0) 
+
+    APPOINTMENT_CUSTOMER    "   APPOINTMENT_CUSTOMER_ID"    NUMBER(9,0), 
+        "   FIRST_NAME" VARCHAR2(50 BYTE),
+        "   LAST_NAME"  VARCHAR2(80 BYTE),
+        "   ADDRESS1"   VARCHAR2(50 BYTE),
+        "   ADDRESS2"   VARCHAR2(50 BYTE),
+        "   CITY"   VARCHAR2(50 BYTE),
+        "   STATE"  VARCHAR2(2 BYTE),
+        "   ZIP"    VARCHAR2(10 BYTE),
+        "   DAYTIME_PHONE"  VARCHAR2(25 BYTE),
+        "   EVENING_PHONE"  VARCHAR2(25 BYTE),
+        "   CELL_PHONE" VARCHAR2(25 BYTE),
+        "   EMAIL_ADDRESS"  VARCHAR2(255 BYTE),
+        "   EMAIL_SIGNUP"   VARCHAR2(10 BYTE),
+        "   WEB_SITE"   VARCHAR2(10 BYTE),
+        "   CREATED_DATE"   DATE, 
+        "   APPOINTMENT_ID" NUMBER(9,0) 
+
+    APPOINTMENT_METADATA    "   APPOINTMENT_ID" NUMBER(10,0), 
+        "   EMPLOYEE_ID"    NUMBER(10,0), 
+        "   LOCATION_ID"    NUMBER(10,0), 
+        "   SERVICES_CSV"   VARCHAR2(100 BYTE),
+        "   APPOINTMENT_STATUS_ID"  NUMBER(10,0), 
+        "   OTHER_DETAILS"  VARCHAR2(512 BYTE),
+        "   CREATED_DATE"   DATE 
+
+    APPOINTMENT_SENT_STATUS "   APPOINTMENT_ID" NUMBER(11,0), 
+        "   STATUS" CHAR(11 BYTE),
+        "   UPDATE_DATE"    DATE, 
+        "   BOOKING_CONFIRMATION_ID"    VARCHAR2(64 BYTE),
+        "   EMAIL_STATUS_MESSAGE"   VARCHAR2(1024 BYTE),
+        "   EMAIL_TRACKING_NUMBER"  VARCHAR2(128 BYTE)
+
+________________________________________________________________________________________________________________
+Sample POJO (Estimated):
+{
+    "AppointmentId": "631001"
+    "StoreNumber": "240714"
+    "VehicleYear": "2012"
+    "VehicleMake": "Audi"
+    "VehicleModel": "A4"
+    "VehicleSubmodel": "Base"
+    "Mileage": "2500"
+    "Comments": "tire quote id:  1060318,  tire article number:  11867,  tire description: Bridgestone DriveGuard,  tire size: 245/40R18 XL,  tire quantity: 5,  tire unit price: $210.99,  tire quote End;"
+    "FirstName": "johnny"
+    "LastName": "depp"
+    "Address1": "444E Lake St IT"
+    "Address2": ""
+    "City": "Moore"
+    "State": "OK"
+    "Zip": "73160"
+    "DaytimePhone": "1234567890"
+    "EveningPhone": "2342342343"
+    "CellPhone": "9876543210"
+    "EmailAddress": "johnny.depp@gmail.com"
+    "EmailSignup": "false"
+    "CreatedDate": "06-OCT-16"
+    "WebSite": "FCAC"
+    "WebSiteSource": "FCAC_DESKTOP"
+    "AppointmentChoiceConfirmed": ""
+    "BatteryQuoteId": "1060318"
+    "PhoneReminderInd": "N"
+    "EmailReminderInd": "N"
+    "EcommRefNumber": "1000ABC"
+    "Choice": "0"
+    "DateTime": "30-SEP-16"
+    "DropWaitOption": "drop"
+    "PickupTime": "30-SEP-16"
+    "DropOffTime": "30-SEP-16"
+    "AppointmentServices": {
+        "2744": "Oil & Filter Change",
+        "2745": "Tire Replacement",
+        "2746": "Tire Rotation"
+    }
+    "EmployeeId": "11295"
+    "LocationId": "2517"
+    "AppointmentStatusId": "4088"
+    "OtherDetails": "Services=Wheel Alignment Status=Confirmed"
+    "Status": "S"
+    "UpdateDate": "09-SEP-16"
+    "BookingConfirmationId": "14353895"
+    "EmailStatusMessage": "Confirmed"
+    "EmailTrackingNumber": "Customer #:6959041"
+}
+
+________________________________________________________________________________________________________________
+Headers:
+    site_id:appointplus351/776
+    api_key:123ba713955f286356423d59d03618db7ceecfc7
+    response_type:JSON
+---------------------------------------------------------------------------------------------------------------------------
+Appointment Service:
+    
+    https://{{host}}/Dev/ws2/appointment/services
+
+    Tables:
+        APPOOINTMENT_SERVICE_CATEGORY
+        APPOINTMENT_SERVICE_DESC
+        APPOINTMENT_SERV_CAT_MAP
+
+    - The above three tables are merged and moved into DynamoDB with the name "AppointmentService"
+---------------------------------------------------------------------------------------------------------------------------
+Metadata:
+
+    http://{{host}}/ws2/appointment/metadata?storeNumber=23817&services=Tire%20Replacement
+
+    https://sandbox-ws.appointment-plus.com/Bridgestone/Rules?store_number=011940&services=Tire%20Replacement&site_id=appointplus846/776&api_key=b18371f34b0931963f62add253820169cfa05cf7&response_type=JSON
+
+---------------------------------------------------------------------------------------------------------------------------
+Days:
+    
+    http://{{host}}/ws2/appointment/availability/days?locationId=1581&startDate=20170207&numDays=30&employeeId=12709
+
+    https://sandbox-ws.appointment-plus.com/Staff/GetOpenDates?num_days=30&start_date=20170207&c_id=1581&employee_id=12709&site_id=appointplus846/776&api_key=b18371f34b0931963f62add253820169cfa05cf7&response_type=JSON
+---------------------------------------------------------------------------------------------------------------------------
+Time Slot:
+    
+    http://{{host}}/ws2/appointment/availability/times?locationId=1581&selectedDate=20160614&serviceIds=2745&employeeId=12709
+
+    https://sandbox-ws.appointment-plus.com/Bridgestone/GetOpenSlots?num_days=30&start_date=20170207&c_id=1581&employee_id=12709&start_time=00:00&service=2745&addons=2746,2747&show_duplicates=no&site_id=appointplus846/776&api_key=b18371f34b0931963f62add253820169cfa05cf7&response_type=JSON
+---------------------------------------------------------------------------------------------------------------------------
+Book Appointment
+    http://{{host}}/ws2/appointment/book
+
+    > Create appointment with Appointment Data, Selected Date, Selected Time, Primary Service Id and Secondary Service Id
+    > Get customer id by CustomerDayTimePhone, CustomerEmailAddress, and CustomerLastName
+
+        https://ws3.appointment-plus.com/Customers/GetCustomers
+
+        day_phone
+        email
+        last_name
+
+
+    > If the customer is not found then create a new customer with LocationId, CustomerFirstName, CustomerLastName, CustomerEmailAddress, and CustomerDayTimePhone. It returns a customer id
+
+        https://ws3.appointment-plus.com/Customers/CreateCustomers
+
+        c_id
+        first_name
+        last_name
+        email
+        day_phone
+
+    > Create appointment with appointment-plus
+            https://ws3.appointment-plus.com/Appointments/CreateAppointments
+        
+        c_id (locationId)
+        employee_id
+        customer_id
+        status_id
+
+        date
+        start_time
+        service_id
+        addons
+        po_number (QuoteId)
+        vin (eCommRefNumber)
+        customer_notes (customerNotes + comments) (if)
+        other_vehicle (dropWaitOption)
+        override (Default: TRUE[drop] if user says wait then FALSE)
+        aces_year
+        aces_make
+        aces_model
+        override_aces_submodel
+        aces_submodel (if)
+        odometer (if)   
+
+    > Save appointment with Appointment Data, AppointmentConfirmation Id, Customer Id, and AppointmentStatusDesc
+        > Save Appointment (APPOINTMENT table)
+        > Save Services (APPOINTMENT_SERVICE table)
+        > Save Choices (APPOINTMENT_CHOICE table)
+        > Save Customer Info (APPOINTMENT_CUSTOMER table)
+        > Save Metadata (APPOINTMENT_METADATA table)
+        > Save Sent Status (APPOINTMENT_SENT_STATUS table)
+            - If the appointment-plus is success then Set appointment Status as 'S' and set Confirmation & Customer Ids
+            - If the appointment-plus is failure then Set appointment Status as 'R' and ignore confirmation & Customer Ids
+
+    Tables:
+        APPOINTMENT
+        APPOINTMENT_CHOICE
+        APPOINTMENT_SERVICE
+        APPOINTMENT_CUSTOMER
+        APPOINTMENT_METADATA
+        APPOINTMENT_SENT_STATUS
+
+    - The above Six tables are merged and moved into DynamoDB with the name "Appointment" 
+    - You could find the Model class in BSROScheduleAppointmentWorkerFunction, where you can get the list of Appointment attributes we are currently saving
+
+    Request Body:
+
+        {
+          "storeNumber":23817,
+          "locationId":1581,
+          "employeeId":12713,
+          "appointmentStatusId":4088,
+          "appointmentStatusDesc":"Scheduled",
+          "vehicleYear":"2010",
+          "vehicleMake":"Chevrolet",
+          "vehicleModel":"Colorado",
+          "vehicleSubmodel":"WT",
+          "quoteId":"123456",
+          "mileage":"7500",
+          "customerFirstName":"Stallin",
+          "customerLastName":"Moorthy",
+          "customerDayTimePhone":"227-876-5678",
+          "customerEmailAddress":"test@bfrc.com",
+          "websiteName":"FCAC",
+          "appointmentType":"New",
+          "choice":{
+            "choice":1,
+            "datetime":1455811200000,
+            "dropWaitOption":"drop"
+          },
+          "selectedServices":"2751,2767"
+        }
+
+    ----------------------------------------------------------
+    Get Customer: 6962263, 6962264
+        https://sandbox-ws.appointment-plus.com/Customers/GetCustomers?day_phone=9566765497&email=atest@agmail.com&last_name=atest&site_id=appointplus846/776&api_key=b18371f34b0931963f62add253820169cfa05cf7&response_type=JSON
+    ----------------------------------------------------------
+    Create Customer:
+        https://sandbox-ws.appointment-plus.com/Customers/CreateCustomers?c_id=1581&first_name=Atest&last_name=Atest&email=atest@agmail.com&day_phone=9566765497&site_id=appointplus846/776&api_key=b18371f34b0931963f62add253820169cfa05cf7&response_type=JSON
+    ----------------------------------------------------------
+    Create appointment:
+        https://sandbox-ws.appointment-plus.com/Appointments/CreateAppointments?c_id=1581&employee_id=12713&customer_id=6962263&status_id=4088&date=20170215&start_time=944&service_id=2745&po_number=1060318&vin=1000ABC&customer_notes=TestNote&other_vehicle=drop&override=false&aces_year=2012&aces_make=Audi&aces_model=A4&override_aces_submodel=true&aces_submodel=Base&odometer=2500&site_id=appointplus846/776&api_key=b18371f34b0931963f62add253820169cfa05cf7&response_type=JSON
+    
+    Response Body:
+
+        {
+          "resource": "appointments",
+          "action": "createappointments",
+          "request": "CreateAppointmentsByPOST",
+          "result": "success",
+          "count": "1",
+          "data": {
+            "c_id": 1581,
+            "appt_id": 14360880,
+            "customer_id": 6962263,
+            "account": null,
+            "employee_id": 12713,
+            "room_id": "",
+            "date": "20170215",
+            "start_time": "944",
+            "end_time": 1004,
+            "service_id": 2745,
+            "addons": [],
+            "customer_notes": "TestNote",
+            "employee_notes": "",
+            "status_id": 4088,
+            "rep_id": "",
+            "cost": "",
+            "tip": "",
+            "payment_type_id": "",
+            "spots": 1,
+            "reason": "",
+            "creation_emp_id": "",
+            "last_emp_id": "",
+            "po_number": "1060318",
+            "coupon_code": null,
+            "pet_id": false,
+            "make_id": null,
+            "model_id": null,
+            "model_year": null,
+            "other_vehicle": "drop",
+            "vin": "1000ABC",
+            "odometer": "2500",
+            "aces_year": "2012",
+            "aces_make": "Audi",
+            "aces_model": "A4",
+            "aces_submodel": "Base"
+          }
+        }
+________________________________________________________________________________________________________________
+Email Quote:
+
+Input: Sitename, Source, QuoteId, FirstName, LastName, EmailAddress
+
+1. Validate Input:
+    a. Sitename, Source, QuoteId, and EmailAddress are required fields
+    b. Validate EmailAddress format
+2. Identify the Source(Battery, Alignment, and Tire) and get the Quote detail from table
+3. Save user detail into appropriate source(Battery, Alignment, and Tire) table and collect the updated quote detail with response
+4. Create a MailMessage based on Source with the values of Quote, Site, FirstName and LastName
+    a. Prepare Mail Content
+    b. Collect data from updated quote object
+        - Collect BaseURL
+        - Collect Quote Detail
+        - Collect Store Detail
+        - Collect Static Detail
+    c. Place the collected data into Mail Content
+        
+5. Send mail to specified EmailAddress address
+6. Record the log of detail into a table
+
+Store Hours HTML:
+    <strong>Hours</strong>
+    <br><b>MON:</b> <span class="aBn" data-term="goog_2063652834" tabindex="0"><span class="aQJ">7:00am-7:00pm</span></span>
+    <br><b>TUE:</b> <span class="aBn" data-term="goog_2063652835" tabindex="0"><span class="aQJ">7:00am-7:00pm</span></span>
+    <br><b>WED:</b> <span class="aBn" data-term="goog_2063652836" tabindex="0"><span class="aQJ">7:00am-7:00pm</span></span>
+    <br><b>FRI:</b> <span class="aBn" data-term="goog_2063652837" tabindex="0"><span class="aQJ">7:00am-7:00pm</span></span>
+    <br><b>SAT:</b> <span class="aBn" data-term="goog_2063652838" tabindex="0"><span class="aQJ">7:00am-6:00pm</span></span>
+    <br><b>SUN:</b> <span class="aBn" data-term="goog_2063652839" tabindex="0"><span class="aQJ">8:00am-5:00pm</span></span>
+    <br>
+________________________________________________________________________________________________________________
+Mobile User:
+
+    Tables:
+        BFS_USERS
+            MY_DRIVERS
+                MY_VEHICLES
+                    VEHICLE_CONFIGURATION
+                    MY_MAINT_SVC_PERFORMED
+                    APPOINTMENT
+                    MY_VEHICLE_GAS
+                    MY_SERVICE_HISTORY_VEHICLE
+                MY_STORES
+                    STORE
+            MY_BACKUP_DATA
+            MY_DEVICES
+            MY_PRODUCT_QUOTES
+            MY_PROMOTIONS
+        BFRC_WEB_SITE
+
+BFS_USERS
+    USER_ID               NOT NULL NUMBER(10)    
+    EMAIL                 NOT NULL VARCHAR2(255) 
+    SITE_ID               NOT NULL NUMBER(10)    
+    PREV_EMAIL                     VARCHAR2(255) 
+    PASSWORD              NOT NULL VARCHAR2(128) 
+    REG_DATE              NOT NULL DATE          
+    STATUS                NOT NULL VARCHAR2(1)   
+    LAST_MODIFIED_DATE    NOT NULL DATE          
+    UNSUCCESSFUL_ATTEMPTS          NUMBER(1)     
+
+------
+Live Tables : MWS_USERS & MWS_BACKUP_DATA
+Ref: Team Concert Work Item: 3142
+--------------------------------------------------------------------------------------------------------------------
+User Status : A(Active), L(Locked), and I(InActive)
+
+Register User:
+
+    - Check the request is secured or not, If not secured and response the same
+    - Validate the input email address, if not valid then response the same
+        - Email is not null
+        - Email regex pattery
+        - Email characters are less than or equalt to 255 chars
+    - Get Appname from HTTPHeader
+
+    - Validate the input password, if not valid then response the "UserPasswordInvalid"
+        - password greater than or equal to 8 char (passwordOne!=null&&passwordOne.length() >= 8 )
+        - 1: check the password contains number
+            (passwordOne.matches("((?=.*\\d).{1,})"))
+        - 2: check the password contains lower case alphabet
+            (passwordOne.matches("((?=.*[a-z]).{1,})"))
+        - 3: check the password contains upper case alphabet
+            (passwordOne.matches("((?=.*[A-Z]).{1,})"))
+        - 4: check the password contains special character (!@#$%^*()_+-={}[]|/)
+            (passwordOne.matches("((?=.*[@#%/_=\\-\\(\\)\\!\\+\\^\\*\\[\\]\\{\\}\\|\\$]).{1,})"))
+        - Password should contain atleast any three of the above conditions
+    - Get the appname from the request header
+    - Check the user is already exist in BFS_USERS table. Input: email and appName
+    - If the user is already exist then response with USER_ALREADY_EXIST Validation response
+    - Else read the password in UTF-8 and encrypt with MDF Encryption algorithm
+    - Create BFS_USER (email, prevEmail, ecryptedPass, appName)
+--------------------------------------------------------------------------------------------------------------------
+Authenticate User:
+
+    - Check the request is secured or not, If not secured and response the same
+    - Validate the input email address, if not valid then response the same
+        - Email is not null
+        - Email regex pattery
+        - Email characters are less than or equalt to 255 chars
+    - Get Appname from HTTPHeader
+    
+    - Check the user is already exist in BFS_USERS table. Input: email and appName, if user does not exist then response "UserHasNotRegistered"
+
+    - If the user exist, Encrypt the user input password into MD5 and check both the passwords are same
+        - If the password is matching as well as the user is in Active State then response "UserAuthSuccess"
+    - If the user Active Status is "Locked" then response "AccountLocked"
+    - If the user Active Statue is open and the password is wrong then increment the attempt count
+        - If the attempt count reaches 5 then change the user Status to "L"
+    - Update the user detail (if attempt incremented or acc locked)
+--------------------------------------------------------------------------------------------------------------------
+Check Data:
+
+    - Check the request is secured or not, If not secured and response the same
+    - Validate the input email address, if not valid then response the same
+        - Email is not null
+        - Email regex pattery
+        - Email characters are less than or equalt to 255 chars
+    - Get Appname from HTTPHeader
+
+    - Check the user exist or not, and response "UserNotExist" if user does not exist
+
+    - Check the user has Backup data with DB, then response "YesBackupFound"
+        from MyBackupData bd where bd.user.userId=? **************
+    - If the user does not have Backup data, then response "NoBackupFound"
+    - 
+--------------------------------------------------------------------------------------------------------------------
+Restore:
+    
+    - Check the request is secured or not, If not secured and response the same
+    - Validate the input email address, if not valid then response the same
+        - Email is not null
+        - Email regex pattery
+        - Email characters are less than or equalt to 255 chars
+    - Get Appname from HTTPHeader
+
+    - Check the user exist or not, and response "UserNotExist" if user does not exist
+
+    - Get user backupData from MyBackupData table (from MyBackupData bd where bd.user.userId=?) return "NoBackupFound" if no data found
+    - Set DescFlag as "R" and update MyBackupData table
+    - Return the json_data value with the response
+    - If thee json_data is null the response "NoBackupFound"
+
+    - If no error and no data return then response "RestoreError"
+--------------------------------------------------------------------------------------------------------------------
+Backup:
+    
+    - Check the request is secured or not, If not secured and response the same
+    - Validate the input email address, if not valid then response the same
+        - Email is not null
+        - Email regex pattery
+        - Email characters are less than or equalt to 255 chars
+    - Validate JSON String
+    - Get Appname from HTTPHeader
+
+    - Check the user exist or not, and response "UserNotExist" if user does not exist
+
+    - Get the user Backup data from MyBackupData table
+    - If user_backup data exist then set new json_data, DescFlag as "B", and update ModifiedDate
+    - If user_backup data not exist then create new user backup_data into MyBackupData
+    - Response "BackupSuccess", DescFlag, and ModifiedDate
+--------------------------------------------------------------------------------------------------------------------
+Forgot Password:
+    
+    - Check the request is secured or not, If not secured and response the same
+    - Validate the input email address, if not valid then response the same
+        - Email is not null
+        - Email regex pattery
+        - Email characters are less than or equalt to 255 chars
+    - Validate JSON String
+    - Get Appname from HTTPHeader
+
+    - Check the user exist or not, and response "UserNotExist" if user does not exist
+
+    - Generate Password with a User defined method
+        - Attempt to generate password for 20 times (why?)
+    - Manipulate From = 'DO-NOT-REPLY<WebMaster>' 
+    - Manipulate To = user email address
+    - Manipulate Subject "Request for Password reset for your <appName> account"
+    - Manipulate MessageContent (with the new password and appName)
+    - Send email
+    - Response "ResetPwdSuccess" if any exception then response "ResetPwdServerError"
+--------------------------------------------------------------------------------------------------------------------
+Update: Inputs (oldEmail, newEmail, oldPassword, newPassword)
+    
+    - Check the request is secured or not, If not secured and response the same
+    - Validate the input email address, if not valid then response the same
+        - Email is not null
+        - Email regex pattery
+        - Email characters are less than or equalt to 255 chars
+    - Validate the input password, if not valid then response the "UserPasswordInvalid"
+    - Get Appname from HTTPHeader
+
+    - Check the user (with old-email) exist or not, and response "UserNotExist" if user does not exist
+    - If the user exist, Encrypt the user input password into MD5 and check both the passwords are same
+        - If the password is not matching or the user is InActive then respone "UnAuthorized"
+    - Else check the new Email address is already exis in DB, if exist then respone "UserExist"
+        - If the Email is changing
+            - Copy the oldEmail into PrevisousEmail and set the newEmail address into Email field
+            - If the password is changing
+                - update the user Table and response "UserUpdateSuccess"
+            - Else 
+                - update the user Table and response "UserEmailUpdateSuccess"
+        - else
+            - Update the password alone and response "UserPasswordUpdateSuccess"
+    - If non of above response is sent then respone "UserNotUpdate"
+
+___________________________________________________________________________________________________________________
+
+Search History:
+
+    Tables:
+        Pojo - MaintenanceVehicle
+        Pojo - MaintenanceInvoice
+        Pojo - MaintenanceJob
+        Pojo - MaintenanceJobDetail
+
+
+Update in Legacy: 7979
+
+Process:
+
+    - AWS API Gateway is always uses HTTPS connection, so no needt to check for isSecured() connection
+    - Request Headers are received as same as query parameter
+
+Third Party Call:
+
+    http://199.48.30.1/EDWRTQ/EDWRTQ.asmx
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Header>
+            <AuthHeader xmlns="http://bfrco/">
+                <Password>wY6#1Mkq$K</Password>
+            </AuthHeader>
+        </soap:Header>
+        <soap:Body>
+            <EDWQuery xmlns="http://bfrco/">
+                <XMLString>
+                    &lt;EDWRTQ AppId='MOBILE' ReqId='RTQ2010' RequestVersion='1' ResponseVersion='1' AreaCode='323' Exchange='804' Line='5647' &gt;&lt;/EDWRTQ&gt;
+                </XMLString>
+            </EDWQuery>
+        </soap:Body>
+    </soap:Envelope>
+___________________________________________________________________________________________________________________
+
+Mobile Notification:
+    
+    > notification/get
+    
+    Tables:
+        RTMS_WEBDB.DEVICE_MESSAGE
+        RTMS_WEBDB.SERVICE_NOTIFICATIONS
+    Input: deviceUUID
+
+        - Get Device Messages
+            - If messages found then return the list of messages with Successmes status message and 
+            - Else response "NoActiveNotificationFound"
+
+        SELECT NOTIFICATION_ID, MESSAGE, START_DATE, END_DATE, SUBJECT, TITLE, USER_ID, LAST_UPDATE_DATE from RTMS_WEBDB.SERVICE_NOTIFICATIONS WHERE START_DATE<=? AND (END_DATE>=? OR END_DATE IS NULL)
+
+    > notification/getall
+    
+        Input: -
+
+        SELECT DEVICE_MESSAGE_ID, DEVICE_UUID, READ_FLAG, PINNED, DELETE, LAST_READ_DATE, LAST_UPDATE, NOTIFICATION_ID, NOTIFICATION_ID, MESSAGE, START_DATE, END_DATE, SUBJECT , TITLE , USER_ID , LAST_UPDATE_DATE  
+        FROM RTMS_WEBDB.DEVICE_MESSAGE JOIN RTMS_WEBDB.SERVICE_NOTIFICATIONS  ON NOTIFICATION_ID=NOTIFICATION_ID 
+        WHERE DEVICE_UUID=? AND START_DATE<=? AND (END_DATE>=? OR END_DATE IS NULL)
+
+        update service_notifications set end_date = '21-JUL-17' where notification_id in (1,2,3);
+
+        1059    297CDFC0-F22A-4F5D-91DE-332FC1CEEBE9    Y   N   Y       10-MAY-17
+
+___________________________________________________________________________________________________________________
+
+Email Signup:
+    
+    Input: Sitename and Json data
+
+    - Validate the input json, if invalie then return with msg "InvalidJsonString"
+    - Move the values from JSON into Object and validate the input values and return Error message if data missing
+        (firstname, lastname, source, sitename, email and confirmEmail)
+    - validate the Email and ConfirmEmail inputs are equal, if not matching return "Email address and Confirm Email Address Should be same"
+    - Validate the email input with regex pattern ("^[\\w\\.-]+@([\\w\\-]+\\.)+[a-zA-Z]{2,4}$") if invalid return "Invalid Email Address"
+    - Set current date in createdDate attribute
+    - Generate a 10 digit random number
+        while(signupCode.length() < 10) {
+            signupCode += String.valueOf((int)(Math.random()*10000000));
+        }
+        if(signupCode.length() > 10)
+            signupCode = signupCode.substring(0, 10);
+    - Insert data into EmailSignup table and return Success status code with msg "Data inserted successfully"
+    - If any error while saving the data return msg "Data is not inseted"
+--------------------------------------------------------------------------------------------------------------------
+Email Signup Get:
+    
+    Input: SiteName and EmailAddress
+
+    - Validate input Sitename and SignupId if invalid then return with appropriate error message
+    - Get Signup record and return with status-code "SUCCESS" and message "Data  Fetched Successfully"
+    - If no record found then return status-code "Bussiness Service Error" and message "NoDataFound"
+--------------------------------------------------------------------------------------------------------------------
+Email Unsubscribe:
+    
+    Input: Email and Sitename
+
+    - Validate input Sitename and Email address, if invalid then return with appropriate error message
+    - Get list of records with EmailAddress and Sitename
+    - Insert the EmailAddress, Source and UnsubscribeDate into "Unsubscribe" table
+    - If the above insertion is success then delete the list of records from the "Subscribe" table
+    - If unsubscribed successfully then return status code "Success" and msg "User UnSubscribed Successfully"
+    - Else return status code "Bussiness Service Error" and msg "NoDataFound"
+--------------------------------------------------------------------------------------------------------------------
+Email Save Wifi Contact:
+
+    Input: Firstname, Lastname, Source, Email, Callback, Optin
+
+    - Validate the input parameters and return response-code "999" and msg "Error"
+    - If the give email address record is already exist the return response-code "100" and msg "Contact already exists"
+    - Else save the give inputs into "Subscribe" table and return response-code "000" and msg "Success" with Callback input parameter as a JSONPObject
+
+    Note:
+        - Make sure the response is allowing cross origin access
+            Code:
+            response.addHeader("Access-Control-Allow-Origin", "*");
+            response.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+            response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+            response.addHeader("Access-Control-Max-Age", "1234");
+        - This Web Service should NOT check tokenId header parameter
+
+    Ref: 7792 - Rational Team Concert Ticket
+___________________________________________________________________________________________________________________
+
+Store GEO Update:
+
+Total : 46585
+Start : Tue Jun 13 07:18:07 UTC 2017
+End : Tue Jun 13 09:52:42 UTC 2017
+
+Total Time taken: 2:34:35
+
+___________________________________________________________________________________________________________________
+
+Edge Report - Email Signup:
+
+Legacy:
+D|L|||||Dclawinger@gmail.com|02/06/2017 07:45:55|FCACWIFI| |0
+
+AWS:
+Jmeter3|JmeterLast3|||||testing3@testingcorp.com|2017/06/07 09:52:53|FCAC| |0
+
+___________________________________________________________________________________________________________________
+
+Edge Report - Email Unsubscribe:
+
+Legacy:
+1504|kseige@aol.com|2017092012:12:12|FCAC
+
+AWS:
+115|amazontest5@csscorp.com|2017060712:57:01|FCAC|
+
+___________________________________________________________________________________________________________________
+Edge Report:
+    From : 2017-06-20 23:59:59 _ To : 2017-06-21 00:00:00
+___________________________________________________________________________________________________________________
+
+Maintenance History:
+
+    - Get siteName parameter from Header
+    - Clean the query parameters and validate it
+    - If Query parameter contains 'phone'
+        - Loop the list of Phone numbers
+            - Validate the phone number is not null and has 10 digits
+            - Split first 3 digits as 'area', next 3 digits as 'exchange' and last 4 digits as 'line'
+            - Construct query parameters for third-party post call with 'area', 'exchange' and 'line' parameters
+            - <HTTP POST Section>
+
+
+    - Else (Query parameter contains 'storeId' and 'invoiceId')
+        - Validate numbers only for 'invoiceId', if so throw "Invalid invoice number format.  Must be a number."
+        - Check storeNumber or InvoiceId is null then throw "Both a store number and an invoice number are required"
+        - Construct Message Body, URI and POST data and parse the response as same as 'phone' number input
+        - <HTTP POST Section>
+-------------------------------------------------------------------------------------------------------------------
+    HTTP POST Section:
+        - Append 'SOAP Header' and 'SOAP Footer' befor and after the query parameters
+        - Post the HTTPRequest with following detail
+            _ URI
+            _ Message Body
+            _ Content Type as 'text/xml'
+            _ MessageCharset.UTF8
+            _ SOAP header parameters
+                SOAPAction = 'http://bfrco/EDWQuery'
+                SOAPAction = 'text/xml'
+        - If the response status code is > 299, then throw 'External Server Error message!'
+        - Else parse out the vehicle data from response body
+            - If 'EDWRTQRecordSet' is not null
+                - Get 'EDWRTQRecordSet' element
+                - Loop the children elements of 'EDWRTQRecordSet'
+                - Loop the children of above children element and record the below elements into 'VehicleSearchResult' list
+                    _ XNCD_PARTYID
+                    _ XNCD_VEHICLEID
+                    _ XYEAR
+                    _ XMAKE
+                    _ XMODEL
+                    _ XSUBMODEL
+                - return the 'VehicleSearchResult' list
+            - Else if 'EDWRTQReturn' is not null
+                - return the 'VehicleSearchResult' list with no records
+            - Else if 'Fault' is not null
+                - Loop 'Fault' children records
+                - Construct error message "faultcode" and "faultstring"
+            - Else
+                - throw "Unknown response from server.  Cannot parse."
+        - Loop 'VehicleSearchResult' and add each element to 'MaintenanceVehicle' distinct of 'vehicleId'
+___________________________________________________________________________________________________________________
+Sender:
+    oracle@bsro.com
+
+App Hourly Report Recipients: (all are 'TO')
+    bsro.notifications@icrossing.com
+    Gopikishan.Maheshwarlal@csscorp.com
+    Ramesh.Ramamoorthy@csscorp.com
+    rheald@bfrc.com
+
+App Edge Report failure Alert Recipients: (all are 'TO')
+    Gopikishan.Maheshwarlal@csscorp.com
+    Ramesh.Ramamoorthy@csscorp.com
+    rheald@bfrc.com
+    Sergei.Anisimov@icrossing.com
+
+oracle@bsro.com
+bsro.notifications@icrossing.com
+Gopikishan.Maheshwarlal@csscorp.com
+Ramesh.Ramamoorthy@csscorp.com
+rheald@bfrc.com
+Sergei.Anisimov@icrossing.com
+
+webmaster@firestonecompleteautocare.com
+webmaster@tiresplus.com
+___________________________________________________________________________________________________________________

@@ -1,0 +1,159 @@
+1. Tell about technical flow of your current project?
+2. Rate yourself in core Java
+3. Is JVM Platform Independent ?
+4. Can you differentiate JVM, JDK, JRE
+5. Default scope of the bean in spring ?
+6. Purpose of the singleton class ?
+7. How to creat Singleton class ?
+8. Private variable using in another class ?
+9. Difference between parameter and argument ?
+10. Which list will you prefer for insertion ?
+11. How to sort the list ?
+12. How to sort the list in descending order ?
+13. Differents between start and run method ?
+14. implicit objects in JSP ?
+15. Exception handling in jsp ? 
+16. Session tracking ?
+
+17. Difference between confirm box, alert box and prompt box in javascript ? 
+18. Difference between three equal and two equal operator in javascript ?
+19. Difference between keyup, keydown, keypress events ?
+	keyup(): Event fired when a key is released on the keyboard.
+	keydown(): Event fired when a key is pressed on the keyboard(shift, ctrl, alt).
+	keypress:() Event fired when a key is pressed on the keyboard.
+
+20. States of the Ajax
+There are four states of ajax.
+1. Initialization
+2. Request
+3. Process
+4. Ready
+
+21. Difference between div and span tag ?
+
+
+1) What is method overriding?
+2) What are the rules to be followed while overriding a method?
+3) Can we override static methods?
+4) What happens if we change the arguments of overriding method?
+5) Can we override protected method of super class as public method in the sub class?
+6) Can we change the return type of overriding method from Number type to Integer type?
+7) Can we override a super class method without throws clause as a method with throws clause in the sub class?
+8) Can we change an exception of a method with throws clause from SQLException to NumberFormatException while overriding it?
+9) Can we change an exception of a method with throws clause from unchecked to checked while overriding it?
+10) How do you refer super class version of overridden method in the sub class?
+11) Can we override private methods?
+12) Can we remove throws clause of a method while overriding it?
+13) Is it possible to override non-static methods as static?
+14) Can we change an exception of a method with throws clause from checked to unchecked while overriding it?
+15) Can we change the number of exceptions thrown by a method with throws clause while overriding it?
+
+null == undefined
+null === undefined
+var x;
+alert(x);
+var a=1;
+var b=1;
+alert(a+b);
+
+
+
+1) How to reverse a string in java?
+2) How to create a pyramid of numbers in java?
+3) How do you remove all white spaces from a string in java?
+4) How to find duplicate characters in a string in java?
+5) How do you check the equality of two arrays in java?
+6) Anagram program in java
+7) Armstrong number program in java
+8) How to find duplicate elements in an array?
+9) How to find sum of all digits of a number in java?
+10) How to find second largest number in an integer array?
+11) How to perform matrix operations in java?
+12) How to count occurrences of each character in a string in java?
+13) How to find largest number less than a given number and without a given digit?
+14) How to find all pairs of elements in an array whose sum is equal to given number?
+15) How to find continuous sub array whose sum is equal to given number?
+16) How to remove duplicate elements from ArrayList in java?
+17) How to check whether given number is binary or not?
+18) How to check whether one string is a rotation of another in java?
+19) How to find intersection of two arrays in java?
+20) How to check whether user input is number or not in java?
+21) How to find trigonometric values of an angle in java?
+22) How to reverse each word of a string in java?
+23) How to separate zeros from non-zeros in an array?
+24) Decimal To Binary, Decimal To Octal And Decimal To HexaDecimal In Java
+25) How to find all the leaders in an integer array in java?
+26) Reverse and add until you get a palindrome
+27) Selection sort in java
+28) Reverse the string with preserving the position of spaces
+29) Roman equivalent of a decimal number
+30) percentage of uppercase, lowercase, digits and special characters in a string
+31) Launch external applications through java code
+32) Find missing number in an array
+33) String immutable program
+34) Arrays.deepToString() method example.
+35) 18 Java ArrayList Programming Examples.
+36) 16 Java LinkedList Programming Examples.
+37) Detection of deadlocked threads
+38) Generate random numbers
+39) Java PriorityQueue Example.
+40) Java HashSet Example.
+41) Java LinkedHashSet Example.
+42) Java TreeSet Example.
+
+
+Code #296896
+
+Tell about yourself
+Whats your current project and your role?
+HTML
+	New tags in HTML5
+Javascript
+	What is DOM
+	What is 'this' keyword
+	Types of Popup boxes
+		Alert, Prompt, and Confirm
+	Escape character
+		\
+	Datatypes
+		String, Number, Array and Object
+	Difference between
+		== and ===
+			null == undefined
+			null === undefined
+		keypress and keydown
+		Break and Continue
+	AJAX States
+		0 	UNSENT
+		1 	OPENED
+		2 	HEADERS_RECEIVED
+		3 	LOADING
+		4 	DONE
+
+CSS
+	How many different ways we can apply style to a page
+		Inline, Embedded, Linked, and Imported
+	Z Index
+	Difference 
+		Div and Span
+		Class selector and ID selector
+Java
+	Whether JVM is platform dependent or independent?
+	Collection
+		Difference between Hashmap and Treemap
+	Can we override Static / Private method?
+	Difference:
+		Abstract Class and Interface Class
+		== and .equals()
+	Serialization - Serialization means transferable
+		Transient
+	What is Garbage Collection?
+		1. System.gc();
+		2. Runtime.gc();
+	Difference between Error and Exception
+		Error - Generally we can not handle in code (RunningOutOfMemoryError, NoClassDefFoundError, UnSupportedClassVersionError..)
+		Exception - Which could be handled (IOException)
+	Difference Checked and Unchecked Exception
+		Checked - IOException, SQLException, ClassNotFoundException..
+		UnChecked - NullPointerException, ArrayIndexNotFoundException, ArithmaticExpression..
+		

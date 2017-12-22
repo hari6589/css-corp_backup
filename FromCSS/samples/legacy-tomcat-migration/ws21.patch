@@ -1,0 +1,209 @@
+### Jazz Patch 1.0
+#date: "2015-10-28 15:17:05.000000849 +0530"
+#itemid: "BFRCWebService/src/main/webapp/WEB-INF/conf/ds/persistence.xml" "_skdmcJZQEeKlD5ztGsAvkQ" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_skdmcJZQEeKlD5ztGsAvkQ" "file"
+#itemid: "BFRCWebService/src/main/resources/serverconfig/crmcert.properties" "_fh8U8HvIEeWjR50eTbGuRA" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_fh8U8HvIEeWjR50eTbGuRA" "file"
+#itemid: "BFRCWebService/src/main/resources/serverconfig/live.properties" "_fhwuwHvIEeWjR50eTbGuRA" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_fhwuwHvIEeWjR50eTbGuRA" "file"
+#itemid: "BFRCWebService/src/main/webapp/WEB-INF" "_skZ8EJZQEeKlD5ztGsAvkQ" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_skZ8EJZQEeKlD5ztGsAvkQ" "folder"
+#itemid: "BFRCWebService/src/main/webapp/WEB-INF/conf/ds" "_skc_YJZQEeKlD5ztGsAvkQ" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_skc_YJZQEeKlD5ztGsAvkQ" "folder"
+#itemid: "BFRCWebService/src/main/webapp/WEB-INF/serverconfig" "_sls8kZZQEeKlD5ztGsAvkQ" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_sls8kZZQEeKlD5ztGsAvkQ" "folder"
+#itemid: "BFRCWebService/src/main/resources/serverconfig" "_fhYUQHvIEeWjR50eTbGuRA" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_fhYUQHvIEeWjR50eTbGuRA" "folder"
+#itemid: "BFRCWebService/src/main/webapp/WEB-INF/applicationContext.xml" "_skajIJZQEeKlD5ztGsAvkQ" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_skajIJZQEeKlD5ztGsAvkQ" "file"
+#itemid: "BFRCWebService/src/main/resources/serverconfig/crmdev1.properties" "_fh21YHvIEeWjR50eTbGuRA" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_fh21YHvIEeWjR50eTbGuRA" "file"
+#itemid: "BFRCWebService/src/main/resources/serverconfig/web-config.properties" "_fh1AMHvIEeWjR50eTbGuRA" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_fh1AMHvIEeWjR50eTbGuRA" "file"
+#itemid: "BFRCWebService/src/main/resources" "_skUcgJZQEeKlD5ztGsAvkQ" "_sRK3AJZQEeKPKJLAVGlBnw"
+#item_type: "_skUcgJZQEeKlD5ztGsAvkQ" "folder"
+#before_state: "BFRCWebService/src/main/webapp/WEB-INF/conf/ds/persistence.xml" "_skdmcJZQEeKlD5ztGsAvkQ" "_h8HDljnYEeWV25MtEEnjEA"
+#before_state: "BFRCWebService/src/main/webapp/WEB-INF/serverconfig" "_sls8kZZQEeKlD5ztGsAvkQ" "_tunFYJZQEeKPKJLAVGlBnw"
+#before_state: "BFRCWebService/src/main/webapp/WEB-INF/applicationContext.xml" "_skajIJZQEeKlD5ztGsAvkQ" "_bUpP9DqdEeOnKfpMsJAblw"
+#create_folder: "BFRCWebService/src/main/resources/serverconfig"
+#delete_folder: "BFRCWebService/src/main/webapp/WEB-INF/serverconfig"
+#
+diff -u -N /dev/null BFRCWebService/src/main/resources/serverconfig/web-config.properties
+--- /dev/null	1970-01-01 05:30:00.000000000 +0530
++++ BFRCWebService/src/main/resources/serverconfig/web-config.properties	1970-01-01 05:46:50.000000880 +0530
+@@ -0,0 +1,46 @@
++special_offers_coupon_url=http://dev01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&src=p&i=
++special_offers_banner_url=http://dev01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=flashIcon&src=p&i=
++special_offers_tire_promo_url=http://dev01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&i=
++ncd_web_svc_uri=http://10.242.108.97/EDWRTQ/EDWRTQ.asmx
++ncd_soap_pass=TestPassword2
++ncd_conn_timeout=10000
++e_val=j9kK-+kf9w]4i8K-
++hibernate.show_sql=false
++mailSender=lcMailSender
++monitorHibernateSessions=false
++
++# ssichicago scheduler
++ssichicago.scheduler.uid=BOSS
++ssichicago.scheduler.password=B0ssApptH4ndling/.!
++ssichicago.scheduler.endpoint=https://qascheduler.ssichicago.com/service/customerinterface.asmx
++
++#Subscribe And Send API details
++subscribe.and.send.api.endpoint=https://services.yesmail.com/enterprise/composite/subscribeAndSend
++subscribe.and.send.api.username=bridgestone/bridgestoneapiuser
++subscribe.and.send.api.password=Dtj4eTKFySke
++subscribe.and.send.api.messageId=1021058
++subscribe.and.send.api.statusNoWaitURI=https://services.yesmail.com/enterprise/statusNoWait
++
++#ipinfo web service
++ipinfo.api.endpoint=http://api.quova.com/gppdirectory/v1/ipinfo/
++ipinfo.api.apikey=200.1.MDAxODAwMDAwMHpabkZK.MDAxODAwMDAwMHpabkZK
++ipinfo.api.secret=Ap8jhmcy
++ipinfo.api.desktop.countryCF=60
++ipinfo.api.desktop.stateCF=70
++ipinfo.api.desktop.cityCF=60
++ipinfo.api.mobile.countryCF=60
++ipinfo.api.mobile.stateCF=70
++ipinfo.api.mobile.cityCF=60
++
++#Appointment-Plus API 
++appointmentplus.api.baseurl=https://sandbox-ws.appointment-plus.com
++appointmentplus.api.siteid=appointplus846/776
++appointmentplus.api.key=b18371f34b0931963f62add253820169cfa05cf7
++
++#social login keys
++myfirestone.facebook.authurl=http://www.facebook.com/dialog/oauth?
++myfirestone.facebook.graphurl=https://graph.facebook.com/oauth/access_token?
++
++
++
++
+diff -u -N BFRCWebService/src/main/webapp/WEB-INF/conf/ds/persistence.xml BFRCWebService/src/main/webapp/WEB-INF/conf/ds/persistence.xml
+--- BFRCWebService/src/main/webapp/WEB-INF/conf/ds/persistence.xml	2015-07-20 12:13:52.000000776 +0530
++++ BFRCWebService/src/main/webapp/WEB-INF/conf/ds/persistence.xml	1970-01-01 05:34:24.000000783 +0530
+@@ -18,7 +18,8 @@
+ 		</property>
+ 	</bean>
+ 	
+-	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.WebSphereNativeJdbcExtractor" />
++	<!--<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.WebSphereNativeJdbcExtractor" />-->
++	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+ 	
+ 	
+ 	
+@@ -52,19 +53,20 @@
+ 	</bean>
+ 	
+     <!-- JTA Transactions - for framework daos that use it -->
+-	<bean id="jtaTransactionManager" class="org.springframework.transaction.jta.WebSphereUowTransactionManager" />
++	<!--<bean id="jtaTransactionManager" class="org.springframework.transaction.jta.WebSphereUowTransactionManager" />
+ 	<bean id="jtaTransactionManagerTransactionManager" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+         <property name="targetObject" ref="jtaTransactionManager"/>
+         <property name="targetMethod" value="getTransactionManager"/>
+     </bean>
+ 	<bean id="txManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
+-	<!--  end JTA Transactions -->
++	  end JTA Transactions -->
++	  
+ 
+-	<bean id="webDbTransactionManager"
++	<bean id="txManager"
+ 		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+ 		p:sessionFactory-ref="dataAccess.core.webdb.SessionFactoryBean"/>
+ 	
+-	<tx:advice id="webDbTxAdvice" transaction-manager="webDbTransactionManager">
++	<tx:advice id="webDbTxAdvice" transaction-manager="txManager">
+ 		<tx:attributes>
+ 			<tx:method name="*" propagation="REQUIRED" />
+ 		</tx:attributes>
+diff -u -N /dev/null BFRCWebService/src/main/resources/serverconfig/crmcert.properties
+--- /dev/null	1970-01-01 05:30:00.000000000 +0530
++++ BFRCWebService/src/main/resources/serverconfig/crmcert.properties	1970-01-01 05:46:50.000000877 +0530
+@@ -0,0 +1,12 @@
++special_offers_coupon_url=http://qa01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&src=p&i=
++special_offers_banner_url=http://qa01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=flashIcon&src=p&i=
++special_offers_tire_promo_url=http://qa01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&i=
++ncd_web_svc_uri=http://10.242.108.97/EDWRTQ/EDWRTQ.asmx
++ncd_soap_pass=TestPassword2
++ncd_conn_timeout=10000
++e_val=j9kK-+kf9w]4i8K-
++hibernate.show_sql=false
++mailSender=bsroMailSender
++monitorHibernateSessions=false
++
++subscribe.and.send.api.messageId=1025159
+\ No newline at end of file
+diff -u -N /dev/null BFRCWebService/src/main/resources/serverconfig/live.properties
+--- /dev/null	1970-01-01 05:30:00.000000000 +0530
++++ BFRCWebService/src/main/resources/serverconfig/live.properties	1970-01-01 05:46:50.000000879 +0530
+@@ -0,0 +1,19 @@
++special_offers_coupon_url=http://firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&src=p&i=
++special_offers_banner_url=http://firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=flashIcon&src=p&i=
++special_offers_tire_promo_url=http://firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&i=
++ncd_web_svc_uri=http://10.242.108.91/EDWRTQ/EDWRTQ.asmx
++ncd_soap_pass=wY6#1Mkq$K
++ncd_conn_timeout=10000
++e_val=iwu34!L9KJ7dhj_%
++ncd_web_svc_backup=10.242.108.95:10.242.108.96
++hibernate.show_sql=false
++mailSender=bsroMailSender
++monitorHibernateSessions=false
++
++ssichicago.scheduler.endpoint=https://appointments.ssichicago.com/service/customerinterface.asmx
++subscribe.and.send.api.messageId=1025159
++
++#Appointment-Plus API 
++appointmentplus.api.baseurl=https://api-bridgestone.appointment-plus.com
++appointmentplus.api.siteid=appointplus351/776
++appointmentplus.api.key=123ba713955f286356423d59d03618db7ceecfc7
+\ No newline at end of file
+diff -u -N BFRCWebService/src/main/webapp/WEB-INF/applicationContext.xml BFRCWebService/src/main/webapp/WEB-INF/applicationContext.xml
+--- BFRCWebService/src/main/webapp/WEB-INF/applicationContext.xml	2013-10-21 04:49:58.000000949 +0530
++++ BFRCWebService/src/main/webapp/WEB-INF/applicationContext.xml	1970-01-01 05:34:24.000000605 +0530
+@@ -31,10 +31,17 @@
+      <bean id="propertyConfigurer" class="com.bfrc.framework.util.PropertyConfigUtil">
+          <constructor-arg type="org.springframework.core.io.ResourceLoader" ref="resourceLoader"/>
+          <constructor-arg type="java.lang.String" value="web-config"/>
+-         <property name="defaultLocation" value="/WEB-INF/serverconfig/" />
++         <property name="defaultLocation" value="/serverconfig/" />
+          <!-- <property name="defaultLocation" value="classpath:web-config/" /> -->
+      </bean>
+ 		
++		<bean
++		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
++		<property name="location">
++			<value>/WEB-INF/classes/serverconfig/web-config.properties</value>
++		</property>
++	</bean>
++		
+ 	<bean id="environmentPropertiesMap" name="environmentPropertiesMap" class="org.springframework.beans.factory.config.MapFactoryBean">
+ 		<property name="targetMapClass" value="java.util.HashMap" />
+ 		<property name="sourceMap">
+@@ -64,8 +71,8 @@
+     <import resource="conf/mail/mail.xml"/>
+ 	
+ 	<!-- Imports for the DataSource - Switch between Tomcat and Websphere via comments xxxxxxx-->
+-<!--     <import resource="conf/ds/tomcat-ds.xml"/> -->
+-    <import resource="conf/ds/websphere-ds.xml"/>
++    <import resource="conf/ds/tomcat-ds.xml"/> 
++   <!--  <import resource="conf/ds/websphere-ds.xml"/>-->
+ 
+ 	<!-- Initializing the persistence layer -->
+     <import resource="conf/ds/persistence.xml"/>
+diff -u -N /dev/null BFRCWebService/src/main/resources/serverconfig/crmdev1.properties
+--- /dev/null	1970-01-01 05:30:00.000000000 +0530
++++ BFRCWebService/src/main/resources/serverconfig/crmdev1.properties	1970-01-01 05:46:50.000000878 +0530
+@@ -0,0 +1,12 @@
++special_offers_coupon_url=http://dev01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&src=p&i=
++special_offers_banner_url=http://dev01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=flashIcon&src=p&i=
++special_offers_tire_promo_url=http://dev01.firestonecompleteautocare.com/common/showimage.jsp?t=jpg&w=image&i=
++ncd_web_svc_uri=http://10.242.108.97/EDWRTQ/EDWRTQ.asmx
++ncd_soap_pass=TestPassword2
++ncd_conn_timeout=10000
++e_val=j9kK-+kf9w]4i8K-
++hibernate.show_sql=false
++mailSender=bsroMailSender
++monitorHibernateSessions=false
++
++subscribe.and.send.api.messageId=1025159
+\ No newline at end of file
