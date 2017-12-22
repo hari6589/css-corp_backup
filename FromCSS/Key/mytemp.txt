@@ -1,0 +1,195 @@
+> Maintenance History Endpoint call from Production
+> Follow Store hours Edge Report - properties file
+> GEO Update migrate data and add cloudwatch in Dev
+> Reply Appointment Queries from Rien
+	- additionalServices clarification
+	- Payload from AWS is not encoded
+> appName and tokenId cleanup - especially for NativeApp
+> App Services - timeout values from properties
+> Check ecomRefNumber saving process in appointment
+> 
+------------------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------
+// If the store number through query parameter is temporarily closed, then stop moving to Step-2
+	if(self.queryParams.storeNumber != undefined && data.data.activeFlag == '0') {
+		console.log("Query param store is temporarily closed");
+		
+		$(".appt-progress-step.step-2").removeClass("active");
+		$(".appt-step.appt-step-2").removeClass("active");
+		$(".appt-step.appt-step-1").addClass("active");
+
+		if (digitalData) {
+			var _tag = { eventName: "appointment.step1" }
+			digitalData.event = [_tag]
+			_satellite.track(_tag.eventName);
+		}
+		
+		self.currentStep = $(self.steps[0]);
+		//self.previous.trigger("click");
+		return;
+	}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+/*
+		previousWeeks[0][0] = 500;
+	    previousWeeks[0][1] = 100;
+	    previousWeeks[0][2] = 100;
+	    previousWeeks[0][3] = 100;
+	    previousWeeks[0][4] = 100;
+	    
+	    previousWeeks[1][0] = 50;
+	    previousWeeks[1][1] = 100;
+	    previousWeeks[1][2] = 100;
+	    previousWeeks[1][3] = 100;
+	    previousWeeks[1][4] = 100;
+	    
+	    previousWeeks[2][0] = 20;
+	    previousWeeks[2][1] = 100;
+	    previousWeeks[2][2] = 100;
+	    previousWeeks[2][3] = 100;
+	    previousWeeks[2][4] = 99;
+	    
+	    previousWeeks[3][0] = 1;
+	    previousWeeks[3][1] = 25;
+	    previousWeeks[3][2] = 25;
+	    previousWeeks[3][3] = 25;
+	    previousWeeks[3][4] = 25;
+		*/
+------------------------------------------------------------------------------------------------------------------------------------------
+
+C:\Program Files (x86)\Jenkins\workspace\AWS Test\poc\hello\target\hello-0.0.1-SNAPSHOT.jar
+------------------------------------------------------------------------------------------------------------------------------------------
+AEM Bug:
+> When Email Signup page, multiple js calls happens in console
+> Contactus - Customer service category - When state is changed, city data is not updated. It still reminds the same as first selected state
+> When change vehicle horizontal widget is expanded - Menu is not working. On first try the widget closes then on second click menu works
+> Tiresplus, Should not allow to Set as My Store if the store is temporarily cloased, in Find Store.
+> 2010 AUDI A5 CABRIOLET TIRES > Junk character in tire result description
+> In Schedule appointment page, Change store popup from the header shows 'Select & continue' instead of 'Set as My Store'
+> 
+------------------------------------------------------------------------------------------------------------------------------------------
+Schedule Appointment FCAC App Request body:
+	{"customerDayTimePhone":"1 458-052-398","tpmsFlag":"null","selectedServices":"2745,2765,2767","customerCellPhone":"null","customerEveningPhone":"null","vehicleMake":"Toyota","customerAddress2":"null","customerNotes":"","vehicleYear":"2008","vehicleSubmodel":"CE","appointmentStatusDesc":"Scheduled","appointmentStatusId":"4088","storeNumber":"24147","customerState":"TR","appointmentType":"new","websiteName":"FCAC","customerFirstName":"Test Ignore","quoteId":"null","customerAddress1":"Test Ignore","choice":{"appointmentId":"0","dropWaitOption":"drop","choice":"1","datetime":"1504051200000"},"customerZipCode":"25807","vehicleMileage":30,"customerEmailAddress":"test@fom.om","customerLastName":"Test Ignore","locationId":"1594","webSiteSource":"FCAC_ANDROID","employeeId":"14318","mileage":30,"customerCity":"Test Ignore","vehicleModel":"Corolla"}
+
+------------------------------------------------------------------------------------------------------------------------------------------	
+	curl -H "Content-Type: text/xml; charset=UTF-8" -H "SOAPAction: http://bfrco/EDWQuery" -d "<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Header><AuthHeader xmlns="http://bfrco/"><Password>wY6#1Mkq$K</Password></AuthHeader></soap:Header><soap:Body><EDWQuery xmlns="http://bfrco/"><XMLString>&lt;EDWRTQ AppId='MOBILE' ReqId='RTQ2010' RequestVersion='1' ResponseVersion='1' AreaCode='323' Exchange='804' Line='5647' &gt;&lt;/EDWRTQ&gt;</XMLString></EDWQuery></soap:Body></soap:Envelope>" http://199.48.30.1/EDWRTQ/EDWRTQ.asmx 
+		
+/home/oracle/cssdba/aws_jar
+------------------------------------------------------------------------------------------------------------------------------------------
+CORE-271 - AWS - Appointment - ignore unused properties
+CORE-23 - AWS - Appointment Edge report - Query optimization
+CORE-271 - AWS - Report - Dynamic s3 bucket name based on environment
+CORE-271 - AWS - Common - QA credential update
+CORE-271 - AWS - Appointment - Success message format
+CORE-271 - AWS - Common - Adding Android and iOS tokenIds
+CORE-93 - AWS - Maintenance History - Third party call implementation
+CORE-271 - AWS - MWSUser- Query optimization
+CORE-271 - AWS - Common - Adding version number in .pom
+CORE-146 - AWS - Contact Signup - Code merged with contact-us lambda
+
+CORE-146 - AWS - Contact Signup - Code merged with contact-us lambda
+CORE-93 - AWS - Maintenance History
+CORE-141 - AWS - Native App - Delete multiple message
+
+CORE-93 - AWS - Maintenance History
+CORE-270 - AWS - Appointment Plus
+CORE-192 - AWS - Edge report integration
+CORE-146 - AWS - Removing Get signup data and Unsubscribe
+CORE-141 - AWS - Delete multiple messages
+
+CORE-336 - AWS - Store - Distance null handling
+CORE-29 - AWS - Appointment - datetime format update
+CORE-185 - AWS - Do not update latitude and longitude if data is null
+CORE-127 - AWS - TP key update
+CORE-271 - AWS - Production key update
+CORE-271 - AWS - Mobile App user reset password issue fix
+CORE-271 - AWS - Alignment service tokenId validation
+---------
+CORE-270 - AWS - Validate input and output formats of Appointment services
+
+------------------------------------------------------------------------------------------------------------------------------------------
+CORE-328
+
+868520582540
+916118878413
+
+cd ..
+mvn clean package
+cd target
+java -jar BSROMaintenanceHistoryFunction-0.0.1-SNAPSHOT.jar
+
+7252255 - Infosec
+------------------------------------------------------------------------------------------------------------------------------------------
+<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Header><AuthHeader xmlns="http://bfrco/"><Password>wY6#1Mkq$K</Password></AuthHeader></soap:Header><soap:Body><EDWQuery xmlns="http://bfrco/"><XMLString>&lt;EDWRTQ AppId='MOBILE' ReqId='RTQ2010' RequestVersion='1' ResponseVersion='1' AreaCode='323' Exchange='804' Line='5647' &gt;&lt;/EDWRTQ&gt;</XMLString></EDWQuery></soap:Body></soap:Envelope>
+
+Content-Type:text/xml
+SOAPAction:http://bfrco/EDWQuery
+
+curl -H "Content-Type: text/xml" -H "SOAPAction: http://bfrco/EDWQuery" -d "<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Header><AuthHeader xmlns="http://bfrco/"><Password>wY6#1Mkq$K</Password></AuthHeader></soap:Header><soap:Body><EDWQuery xmlns="http://bfrco/"><XMLString>&lt;EDWRTQ AppId='MOBILE' ReqId='RTQ2010' RequestVersion='1' ResponseVersion='1' AreaCode='323' Exchange='804' Line='5647' &gt;&lt;/EDWRTQ&gt;</XMLString></EDWQuery></soap:Body></soap:Envelope>" http://199.48.30.1/EDWRTQ/EDWRTQ.asmx
+
+-H "SOAPAction: http://bfrco/EDWQuery"
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
+Edge Report data and format check with Prod report
+Appointment Hourly report Monitor
+	Timezone Check
+	Data Check
+	Monitor Build
+Tire Quote Hourly Report
+	Timezone Check
+	Data check
+	Monitor Build
+
+REBUILD ALL THE EDGE REPORTS AND HOURLY REPORT WITH CLAEN CODE
+
+Tire Quote Hourly Report Query Expression
+	Tire Quote Service - updateTireQuote()
+		.withString("createdDateHour", (new SimpleDateFormat("yyyy-MM-dd HH").format(new Date()) + ":00:00"))
+
+Load test AppointmentWorker and increase the loop accordingly
+Email Quote is not working - quote without cart detail
+------------------------------------------------------------------------
+Moibile response BUSINESS_SERVICE_ERROR vs INVALID_DATA - DONE
+MWS User data migration from prod to aws-prod db - DONE
+Load Appointment Services list from application itself instead of DB - DONE
+MaintenanceHistory cleanup and store detail - DONE
+CORE-391 - Store fetch update in EmailQuote - DONE
+GEO Data update - Splited into two tables and up-to-date- DONE
+Time zone fix in Edge Reports - DONE
+Exclude Transitive dependencies - DONE
+SES AWS-Ticket for Prod env - DONE
+Schedule Appointment Services in Production - DONE
+cloudwatch enabled in prod - DONE
+Maintenance History - Dev and Prod build of Lambda and StandaloneJAR - DONE
+Integrate Edge report, Delete one week old reports from S3 bucket - DONE
+Notification from and to address in Properties file - DONE
+Save-wifi-contact > Set response header - DONE
+	access-control-allow-headers →Content-Type
+	access-control-allow-methods →GET, PUT, POST, DELETE
+	access-control-allow-origin →*
+	access-control-max-age →1234
+Timezone fix in Integrate Edge report and report status - DONE
+	10 02 * * * /orasoft/oracle/admin/RTMSPRD/maint/infogroup/infogroup_de.sh > /dev/null (10 06 * * ? *)
+	30 04 * * * /orasoft/oracle/admin/RTMSPRD/maint/infogroup/infogroup_storehours.sh > /dev/null (30 08 * * ? *)
+	UTC + 4 hours
+For Hourly Report:
+	1 * * * ? *
+
+------------------------------------------------------------------------
+LOCAL:
+	AKIAIO6KVA4ID6VFURAA
+	aaSNiXJVyTafsNBJfuLXp0+/KeiPbUUeel54XcKF
+	
+DEV:
+	AKIAJXXRDVXYVLWHHQWQ
+	bmKdzqUKksgFP7bY+xfi4xwEQW+iV5JBSX5td2rV
+
+QA:
+	AKIAJNC7RBGEV3HFSAUQ
+	+9ryX+JrqadbmZ3n6CgUpqFz3zwEX9VTad/3Nbd3
+
+PROD:
+	AKIAJOMUDY3BRDXIIMEQ
+	eR7n7aACSRjx3Hi+B+Mx3v4D5rZ24OgVkHZu+at1
+	

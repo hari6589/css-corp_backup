@@ -1,0 +1,231 @@
+sangee_g82in@yahoomail.co.in / awsPass123
+rajeev.murugan@csscorp.com / awsPass123
+
+IAM user Console URL: https://awsusernovice.signin.aws.amazon.com/console
+IAM user: aws_user
+AWSUserPass: awsuserpass123
+awsUserPass@123 old
+
+Access Key ID: AKIAI7D5DFWAOUGJZYBQ
+Secret Access Key: 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
+
+Access Key ID: AKIAJN6CNV7NFM3MJM3Q
+Secret Access Key: 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
+
+SES Username: ses_smtp_user - TEST
+	SMTP Username: AKIAIQPJUYCVIB7HT5GQ
+	SMTP Password: AqKU5ozO3PcrhxO9EcoHZ2n++QSLKJd1d7e3QvjX6U0a
+	
+Migration Console
+	URL: http://54.149.74.198:8000/bridgestone/
+	Username: css_as
+	Password: !$Wq7W57dX7k
+
+7581186
+-------------------------------------------------------------------------------------------------------------------------------------
+LOCAL:
+	AccessKey and SecretKey:
+		AKIAIO6KVA4ID6VFURAA
+		aaSNiXJVyTafsNBJfuLXp0+/KeiPbUUeel54XcKF
+	SES SMTP:
+		Username: AKIAI2HIRXY2Z2ZCUTBA
+		Password: AvHHbHqg6Ss8j7U6t9d5Y+uQpWKiGEMvv35onR1n87Bk
+		
+EC2 Instance:
+	Instance ID : i-0326b14cb1603800e
+	Public DNS IPv4 : ec2-54-191-52-52.us-west-2.compute.amazonaws.com
+	IPv4 Public IP : 54.191.52.52
+	
+AWS-Local EC2:
+	52.0.102.224
+	UserName: as_admin
+	Password: as_admin@321
+AWS-DEV EC2:
+	34.200.89.96
+	UserName: bsro_admin
+	Password: hUwaCr2p4!AB
+-------------------------------------------------------------------------------------------------------------------------------------
+DEV:
+	AccessKey and SecretKey:
+		AKIAJXXRDVXYVLWHHQWQ
+		bmKdzqUKksgFP7bY+xfi4xwEQW+iV5JBSX5td2rV
+	SES SMTP:
+		SMTP User: bsro-dev-user-ses-smtp.20170804
+		SMTP Username: AKIAJPSVSAFEAL2UO57A
+		SMTP Password: AnHYx+Znh5RYG2F02SJjvG0aTdqXEYHk03vUge/4gr7V
+-------------------------------------------------------------------------------------------------------------------------------------
+QA:
+	AccessKey and SecretKey:
+		bridgestone.admin
+		AKIAJNC7RBGEV3HFSAUQ
+		+9ryX+JrqadbmZ3n6CgUpqFz3zwEX9VTad/3Nbd3
+
+	SES SMTP:
+		SMTP User: bsro-dev-user-ses-smtp.20170818
+		SMTP Username: AKIAIL3SYIS6JUHYPNDA
+		SMTP Password: AjO4KTmdkRarufvK+soD3BHnYc9hHDPLo0us2lRN/b1b
+-------------------------------------------------------------------------------------------------------------------------------------
+PROD:
+	AccessKey and SecretKey:
+		bridgestone.admin
+		AKIAJOMUDY3BRDXIIMEQ
+		eR7n7aACSRjx3Hi+B+Mx3v4D5rZ24OgVkHZu+at1
+
+	SES SMTP:
+		SMTP User: bsro-prod-user-ses-smtp.20171003
+		SMTP Username: AKIAIG3UU2ZSZKUPFUIQ
+		SMTP Password: Ahe+9FOlqLJjPDHRfhQZg3giExSf1vYOQ3ryBr8mU3Np
+		
+Note: Make sure when deploying jar in live use 'Save and Test' hence the lambda container will be up while deployment, so we will not get 'Timeout' on first hit (Even though the CloudWatch is enabled, it takes 4 minutes to hit if the lambda deployed on 1st minute).
+-------------------------------------------------------------------------------------------------------------------------------------
+BSRO Team:
+	AKIAJAMYTZV465P467YA
+	OuOr9+7aqa37P7Z6p20bnPYCNAlB2KxFzNaryadh
+-------------------------------------------------------------------------------------------------------------------------------------	
+Putty Credentials:
+	sganesan / password123
+-------------------------------------------------------------------------------------------------------------------------------------	
+Private Key pass: puttydsa
+-------------------------------------------------------------------------------------------------------------------------------------
+Sign-in URL: https://632869588719.signin.aws.amazon.com/console
+User name: css.sangeetha
+Password: -p$%IE&4*[P^
+awsPass@123
+-------------------------------------------------------------------------------------------------------------------------------------
+SQS:
+
+SES:
+	- Create an individual IAM user for SMTP alone (we can use existing IAM user but the separate user is the best practice)
+	- You will get an username and password for a SMTP configuration
+	- Verify an email address in which is going to be a FROM address in your Java-Code
+		We can send TO verified email address only if it is a sandbox environment. To mail a new users we need to verify their email address or we should upgrade
+	- Then you can use the SMTP Username, Password, and verified email address to send a mail from your Java code
+
+Lambda Environment Variable:
+	
+DynamoDB
+	- Query, Scan and parallelScan expressions
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Create Instance: Ref: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-an-iam-user
+	> Create AWS Account
+	> Create IAM user account
+	> Create new User
+	> Create new Group (Map the above user into that group)
+	> Provide 'AdministratorAccess' permisson to the created group
+	> Goto https://your_aws_account_id.signin.aws.amazon.com/console/ (the aws_account_id will be available in: Topnav > Support > Support Center - Header)
+	> Open AWS EC2 console
+	> Create key-pair
+		> Select appropriate region in topnav
+		> In side-nav select 'key-pairs' under 'Network & Security'
+		> Create a key-pair, then a public key file(.pem) will be downloaded automatically (The public key will help you to connect EC2 through putty from your win/linux)
+	> Prepare to connect linux instance from window's putty
+		> Download puttygen from http://www.chiark.greenend.org.uk/~sgtatham/putty/
+		> Open and select 'Type of Key to generation' as 'SSH-2 RSA', and click load then you can add the above public key file (*.* extension)
+		> Click 'Save private key' to local with the same name as public key file (.ppk)
+	> Prepare Virtual Private Cloud
+		> Goto https://console.aws.amazon.com/vpc/
+		> Click 'Start VPC Wizard'
+		> Step 1: Select a VPC Configuration page - make sure 'VPC with a Single Public Subnet' is selected and click 'select'
+		> Step 2: VPC with a Single Public Subnet page - Create VPC name and click 'create vpc'
+	> Prepare Security group with least privileage
+		> Select appropriate region in topnav
+		> Goto https://console.aws.amazon.com/ec2/
+		> Click 'Create Security Group' and enter group name & description
+		> In VPC dropdown you can select your VPC which is created in your previous section
+		> Get your system IPv4 address in command prompt using 'ipconfig' (eg: 10.8.18.45/32)
+		> Add Rules:
+			> TYPE  || PROTOCOL || PORT || SOURCE   || IP
+			> HTTP  || TCP      || 80   || Anywhere || 0.0.0.0/0
+			> HTTPs || TCP      || 443  || Anywhere || 0.0.0.0/0
+			> SSH   || TCP      || 22   || Anywhere || 10.8.18.45/32
+	> Create an Instancez`
+		> To create an instance we need to select the configuration known as Amazon Machine Image (AMI). It contains the software requirement configurations
+		> Goto https://console.aws.amazon.com/ec2/
+		> Select appropriate region in topnav
+		> Click 'Launch Instance'
+		> Make sure 'Free tire only' is selected in left panel
+			> Step 1: Choose an Amazon Machine Image(AMI): under 'Quick Start' panel
+			> Step 2: Choose an Instance Type: select 'Free tire edigible' types
+			
+
+			
+{
+  "errorMessage": "2017-03-21T09:34:39.604Z 8f7b4102-0e19-11e7-a028-6d0cf60c3693 Task timed out after 15.00 seconds"
+}
+--------------------------------------------------------------------------------------------------------------------
+Jenkins:
+	Requirement:
+		Java
+		Jenkins
+	Steps:
+		Install Java and Jenkins
+		Add Git and AWS Plugins with Jenkins
+		Configure Java, Mavena and Git HOME_PATH in (Manage Jenkins > Global Tool Configuration)
+		Configure SFTP Server and credential (Manage Jenkins > Configure System)
+		Create new JOB
+		Configure Git repository URL in 'Source Code Management' and add credentials for authentication
+		Configure 'Build Trigger'
+			'Poll SCM' - Enter cron expression (so Jenkins will check for update periodically)
+		Configure 'Build'
+			'Shell'
+				>cd C:
+				>cd C:\Program Files (x86)\Jenkins\workspace\AWS Test\poc\hello
+				>mvn clean package
+			'AWS Lambda Deployment'
+				AWS Access Key, AWS Secret Key, AWS Region, Function Name, Description, Role(arn:aws:iam::632869588719:role/lambda_basic_execution), Artifact Location(C:\Program Files (x86)\Jenkins\workspace\AWS Test\poc\hello\target\hello-0.0.1-SNAPSHOT.jar), Handler Name, Memory Size, Timeout, Runtime
+		Post-build Action
+			'Email Notification'
+				Enter Recipients email addresses and select the conditions to trigger mail
+					-Send e-mail for every unstable build	
+					-Send separate e-mails to individuals who broke the build
+	
+	There are two way of communication:
+		- Webhook
+		- Poll
+--------------------------------------------------------------------------------------------------------------------
+AWS VPC:
+	- A Virtual Private Cloud is a virtual network dedicated to your AWS Account
+	- A subnet is a range of IP addresses in your VPC
+	- Use a public subnet for resources that must be connected to the Internet, and a private subnet for resources that won't be connected to the Internet.
+	- 
+--------------------------------------------------------------------------------------------------------------------
+AWS CLI Shell :
+
+	Install AWS CLI
+	
+	aws dynamodb create-table --table-name OneTest --attribute-definitions AttributeName=id,AttributeType=N  --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=200,WriteCapacityUnits=50 --no-verify-ssl
+	
+	aws s3api create-bucket --bucket <creating-bucket-name> --region us-east-1 --no-verify-ssl
+
+	aws s3 cp D:\\AWS\\DEV_LAMBDA\\BSROMaintenanceHistoryFunction\\target\\BSROMaintenanceHistoryFunction-0.0.1.jar s3://cwh-bsro-microservices/BSROMaintenanceHistoryFunction-0.0.1.jar --no-verify-ssl
+
+	aws s3api list-buckets --query "Buckets[].Name" --no-verify-ssl
+	
+	aws s3 ls s3://cwh-bsro-microservices --no-verify-ssl
+	
+	aws s3 cp s3://cwh-bsro-microservices/ ./ --recursive --no-verify-ssl
+	
+	// Record count of Table
+	aws dynamodb scan --table-name TireQuote --select "COUNT" --no-verify-ssl
+--------------------------------------------------------------------------------------------------------------------
+Delete :	
+	aws s3 rb s3://<deleting-bucket-name> --force --no-verify-ssl
+--------------------------------------------------------------------------------------------------------------------
+mvn clean package -P local
+mvn clean package -P dev
+mvn clean package -P qa
+mvn clean package -P prod
+--------------------------------------------------------------------------------------------------------------------
+Lambda Policies:
+	iam:CreateRole
+	iam:AttachRolePolicy
+	iam:PassRole
+	iam:ListRoles.
+	kms:ListAliases
+SES Policies:
+	iam:CreateAccessKey
+	iam:PutUserPolicy
+--------------------------------------------------------------------------------------------------------------------
+MobileAppUserService : backupData() : Exception : Item size has exceeded the maximum allowed size (Service: AmazonDynamoDBv2; Status Code: 400; Error Code: ValidationException; Request ID: TMUQG0H2UB8O4K79EU873IJEVRVV4KQNSO5AEMVJF66Q9ASUAAJG)
+--------------------------------------------------------------------------------------------------------------------

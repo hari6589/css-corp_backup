@@ -1,0 +1,31 @@
+Title:
+	file > Adobe Dynamic Link > New After Effect Composition
+	*** It opens Adobe After effect project
+	In Adobe Bridge(Explorer of Adobe properties)
+		In Effects&Preset window we can browse predefined animations
+		Rightclick on Effects&Reset > Browse effect and we can preview the effects
+
+	We can scale the photo or video size by Effects Control window
+
+	File > Export > 9/10 time we use Format: H.264 > Preset: HD 1080
+
+	Modify Video FramePerSecond. Right click the video > modify and modify clip
+
+	Effect: Fasc Color Corrector
+
+	Adobe video stabulizer effect to avoid video shakes
+
+	Effect > 
+		Track Matte Key(Mask)
+		Lence Flare
+
+Smooth Face : Gassian Blur + Level(high) + Opacity (medium)
+	Create 'Title' with eclipse to cover the eyes and lips. Add to video timeline
+	Add effect called 'Track Matte Key' under keying 
+		(
+		'Perspective' in Mask properties to track the movement of masking object
+		Change the expansion property to mask another small part of video to overlay with the same video, like clone tool in ps
+		)
+	Mask with another video track
+	Blur the Mattee 'Title' to make it smooth edge of masking..
+	Do Noice Reduction effect at last

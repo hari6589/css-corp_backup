@@ -1,0 +1,224 @@
+https://github.com/hari6589/shareworkspace.git
+________________________________________________________________________
+***WEBSERVICE***
+URIs
+Collection URIs
+HTTP Methods
+Idempotence Method - Post
+REST Response with Status depend on the HTTP Method
+HATEOAS - Hypermedia As The Engine Of Application State
+Richardson Meturity Model by Leonard Richardson
+JAX RS - 
+URIs, PathParam, QueryParam
+Return Types - XML, JSON
+CRUD Services
+Filtering and Pagination
+*Write WS in Jerssy and Switch to RestEasy
+________________________________________________________________________
+***Learn***
+Unit Testing - To test our code while building/deploying/manual-trigger
+Build Automation - Jenkins
+OpenStack - Open Source - Make our system as Cloud Server Machine
+use Properties File
+Dynamic deployment properties based on arguments
+
+Database connection:
+	DriveManager
+	DataSource
+		- JNDI
+______________________________________________________________________________
+UNIX User Utility Command:
+
+Change user owner permission of a directory:
+	sudo chown -Rf pviswanathan /opt/apache-tomcat-8.0.27/
+
+Unix Command:
+	
+	ps -ef | grep tomcat
+	
+	sudo su - root
+	
+Windows Command:
+	
+	ipconfig /flushdns
+	
+	nbtstat -R
+	
+Check java Bit version
+	java -d32 -version
+If Tomcat 8 service-property is not running then do the following
+	service.bat install
+______________________________________________________________________________
+Informatica
+
+-Xcgc -Xmx2048M
+
+set JAVA_OPTS="-XX:MaxPermSize=128m"
+	TRY: -XX:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled
+
+-Xms512m -Xmx8192m
+export CATALINA_OPTS="$CATALINA_OPTS 
+______________________________________________________________________________
+Tomcat Migration			
+	Virtual Host		
+		Add new host tag in server.xml	
+		Map context path of host	
+		Config in hosts file for DNS simulation	
+		Change port number to 80(Default) to avoid domain with PORT number in url	
+		#Set No Proxy in browser	
+		#Command - "service.bat install" to install service and set Tomcat Properties	
+		#We can change default Java memory size in Control Panel > Programs > Java	
+	Memory
+		Create setenv.bat in Tomcat bin directory with the following, to set PermGen Size:
+			set JAVA_OPTS="-XX:MaxPermSize=128m"
+		User VisualVM tool to monitor memory useage
+______________________________________________________________________________
+udemy.com Free Online Tutorial Registration
+
+CICD - Continious Inegration Continious Deployment
+bamboo
+jenkins
+______________________________________________________________________________
+https://support.bigrock.com/index.php?/Knowledgebase/Article/View/273/0/moving-your-product-from-one-bigrock-account-to-another
+______________________________________________________________________________
+
+Gateway API + AWS Lambda > SQS > DB
+______________________________________________________________________________
+Concepts:
+	AWS:
+		> Lambda Function
+		> API Gateway
+		> DynamoDB
+		> Cloud Watch
+		> Data Pipeline
+	General:
+		> FTP using .ssh key, instead of password
+		> Jenkins - CICD
+	WebService:
+		> RestAssured : io.restassured / jayway.restassured
+______________________________________________________________________________
+
+Find report file size. Attach files and mail a sample
+Appointment table data cleanup
+Edge report cleanup and verify with old format
+Install Java JDK 1.8 _ 112 package and compile the lambda function to check Handshake error with AEM
+Stop deleting queue data if any exception while booking appointment
+______________________________________________________________________________
+OSGi - Open Service Gateway Initiative
+	> This is an Embeded System, that embeded with hardware platform such as Cable-Modem/ Set-top Box
+	> Gateway for managing smart appliances and other Internet-enabled devices
+	> To create a standardized middleware for smart devices and make managing cross-dependencies easier for software developers
+SOA - Service Oriented Architecture
+------------------------------------------------------------------------------	
+mvn archetype:generate -DarchetypeGroupId=com.agritsik.maven.archetypes -DarchetypeArtifactId=javaee7-micro -DarchetypeVersion=1.0-beta-1
+mvn archetype:generate -DarchetypeGroupId=com.agritsik.maven.archetypes -DarchetypeArtifactId=javaee7-micro -DarchetypeVersion=1.0.2
+
+mvn archetype:generate -DarchetypeRepository=http://repo.adobe.com/nexus/content/groups/public/ -DarchetypeGroupId=com.day.jcr.vault -DarchetypeArtifactId=multimodule-content-package-archetype -DarchetypeVersion=1.0.2 -DgroupId=com.aem -DartifactId=MyFirstOSGIBundle -Dversion=1.0-SNAPSHOT -Dpackage=com.aem -DappsFolderName=aemcq5tutorials -DartifactName="MY First OSGI Service" -DcqVersion="5.6.1" -DpackageGroup="Aem Cq5 Tutorials" 
+
+Read more at AEMCQ5Tutorials: Create OSGI Bundle in AEM http://www.aemcq5tutorials.com/tutorials/create-osgi-bundle-in-aem/
+
+Microservice:
+
+java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Dcwh.env=dev -DskipSecurity=true -jar voice-1.3.0.jar
+______________________________________________________________________________
+
+RestTemplate Sample
+Spring Boot Microservice Sample - Maven and Gradle Build
+
+Create Own Annotation
+______________________________________________________________________________
+Practices:
+
+______________________________________________________________________________________________________________
+
+    time_namelookup:  %{time_namelookup}\n
+       time_connect:  %{time_connect}\n
+    time_appconnect:  %{time_appconnect}\n
+   time_pretransfer:  %{time_pretransfer}\n
+      time_redirect:  %{time_redirect}\n
+ time_starttransfer:  %{time_starttransfer}\n
+                    ----------\n
+         time_total:  %{time_total}\n
+
+Save the above as a file namly "format.txt"
+---------------------------------------------------------------------------------------------------------------------------
+curl -w "@format.txt" --insecure -X GET -H "tokenId: 1f04ad80-b947-fe80-32bf4a78a69d54acb" -H "appName: FCAC" "https://1rw1yvhop9.execute-api.us-east-1.amazonaws.com/Dev/ws2/appointment/services"
+
+curl -w "@format.txt" --insecure -X GET -H "tokenId: 1f04ad80-b947-fe80-32bf4a78a69d54acb" -H "appName: FCAC" "https://1rw1yvhop9.execute-api.us-east-1.amazonaws.com/Dev/ws2/appointment/metadata?storeNumber=23817&services=Tire%20Replacement%2CWheel%20Balance%2CBrakes"
+
+curl -w "@format.txt" --insecure -X GET -H "tokenId: 1f04ad80-b947-fe80-32bf4a78a69d54acb" -H "appName: FCAC" "https://1rw1yvhop9.execute-api.us-east-1.amazonaws.com/Dev/ws2/appointment/metadata?locationId=1581&startDate=20170301&employeeId=12709&numDays=30"
+
+	locationId		=	1581
+	startDate		=	20170301
+	numDays			=	30
+	employeeId		=	12709
+---------------------------------------------------------------------------------------------------------------------------	
+curl -G "https://api.twilio.com/2010-04-01/Accounts/AC01ac249e16a48de0931e626a18c86454/Messages.json?PageSize=1000&DateSent=2017-07-7"  -u 'AC01ac249e16a48de0931e626a18c86454:725fecc80e5296ff514f4966b9d4dee7'
+______________________________________________________________________________________________________________
+rmdir /s /q "C:\FolderToNotToDelete\"
+______________________________________________________________________________________________________________
+AWS Console:
+css109437 / Asdf#1234
+______________________________________________________________________________________________________________
+Service Lambda functions:
+	Alignment Pricing 1
+	Battery Pricing 1
+	Battery Vehicle 1
+	ContactUs 1
+	Email Quote 1
+
+	Tire Pressure 1
+	Tire Vehicle Widget 1
+	Tire Quote 1
+	Mobile App Notification 1
+	Mobile App User 1
+
+
+	Promotion Offer 1
+	Schedule Appointment 1
+	Schedule Maintenance 1
+	SEO 1
+	Store 1
+
+	Maintenance History
+
+	-Promotion
+	-Battery Search
+______________________________________________________________________________________________________________
+Amazon Developer detail:
+
+CID: A2L4MNOXWOJGRC
+MCID: A70ZSOUJVJPRH
+MKID: ATVPDKIKX0DER
+S: 28fbf1b6
+When: Jun 17, 2017 5:59:09 AM
+
+API Id:
+	amzn1.application.4d3bdf7681914ebabcc6e9de16a59a2b
+
+Client Id:
+	amzn1.application-oa2-client.6ba206750b874d8aa64b1b69b511a34a
+
+fc3d1badf705b73f00f4ad88e1932d3b6f90cc7c8c610d934a0bedad660ddf90	
+______________________________________________________________________________________________________________
+java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -Dcwh.env=dev  -DskipSecurity=false -jar yourJar.jar
+java -Dcwh.env=dev  -DskipSecurity=false -jar yourJar.jar
+______________________________________________________________________________________________________________
+CMD:
+	nslookup bsro-int.icrossing.com
+	nslookup bsro-fcac-int.icrossing.com
+______________________________________________________________________________________________________________
+Copy files via Windows Comands:
+	xcopy /s D:\AEM\Documents\VPN\SangeethaVPNConfig\config C:\Program Files\OpenVPN\config
+______________________________________________________________________________________________________________
+
+https://qa-css-api-aem.bsro.com/ws2/appointment/availability/days/?locationId=2345&numDays=31&employeeId=9676&startDate=20170914
+______________________________________________________________________________________________________________
+C:\Program Files\Java\jdk1.8.0_112
+C:\Program Files\Java\jdk1.6.0_45
+
+D:\apache-maven-3.3.9
+D:\maven\apache-maven-3.2.5
+______________________________________________________________________________________________________________
+America/NY is -4 hours on 22/10/2017
+______________________________________________________________________________________________________________

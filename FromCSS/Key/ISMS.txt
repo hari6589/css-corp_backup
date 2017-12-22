@@ -1,0 +1,83 @@
+Information Security:
+	- Protect information from a wide range of threats
+	- Enables business continuity
+	- Reduce finance and reputational damages
+	- Provide competitive edge
+	
+	Information Security Procedures:
+		- Protecting information and adhering to secure business practice
+		
+	Confidentiality, Integrity and Availability
+	
+	Protect sensite information while making it readily available
+	
+	ISMS is a framework for protecting the security of information assets that are critical to the operation of the organization. (ISO 27001)
+
+Risk Assessment:
+	Risk: likelihood that a threat exploits a vulnerability and causes loss of information security
+	Threat: Something that potentially causes damage to the organization, IT system or network
+	Vulnerability: A weakness in the people, process or technology that can be exploited by a threat agent
+	
+Information Classification:
+	Public
+	Private: Sales and Projects
+	Restricted: HR Payroll, Time & Expenses and Work History
+	Confidential: Trade Sheets and Proposals
+
+Tech Terms:
+	Virus: A computer virus is a computer program that can copy itself and infect a computer
+	Trojan: A Trojan Horse is non self-replicating malware that appears to perform a desirable function for the user but instead facilitates unauthorized access to user computer system
+	Malware: Malware, is a malicious software designed to infiltrate or damage a computer system without the owner's information consent
+	Worm: A computer worm is a standalone malware computer program that replicate itself in order to spread to other computers
+	
+Phishing:
+	Phishing is the criminally fraudulent process of attempting to acquire sensitive information by masquerading as a trustworthy entity in electronic communication
+	
+Chain Letter:
+	Chain letter consists of a message that attempts to induce the recipient to make number of copies of letter and then pass them to as many recipients as possible
+
+Hoax email:
+	It is a delibrate attempt to deceive or trick an audience into believing, or accepting that something is real, when the hoax knows it is not; Terror Helpline 1990
+
+All Policies and Procedures are available in wired.csscorp.com
+
+PII: Personal Identifiable Information
+
+Do not install any programs in any kind, for any reason without IT's know how and approval
+
+If Antivirus issue contact IPLC# 4357
+
+In case of access card loss, report it to "admin facility management" immediately
+
+ERT: Don't use lift and go through steps
+
+Incident Management: Security Breach, Threats, Weakness, and Malfunction
+EMAIL: information.security@csscorp.com
+IPLC: 7252255
+Direct Line: +91-44-66322000
+
+We are responsible for all the action that take place on our workstation
+
+Risk at Organisation Level:
+	Financial Loss, Legal Suit against organization, loss of image and reputation, and Loss of customer, Loss of business
+
+For ISMS policies & procedures : wired.csscorp.com
+
+Business Community Management System (BCMS)
+	- Management Process
+	- Identifies Potential Threats
+	- Identifies impact in business operations that those threats realized, might cause disruption
+	- Provide a framework for building organizational resilience
+	- Helps building capability for an effective response
+	- Sefeguards the interests of its key stakeholders, reputation, brand and value-creating activities
+
+	Survival or our Business
+	
+	csscorp_bcms@csscorp.com
+	
+	
+Which of the following aspects of accountability assures that subjects are who they claim to be?
+
+Identification
+Authentication
+Audit

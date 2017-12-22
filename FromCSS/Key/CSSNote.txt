@@ -1,0 +1,346 @@
+VPN:
+	premkumar.viswanathan@csscorp.com
+	2A8osbCJSdeVeXq
+
+	anyconnect.mpk.com
+
+	\\10.8.18.15\Storage\Bridgestone\Kar\VPN_Client
+	
+	Live IP : 10.142.10.222
+	
+	/home/oracle/cssdba/aws_jar
+------------------------------------------------------------------------------------------------------------------------------------
+Init:
+	1. Config Websphere - Done
+	2. Webservice Dispatch Servlet Page
+	2. Build, Deploy and Run - Done
+	3. Front End Application - Done
+	4. View Database
+	5. How to record jobs doing
+	6. Clean up the Environment/WebSphere/Logs/temp
+	7. 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ENVIRONMENT SETUP
+	INSTALLATION:
+		Install IBM Install Manager
+		Install Team Concert
+			Connect Repository in Team concert (URL - USERNAME - PASSWORD)
+			Load required codes
+				BSRO_WebDB
+				BSROBuild
+				BSROFramework
+				BSROLibraries
+				DataAccessModel
+			Load Application/s
+				FCAC
+				...
+	INIT CODE CHANGES:
+		Create Virtual Host in Websphere
+			As same as "../FCAC/src/main/webapp/WEB-INF/ibm-web-bnd.xmi"
+		BSROBuild/workstation.properties
+			root.master.working.dir="D:\\BSRO_WS"
+			root.root.working.dir="D:\\BSRO_WS"
+		BSROBuild/BuildDependencies.xml
+			<fileset dir="${root.master.working.dir}/${bsro.libraries.jars.dir}" includes="${jar.dependencies.path}" />
+			to
+			<fileset dir="${root.master.working.dir}/BSRO/${bsro.libraries.jars.dir}" includes="${jar.dependencies.path}" />
+	BUILD & DEPLOY:
+		Create Host
+		New Application
+		Enterprise Application
+		Select War file - Next
+		Select 'Fast Path' - Next
+		No change in Installation Options Step - Next
+		Check appropriate .war checkbox in Map Modules to Servers - Next
+		No change in Context Root - Next
+		Review Summary - Finish
+		'Save' diretly to master configuration
+		Check App's checkbox - Start
+	DEPLOYED AREA CODE CHANGES:
+		..\IBM\WebSphere\AppServer\profiles\AppSrv01\installedApps\HDC0007274Node01Cell\FCAC_war.ear\FCAC.war\WEB-INF\serverconfig
+			File: web-config.properties
+			Line#11:
+				"http://localhost:9080"
+				to
+				"http://dev01.bsro.com"
+		..\IBM\WebSphere\AppServer\profiles\AppSrv01\installedApps\HDC0007274Node01Cell\FCAC_war.ear\FCAC.war\WEB-INF\views\common
+			File: offers-grid.jsp
+			Line#4:
+				"<c:set var="offersClass" value="${param.class}" scope="page" />"
+				to
+				"<c:set var="offersClass" value="session-alt" scope="page" />"
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Increment Letter:
+	GHRMS> My Details > View My Details >  Employment Details> View My Increment Letter>
+	Financial Year: 2015-16> Month: October (Existing Employees) / Month of Joining (New Joinees)
+
+	Password: - Empid_dob {DDMMYYYY}).
+-----------------------------------------------------------------------------------------------------------------------------------------------
+BSRO Repository connection URL:
+https://teamconcert.bsro.com/ccm/ 
+teamconcert.bsro.com
+------------------------------------------------
+user name: pviswanathan
+password: CC$1006
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Webspear:
+Resources > JDBC > Data sources > orcl-18.15 > JAAS - J2C authentication data
+-----------------------------------------------------------------------------------------------------------------------------------------------
+FCAC Store# 85308
+5star zip# 73160, 33449, 95110
+-----------------------------------------------------------------------------------------------------------------------------------------------
+C:\Program Files (x86)\IBM\WebSphere\AppServer\profiles\AppSrv01\installedApps\HDC0007274Node01Cell
+
+C:\Program Files (x86)\IBM\WebSphere\AppServer\profiles\AppSrv01\temp\HDC0007274Node01\server1\FCAC_war
+-----------------------------------------------------------------------------------------------------------------------------------------------
+\\10.8.18.18\Share
+-----------------------------------------------------------------------------------------------------------------------------------------------
+\WEB-INF\serverconfig\web-config.properties
+	http://dev01.bsro.com
+----------------------------------------------------------------------------------------------------------------------------------------------
+https://dev01-admin.bsro.com/cms/login.jsp - dev site
+user ID: cmsadmin 
+Password: cms$Cpn1 
+----------------------------------------------------------------------------------------------------------------------------------------------
+10.8.18.15
+U: RTMS_WEBDB
+P: rtms_webdb
+port:1521
+sid:bsro
+
+Dev01 - 10.142.10.21
+	Username: select_user
+	Pwd: suser
+	SID: rtmsdev
+	
+	username : rtms_webdb
+	password : webdbd1 
+
+DEV Putty :	
+	10.142.10.21
+	oracle / 0r@cle!
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Local Webspear:
+mshanmug / c0nfident
+-----------------------------------------------------------------------------------------------------------------------------------------------
+http://dev01.firestonecompleteautocare.com/
+qa01.firestonecompleteautocare.com
+http://dev01-m.fcacmobile.com/
+ 
+http://dev01.tiresplus.com/
+http://qa01.tiresplus.com/
+http://dev01-m.tiresplus.com/
+ 
+Non core sites
+www.experttire.com
+http://m.experttire.com
+www.firestonefleetcare.com
+www.etire.com
+www.bridgestone5star.com
+www.bsro.com
+www.hibdontire.com
+www.wheelworks.net
+www.primewelltires.com
+-----------------------------------------------------------------------------------------------------------------------------------------------
+store hours:- user
+ 
+https://qa01.bsro.com/storehours/login.jsp
+alalaian@bfrc.com   Password7   D
+bcaldwell@bfrc.com   Password21   Z
+storehouradmin@bfrc.com   password1   A
+testcorporate@bfrc.com	Password0 C
+ 
+https://dev01.bsro.com/storehours/login.jsp
+mbarney@bfrc.com    password11    R
+testadmin@bfrc.com    12345678As    A
+testcorporate@bfrc.com    Password0    C
+sciesielski@bfrc.com    password16    D
+charrison@bfrc.com    password13    Z
+ 
+jdbc:oracle:thin:@10.8.18.13:1521:bsro
+jdbc:oracle:thin:@10.8.18.13:1521:dg
+--------------------------------------------
+BSRO Admin Upload Image URL:
+	https://qa01-admin.bsro.com/cms/store_admin/libraryimage_list.jsp
+--------------------------------------------
+local:
+User: Admin
+storehouradmin@bfrc.com
+Password2
+ 
+User1: Division Manager
+bcaldwell@bfrc.com
+Password1$
+ 
+User1: Region Manager
+cbowles@bfrc.com
+Password1
+ 
+npatrock@bfrc.com
+Passwordnp2
+ 
+User1: Area Manager
+tjulian@tiresplus.com
+password20
+ 
+Corporate Manager
+venkat444@bfrc.com
+Password1
+--------------------------------------------
+UN: cmsadmin
+PW-dev: cmsadmin
+PW-dev: cms$Cpn1
+--------------------------------------------
+http://eft.csscorp.com:8080/effortless/
+--------------------------------------------
+Effortless Map:
+	BSRO
+		Firestone
+		ExpertTire
+		PartnersPlus
+		Etire
+		Bridgestone5star
+		FleetCare
+		BSRO
+		FCAC-Environment
+		FCAC-PennyTire
+		FCAC-Careers
+		BSRO Admin
+	MTP
+		Tiresplus
+		HIBDON TIRES
+		Wheelworks
+		Primewelltires
+	Native App
+		FCAC
+		Tiresplus
+------------------------------------------------------------------------------------------------------------------------------------
+225 WEBSPEAR SEVER LINK
+https://10.3.1.225:9043/ibm/console
+bsroadmin/marimba123$
+=================================
+BSRO ADMIN TO ADD COuPONS IN 15 mechine to run and add coupon
+https://10.8.18.15:9443/cms/login.jsp
+https://10.8.18.15:9443/cms/login.jsp
+Credentials:UN/PW:cmsadmin/cmsadmin
+=================================
+BSRO ADMIN to add coupons  in 225 BSRO ADMIN
+https://10.3.1.225:9443
+Credentials: cmsadmin/cms$Cpn1
+http://tpmobile.csscorp.com/
+
+Websphere:
+	User/pass: bsroadmin/marimba123$
+
+DB Access
+	C:\app\css50809\product\11.2.0\dbhome_1\sqldeveloper\sqldeveloper.exe
+
+	User: RTMS_WEBDB
+	Pass: RTMS_WEBDB
+	Host: 10.3.1.225
+	Port: 1521
+	SID:  driveguard
+------------------------------------------------------------------------------------------------------------------------------------
+IT: 7244033
+------------------------------------------------------------------------------------------------------------------------------------
+https://localhost:9443 - partnerplus url
+marketingitsupport@bfrc.com / partnerd01
+
+dev01.partnersplussavings.com
+marketingitsupport@bfrc.com / partnerd01
+
+marketingitsupport@bfrc.com@bfrc.com / partnerd01
+
+smuscato@bfrc.com / cirrus98	
+
+User name - carricoyle
+Password - w6kzmbc
+------------------------------------------------------------------------------------------------------------------------------------
+Websphere: JNDI: jdbc/CrmData
+------------------------------------------------------------------------------------------------------------------------------------
+CRMLAMP01               10.142.10.121
+CRMLAPM02               10.142.10.122
+pviswanathan / newpass123
+SH CMD: sudo su - root
+------------------------------------------------------------------------------------------------------------------------------------
+Build Configuration Order: buildSite, minify-javascripts, minify-css, build.war
+------------------------------------------------------------------------------------------------------------------------------------
+WebService Info:
+	Remove the following jar file to run Web Services
+	File Name: com.ibm.ws.prereq.jackson.jar
+	File Path: C:\IBM\WebSphere\AppServer\plugins
+------------------------------------------------------------------------------------------------------------------------------------
+http://local.firestonecompleteautocare.com
+------------------------------------------------------------------------------------------------------------------------------------
+Git Credential:
+	aravindhan.jayakumar@csscorp.com / McSif7sa
+iCrossing:
+	ajkumar / McSif7sa
+Confluence:
+	ajkumar / McSif7sa
+------------------------------------------------------------------------------------------------------------------------------------
+Server Team IPLC:
+	7444415
+	7444416
+	
+AWS Offline/Origin issue - Contact Murali
+------------------------------------------------------------------------------------------------------------------------------------
+AEM Global Meet
+
+Meeting URL: https://icrossing.globalmeet.com/MikeEmbrey
+ 
+Conference Line:
+US Toll Free: 1-866-398-2885
+Guest Passcode: 354819
+296896
+
+tel://1-866-398-2885,*,,354819#/
+------------------------------------
+Dial: 91-866-398-2885#296896
+Passcode: 354819
+------------------------------------------------------------------------------------------------------------------------------------
+0008008521525
+passcode : 748464338
+------------------------------------------------------------------------------------------------------------------------------------
+Lab Location/ ODC: 8th floor ODC4
+
+Seat details:
+
+Seat-Id
+INCHESW08283AZ
+INCHESW08284AZ
+INCHESW08294AZ
+INCHESW08295AZ
+
+Credential details:
+
+Username: hadarin
+Password: password@123
+------------------------------------------------------------------------------------------------------------------------------------
+FCAC : 1f04ad80-b947-fe80-32bf4a78a69d54acb
+TP : 3m57gs98-s542-sa76-43az0hg9q68k53dkz
+WWT : 07b51830-4d43-4b63-ac6b-bc2ee5738a3f
+HT : 07b51830-4d43-4b63-ac6b-bc2ee5738a3f
+TPMobile : 07b51830-4d43-4b63-ac6b-bc2ee5738a3f
+
+Different Type of Stores
+o	Tires Plus Store– Store Type: TP
+o	Tires Plus Licensee Store – Store Type: TPL (zipcode: 60605)
+o	Michel Tires Plus Store – Store Type: TP (zipcode: 40207)
+o	Hibdon Tires Plus Store – Store Type: HTP (zipcode: 73170)
+o	Wheelworks Store – Store Type: WW (zipcode: 94063)
+------------------------------------------------------------------------------------------------------------------------------------
+Contact us - Feedback ID: BFRC_WEB_SITE, BFRC_WEB_SITE_FEEDBACK, CUSTOMER_CONTACTUSEMAIL_LOG
+
+PROMO_TYPE_ID	PROMO_NAME				PROMO_TYPE	OFFER_PAGE_TITLE
+12				service-coupons			Z			Service Coupons
+13				repair-services-coupons	K			Repair Services Coupons
+14				wiper-blade-coupons		N			Wiper Blades Coupons
+16				special-coupons			0			Special Coupons
+17				email-only-coupons		O			Email Only Coupons
+------------------------------------------------------------------------------------------------------------------------------------
+1391@saravanan
+------------------------------------------------------------------------------------------------------------------------------------
+taskkill /f /im bcont_nm.exe
+------------------------------------------------------------------------------------------------------------------------------------
+Account lock : IPLC 4357

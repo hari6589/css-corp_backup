@@ -1,0 +1,97 @@
+5.1 Process Excellence: ....
+	1) 100% Timesheet compliance, minimal GHRMS attendance ratifications
+	2) On time update of Quality Document
+
+	* I cares to avoid Timesheet compliance and GHRMS attendance ratification, atleast when i am physically presence.
+	* Done 96(Spring+Backlog+AEM) work items till today and updated Quality Document on time.
+	* Maintaining log of my regular activities other than Issues/Defects, Such as R&D, POC and so on.
+
+5.2 Operatinal Excellence: ....
+
+	1) Value Addition - New Tools/Utilities
+	2) Org contribution
+	3) Conduct Internal Training
+	4) Zero regression and kick back
+	5) Zero P1 defects from the build delivered
+
+	* I believe i am capable of innovative ideas and ability to workout.
+	* I volunteered myself for some activities such as Cultural activity and Social activity, and i didn't got proper response from organization
+	* Until started working with AEM i never thought about Conducting Training, and i am interested about it now. Yet to kick start.
+	* Up to my knowledge i got no critical issues that fallback from build
+	
+
+Section Comments: 
+
+
+- Tried out new tool to make job easier and suggesting the same to the team
+- Voluntired myself to provide feedbacks and social activities inside office campus
+- On time code deliver with no time complexity to review/test
+- Corss checked my fixes and features before deliver it, to avoid kick backs
+- Go no defects from P1 build, on my deliverables
+
+
+Tools:
+	Sublime - Text editor which helps to travers folders and files ease and edit
+	ETLClover - Database migration tool, to migrate data from Oracle to MySQL
+	AWStat - To Monitor Java Virtual Machine performance, while Tomcat code Migration task
+	
+___________________________________________________________________________________________________________
+
+Adhering to quality process intermediate
+
+	* Practiced to deliver the output with quality
+
+Building Personal Effectiveness & Credibility: Self-Management, Professionalism, Ethics & Integrity - Basic
+	
+	* Being professional and following procedure on job as well as with team to make them comfortable to work with me.
+
+Communicating With the Customer - Speaking/Writing/Listening Skills
+	
+	* Improving Writing and Listening skills while communicating with Customers/Superior
+	* Yet to start communicating with customers directly, and will do it if i got an opportunity
+	* Documented every activities that i am doing, such as Tomcat Migration documentation. In some cases documentation helps me to understand the logics insight
+
+Exhibiting Service Mentality- Handling & Exceeding Customer's Expectations
+	
+	* Have abilities to understand requirements and issue
+	* Can provide feasible solution
+
+Handling Crucial Dialogues: Relationship Building, Team Work, Handling Conflict - Basic
+
+	* Volunteered myself to be supportive to my team
+	* Does not feel hesitated to help otheres hence its increase team relationship and credibility. And of course it give me more chances to improve problem solving skills
+	** Advised feasible and creative solutinos to resolve crucial situations, like Creating Database migration Tool
+	
+Knowledge on coding and scripting advance
+	
+	* Worked out some Proof-Of-Concepts to explore indepth knowledge in project a project section, such as Google Analitics
+	* Got opportunities in different areas such as Struts, Spring, WebServices, SCSS/CSS, AEM and few more, where i have proved that i could adapt and deliver consistent
+
+Knowledge on coding and scripting basic
+
+	* Following basic code dicipline to avoid conflicts
+
+Maximizing Performance Results: Results Orientation, Analytical Thinking, Problem Solving - Basic
+	
+	* Spending effort on code change impacts more than coding to make sure the existing functionalities does not affect, hence i am not fully knowledged about the Bussiness logic i never hesitate to ask help from my team-mates/friends.
+
+Practicing Business Manners -Email/Meeting/Chat/Video Conference /Client Interaction Etiquette
+	
+	* Properly communicated with Team members and Superiors to maintain etiquette and ignore conflicts in job
+	* Each and every work have been recorded and reported accordingly
+
+Solution design advance
+
+	* Maintaining code dicipline which can be understandable by others
+
+Solution design basic
+
+	* Concentrating for optimized code changes for critical problems
+
+Working Across Borders- Cultural Sensitization, Fostering Diversity ,Global Perspective
+
+	* Finding opportunities to learn new technologies and utilizing it properly like Code migration from Websphere to Tomcat server
+
+	* And inspire myself that i am the one who initially suggested the Database Migration Own Tool creation idea to my friends in Team
+
+Section Comments:

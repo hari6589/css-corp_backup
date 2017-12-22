@@ -1,0 +1,111 @@
+2.1 Customer Excellence
+Zero Regression Defect.
+No P1 Defects from delivered story.
+Minimal review comments(Internal / External).
+On Time delivery.
+100% Timesheet compliance.
+Customer / End user related improvement in the project Eg: GA, optimized code, Tools development, Innovation
+
+- Preventing regression defects by doing double checking the fixes with different cases
+- Got no P1 defects from delivered story, hence cross checking the implementation as much as possible
+- Got minimal review comments on my tasks hence i use to get approval of my solution idea before implementing. 
+- Devlivering the task on time with quality
+- Wrote utilities(AEM) to improve performance and centralize the business logics
+	
+4.1 Org contribution
+Create Knowledge management documents
+Take part in Org initiative
+Conduct Training and Knowledge sharing session
+Certification related to your job
+
+- Documenting the process is part of my task. So, we use to document every new features added into our project in a shared location.
+- Done some POCs based on organization white paper submissions. Such as ChatBots.
+- Doing knowledge share to the team whenever a new feature is implemented
+- Studying to do AWS Solution Architect-Associate
+	
+5.1 Customer Excellence
+Zero Regression Defect.
+No P1 Defects from delivered story.
+Minimal review comments(Internal / External).
+On Time delivery.
+100% Timesheet compliance.
+Clear Requirement gathering documentation
+Customer / End user related improvement in the project Eg: GA, optimized code, Tools development, Innovation
+
+- Preventing regression defects by doing double checking the fixes with different cases
+- Got no P1 defects from delivered story, hence cross checking the implementation as much as possible
+- Got minimal review comments on my tasks hence i use to get approval of my solution idea before implementing. 
+- Delivering the task on time with quality
+- Filling time-sheets with detail split-up on time
+- Clarifying Requirement in the form of Tickets and Mail before finding solution
+- Wrote utilities(AEM) to improve performance and centralize the business logic
+
+5.2 Org contribution
+Create Knowledge management documents
+Take part in Org initiative
+Conduct Training and Knowledge sharing session
+Certification related to your job
+
+- Documenting the process is part of my task. So, we use to document every new features added into our project in a shared location.
+- Done some POCs based on organization white paper submissions. Such as ChatBots.
+- Doing knowledge share to the team whenever a new feature is implemented
+- Studying to do AWS Solution Architect-Associate
+	
+Adhering to quality process intermediate
+
+	- Doing my level best to deliver the quality solution
+
+Building Personal Effectiveness & Credibility: Self-Management, Professionalism, Ethics & Integrity - Basic
+	
+	- By recording the challenges in work, i can choose the best practices of finding solution sooner
+	- Doing a self assessment whenever its possible to improve my effectiveness
+
+Communicating With the Customer - Speaking/Writing/Listening Skills
+	
+	- Communicating with onshore developers and architects in Mails and Tickets. If there is a oral communication opportunity i will use it in my best.
+	- Taking Minutes of Meeting note and circulating with the team on cycle basis
+
+Exhibiting Service Mentality- Handling & Exceeding Customer's Expectations
+	
+	- Fulfilling the expectation by testing my solution with the end user perspective
+	- Never hesitated to work on over-time/weekends
+
+Handling Crucial Dialogues: Relationship Building, Team Work, Handling Conflict - Basic
+
+	- Encouraging my team and supportive in their struggle
+	- Being a good team player. Fulfilling the communication gaps and resolving conflicts among team members
+
+Knowledge on coding and scripting advance
+
+	- Worked out some Proof-Of-Concepts to explore in-depth knowledge, such as HTL, HandleBarJS, ChatBot, GulpJS, SCSS/CSS
+	- Done feasability study on Services such as SpringBoot, Gradle Build, AWS-Lambda Function, AWS-DynamoDB, AWS-SQS and AWS-SES
+	- Initiated micro-service code structure for AWS Lambda function which reduces memory occupancy and increase performance
+
+Knowledge on coding and scripting basic
+
+	- Practicing clean coding such as Validations, Exception Handling, Comments, Negative scenario Testing and so on
+	- Concentrating on avoiding complexity in code so that the other developers can easily understand
+
+Maximizing Performance Results: Results Orientation, Analytical Thinking, Problem Solving - Basic
+
+	- Spending a part of my effort to avoid conflicts on existing functionalities
+	- Finding feasible solution in minimal time so that the deliverable are done on time
+
+Practicing Business Manners -Email/Meeting/Chat/Video Conference /Client Interaction Etiquette
+	
+	- Properly communicated with Team members and Superiors to maintain etiquette
+	- Each and every work have been recorded and reported accordingly so that my reporting person and the team can understand what & how am i finding solutions
+
+Solution design advance
+
+	- Spending extra time to find reusable components so that we could deliver the job consistently
+	- Concentrating in optimizing code changes for critical problems as much as possible
+
+Solution design basic
+
+	- Pay more attention on new problems to find a feasible solution and maintains the solution pattern to avoid complexity
+
+Working Across Borders- Cultural Sensitization, Fostering Diversity ,Global Perspective
+
+	- Understand the working style of individuals across onshore & offshore, so that we could fulfill their expectation
+
